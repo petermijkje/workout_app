@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Rubik:500&display=swap');
+
+/* font-family: 'Bungee', cursive;
+font-family: 'Rubik', sans-serif;
+font-family: 'Lato', sans-serif; */
+
+.box {
+    background: linear-gradient(90deg, rgba(255,255,255,0.68531162464986) 0%, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 100%);
+    width: 400px;
+    height: 627px;
+    border-radius: 5% 5% 5% 5%;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 5% 5% 5% 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    outline: 0;
+}
+
+.email{
+    background: linear-gradient(90deg, rgba(255,255,255,0.68531162464986) 0%, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 100%);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    line-height: 70%;
+    text-align: left;
+    outline: 0;
+    border-style: none;
+    width: 80%;
+}
+
+.password{
+    background: linear-gradient(90deg, rgba(255,255,255,0.68531162464986) 0%, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 100%);
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    line-height: 70%;
+    width: 80%;
+    text-align: left;
+    border-style: none;
+    outline: 0;
+}
+
+.sign__in {
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+    line-height: 70%;
+    text-align: center;
+    color: black;
+}
+
+.sign__in__hr {
+    width: 80%
+}
+
+.sign__up{
+    color: darkgrey;
+    font-size: 12px;
+}
