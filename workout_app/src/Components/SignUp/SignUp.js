@@ -61,7 +61,7 @@ class SignUp extends Component {
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   };
-
+// current issues connecting 
   render(){
     const { message } = this.state
     return (
