@@ -12,7 +12,7 @@ class SignIn extends Component {
             <div className="box">
               <div className="sign__in"> 
                 <br />
-                Welcome to FIT
+                Welcome to Fit
                 <br />
                 <br />
               </div>
@@ -42,7 +42,7 @@ class SignIn extends Component {
                  <Link to="/signup"> Sign Up</Link>
               </div>       
             </div>
-            <Route path="/signup" exact component={SignUp} />
+            <Route path="/signup" component={SignUp} />
             </Router>
           );
     }
