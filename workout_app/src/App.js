@@ -7,20 +7,6 @@ import HomePage from "./Components/HomePage.js"
 
 // import "./routes"
 
-const welcome =() =>{ return (<div><h1 className="welcome__text"> Welcome. </h1>
-<nav>
-<ul className="navbar__ul">
-  <li className="navbar">
-    <Link to="/signin">sign in</Link>
-  </li>
-  <br />
-  <br />
-  <li className="navbar">
-    <Link to="/signup">sign up </Link>
-  </li>
-</ul>
-</nav>
-</div>)}
 
 function App() {
   return (
@@ -28,51 +14,6 @@ function App() {
         <HomePage />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
-      <br />
-      <br />  
-      <br />
     </div>
   );
 }

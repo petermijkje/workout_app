@@ -4,31 +4,39 @@ import SignIn from './SignIn/SignIn.js'
 import SignUp from './SignUp/SignUp.js'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-// import "./routes"
+class HomePage extends React.Component {
+    constructor(){
+        super()
+        this.state = {isLoggedIn: false}
+    }
 
-const welcome =() =>{ return (<div><h1 className="welcome__text"> Welcome. </h1>
-<nav>
-<ul className="navbar__ul">
-  <li className="navbar">
-    <Link to="/signin">sign in</Link>
-  </li>
-  <br />
-  <br />
-  <li className="navbar">
-    <Link to="/signup">sign up </Link>
-  </li>
-</ul>
-</nav>
-</div>)}
+    handleLogoutClick() {
+        this.setState({isLoggedIn: false});
+      }
 
-function HomePage() {
-  return (
-    <div className="App">
-        {welcome()}
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
-    </div>
-  );
+    handleLoginClick() {
+        this.setState({isLoggedIn: true})
+    }  
+
+render (){
+    const isLoggedIn = this.state
+    const welcome = this.state
+    if (isLoggedIn) {
+        return (
+            <div className="App">
+                <SignIn 
+                    style={{'height': '100%', 'width': '100%'}}
+                />
+            </div>
+        )
+    } else return (
+        <SignUp />
+    )
+    return (
+        <div className="App">
+        </div>
+    );
+  }
 }
 
 export default HomePage;
