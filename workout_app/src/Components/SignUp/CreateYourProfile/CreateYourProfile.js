@@ -19,21 +19,20 @@ export default class CreateYourProfile extends Component {
         console.log(basalMetabolicRate)
     }
 
+    getTotalDailyEnergyExpenditure = (bmr, activity) => {
+        const sedentary = 1.2
+        const lightlyActive = 1.375
+        const moderatelyActive = 1.55
+        const veryActive = 1.725
+        const extraActive = 1.9
+        console.log(bmr*activity)
+    }
+
     render() { 
         return ( 
         <div>
-            {/* what do we need? 
-                age, 
-                sex, 
-                weight, 
-                bf?  
-            */}
-        <img src={Logo}/>
-        <input type="number" />
-        <input type="" />
-        <input type="number" />
-        <input type="number" />
-            {this.getBasalMetabolicRate()}
+            {this.getBasalMetabolicRate(200, 66, 28)}
+            {this.getTotalDailyEnergyExpenditure(1954, 1.5)}
         </div> 
         );
     }

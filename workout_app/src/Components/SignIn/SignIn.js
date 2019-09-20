@@ -12,12 +12,12 @@ class SignIn extends Component {
             <div className="box">
               <div className="sign__in"> 
                 <br />
-                Welcome to Fit
+                Welcome to App
                 <br />
                 <br />
               </div>
                <br />
-              <img src={Logo} />
+               <img src={Logo} alt="Logo"/>
                <br />
                <br />
               <form>

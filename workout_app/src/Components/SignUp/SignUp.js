@@ -41,7 +41,7 @@ class SignUp extends Component {
               <br />
             </div>
             <br />
-            <img src={Logo} />
+            <img src={Logo} alt="Logo"/>
             <br />
             <br />
             <form>
@@ -68,7 +68,11 @@ class SignUp extends Component {
               <br />
               </div>
                 </div>
-        <Route path="/createyourprofile" component={CreateYourProfile} />
+        <Route 
+          exact
+          path="/createyourprofile" 
+          component={CreateYourProfile} 
+        />
       </Router>
   );
 }

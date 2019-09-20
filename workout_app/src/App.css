@@ -1,8 +1,22 @@
+html {
+  background: linear-gradient( #00d2ff 0%, #3a47d5 100%);
+
+}
+
+.welcome__text{
+}
+
 .App {
   text-align: center;
   background: linear-gradient( #00d2ff 0%, #3a47d5 100%);
 }
-.h1{
-  background: linear-gradient( #00d2ff 0%, #3a47d5 100%);
+
+.navbar__ul{
   margin: 0;
+  padding-inline-start: 0px;
+}
+
+.navbar{
+  margin: 0;
+  list-style-type: none;
 }
