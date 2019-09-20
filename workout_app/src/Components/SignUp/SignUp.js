@@ -12,23 +12,14 @@ class SignUp extends Component {
       loggedInUser: {},
       message: null,
       errors: [],
+      part1: false,
+      part2: false,
+      part3: false,
     }
   }
 
-  // emailHandler = e => {
-  //   this.setState({
-  //     email: e.target.value
-  //   })
-  // }
-
-  // passwordHandler = e =>{
-  //   this.setState({
-  //     password: e.target.value
-  //   })
-  // }
-
-// current issues connecting 
   render(){
+
     return (
       <Router>
         <div className="App">
@@ -36,7 +27,7 @@ class SignUp extends Component {
             <div className="sign__in"> 
               <br />
                 Welcome to App<br />
-              <p> create your profile </p>
+                <p> create your profile </p>
               <br />
               <br />
             </div>

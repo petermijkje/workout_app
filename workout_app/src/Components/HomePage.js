@@ -8,6 +8,8 @@ class HomePage extends React.Component {
     constructor(){
         super()
         this.state = {isLoggedIn: false}
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
     handleLogoutClick() {
@@ -19,18 +21,21 @@ class HomePage extends React.Component {
     }  
 
 render (){
-    const isLoggedIn = this.state
-    const welcome = this.state
+    const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
         return (
             <div className="App">
-                <SignIn 
-                    style={{'height': '100%', 'width': '100%'}}
+                <SignIn />
+                <button 
+                    onClick={this.handleLogoutClick}
                 />
             </div>
         )
     } else return (
-        <SignUp />
+        <div>
+            <SignUp />
+            <button onClick={this.handleLoginClick} />
+        </div>
     )
     return (
         <div className="App">
