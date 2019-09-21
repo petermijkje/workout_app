@@ -6,10 +6,9 @@ export default class CreateYourProfile extends Component {
         super(props)
         this.state = { 
             age: '',
-            male: true,
+            male: '',
             inches: '',
             pounds: '',
-
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -31,6 +30,11 @@ export default class CreateYourProfile extends Component {
         let basalMetabolicRate = 0
         basalMetabolicRate += (655.1 + (4.35 * pounds) + (4.7 * inches) - (4.7 * age))
         return basalMetabolicRate
+    }
+
+    toggleMaleToFemaleBasalMetabolicRate = (male) =>{
+        const newMale = this.state
+        this.setState(newMale = true ? false : true)
     }
 
     // getTotalDailyEnergyExpenditure = (bmr, activity) => {
@@ -66,6 +70,7 @@ export default class CreateYourProfile extends Component {
 
 render() { 
     const male = this.state.male
+    {this.toggleMaleToFemaleBasalMetabolicRate()}
         if (male){
             return (
                 <div> 
@@ -130,5 +135,9 @@ render() {
                     </form>
                 </div>
             )
+            return (
+                <div>            
+                </div>
+        )
     }
 }
