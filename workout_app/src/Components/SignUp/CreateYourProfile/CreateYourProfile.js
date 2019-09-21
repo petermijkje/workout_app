@@ -6,7 +6,7 @@ export default class CreateYourProfile extends Component {
         super(props)
         this.state = { 
             age: '',
-            sex: [],
+            male: true,
             inches: '',
             pounds: '',
         }
@@ -16,26 +16,30 @@ export default class CreateYourProfile extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-     getBasalMetabolicRate = (weight, height, years) => {
-         const pounds = this.state.pounds
-         const inches = this.state.inches
-         const age = this.state.age
-        const basalMetabolicRate = (66 + (6.2 * pounds) + (12.7 * inches) - (6.76 * age))
-        const totalPounds = (6.2*pounds)
-        const totalInches = (12.7*inches)
-        const totalAge = (6.76*age)
-        // console.log(totalPounds, totalInches, totalAge)
+    getBasalMetabolicRateMale = (weight, height, years) => {
+         const {pounds, inches, age} = this.state
+         //Men BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
+         const basalMetabolicRate = (66 + (6.2 * pounds) + (12.7 * inches) - (6.76 * age))
         return basalMetabolicRate
     }
 
-    getTotalDailyEnergyExpenditure = (bmr, activity) => {
-        const sedentary = 1.2
-        const lightlyActive = 1.375
-        const moderatelyActive = 1.55
-        const veryActive = 1.725
-        const extraActive = 1.9
-        console.log(bmr*activity)
+    getBasalMetabolicRateWoman = (weight, height, years) => {
+        //Women BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years ) 
+        const pounds = this.state.pounds
+        const inches = this.state.inches
+        const age = this.state.age
+        const basalMetabolicRate = (655.1 + (4.35 * pounds) + (4.7 * inches) - (4.7 * age))
+
     }
+
+    // getTotalDailyEnergyExpenditure = (bmr, activity) => {
+    //     const sedentary = 1.2
+    //     const lightlyActive = 1.375
+    //     const moderatelyActive = 1.55
+    //     const veryActive = 1.725
+    //     const extraActive = 1.9
+    //     console.log(bmr*activity)
+    // }
 
     handleChangeAge(event){
         this.setState({age: event.target.value})
@@ -59,36 +63,73 @@ export default class CreateYourProfile extends Component {
         event.preventDefault()
     }
 
-    render() { 
-        return ( 
-        <div>
+render() { 
+    const male = this.state
+        if (male){
+            return (
+                <div> 
+                    {this.getBasalMetabolicRateMale()}
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Age:
+                        <input 
+                            type="text" 
+                            pattern="[0-9]*" 
+                            value={this.state.age}
+                            onChange={this.handleChangeAge} 
+                        />
+                            Height (inches):
+                        <input
+                            type="text"
+                            pattern="[0-9]*"
+                            value={this.state.inches}
+                            onChange={this.handleChangeHeight}
+                        />
+                            Weight (pounds):
+                        <input
+                            type="text"
+                            pattern="[0-9]*"
+                            value={this.state.pounds}
+                            onChange={this.handleChangeWeight}
+                        />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+            ) 
+        } else return (
+            <div> 
+            {this.getBasalMetabolicRateMale()}
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Age:
-                    <input 
-                        type="text" 
-                        pattern="[0-9]*" 
-                        value={this.state.age}
-                        onChange={this.handleChangeAge} 
-                    />
+                <input 
+                    type="text" 
+                    pattern="[0-9]*" 
+                    value={this.state.age}
+                    onChange={this.handleChangeAge} 
+                />
                     Height (inches):
-                    <input
-                        type="text"
-                        pattern="[0-9]*"
-                        value={this.state.inches}
-                        onChange={this.handleChangeHeight}
-                    />
+                <input
+                    type="text"
+                    pattern="[0-9]*"
+                    value={this.state.inches}
+                    onChange={this.handleChangeHeight}
+                />
                     Weight (pounds):
-                    <input
-                        type="text"
-                        pattern="[0-9]*"
-                        value={this.state.pounds}
-                        onChange={this.handleChangeWeight}
-                    />
+                <input
+                    type="text"
+                    pattern="[0-9]*"
+                    value={this.state.pounds}
+                    onChange={this.handleChangeWeight}
+                />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
-                {this.getBasalMetabolicRate()}
+        </div>
+        )
+        return ( 
+        <div>
         </div> 
         );
     }
