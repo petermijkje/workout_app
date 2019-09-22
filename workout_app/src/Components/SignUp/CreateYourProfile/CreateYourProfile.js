@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Logo from './logo.png'
 
 export default class CreateYourProfile extends Component {
     constructor(props){
@@ -9,7 +8,13 @@ export default class CreateYourProfile extends Component {
             male: true,
             inches: '',
             pounds: '',
-            activity: ['sedentary', 'lightlyActive', 'moderatelyActive', 'veryActive', 'extraActive'],
+            activity: [
+                'sedentary', 
+                'lightlyActive', 
+                'moderatelyActive', 
+                'veryActive', 
+                'extraActive'
+            ],
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -18,7 +23,7 @@ export default class CreateYourProfile extends Component {
         this.handleToggleClick = this.handleToggleClick.bind(this);
     }
 
-    getBasalMetabolicRateMale = (weight, height, years) => {
+    getBasalMetabolicRateMale = () => {
         //Men BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
          const { pounds, inches, age } = this.state
          let basalMetabolicRate = 0
@@ -26,7 +31,7 @@ export default class CreateYourProfile extends Component {
         return basalMetabolicRate
     }
 
-    getBasalMetabolicRateWoman = (weight, height, years) => {
+    getBasalMetabolicRateWoman = () => {
         //Women BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years ) 
         const { pounds, inches, age } = this.state
         let basalMetabolicRate = 0
@@ -41,7 +46,8 @@ export default class CreateYourProfile extends Component {
       }
 
     getTotalDailyEnergyExpenditure = (bmr, activity) => {
-        const sedentary = 1.2
+        this.state.sedentary = 1.2
+        console.log()
         const lightlyActive = 1.375
         const moderatelyActive = 1.55
         const veryActive = 1.725
@@ -89,14 +95,14 @@ render() {
                             pattern="[0-9]*" 
                             value={this.state.age}
                             onChange={this.handleChangeAge} 
-                        /><br />
+                        />
                             Height (inches):
                         <input
                             type="text"
                             pattern="[0-9]*"
                             value={this.state.inches}
                             onChange={this.handleChangeHeight}
-                        /><br />
+                        />
                             Weight (pounds):
                         <input
                             type="text"
@@ -104,7 +110,7 @@ render() {
                             value={this.state.pounds}
                             onChange={this.handleChangeWeight}
                         />
-                        </label><br />
+                        </label>
                         <input type="submit" value="Submit" />
                     </form>
                 </div>
@@ -125,14 +131,14 @@ render() {
                             pattern="[0-9]*" 
                             value={this.state.age}
                             onChange={this.handleChangeAge} 
-                        /><br />
+                        />
                             Height (inches):
                         <input
                             type="text"
                             pattern="[0-9]*"
                             value={this.state.inches}
                             onChange={this.handleChangeHeight}
-                        /><br />
+                        />
                             Weight (pounds):
                         <input
                             type="text"
@@ -140,7 +146,7 @@ render() {
                             value={this.state.pounds}
                             onChange={this.handleChangeWeight}
                         />
-                        </label><br />
+                        </label>
                         <input type="submit" value="Submit" />
                     </form>
                 </div>
