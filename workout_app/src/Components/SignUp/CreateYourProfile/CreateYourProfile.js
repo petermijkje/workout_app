@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 export default class CreateYourProfile extends Component {
     constructor(props){
@@ -112,6 +113,15 @@ render() {
                         />
                         </label>
                         <input type="submit" value="Submit" />
+                        <FormGroup>
+                            <Label for="exampleSelect">Select</Label>
+                            <Input type="select" name="select" id="exampleSelect">
+                                <option>Lightly Active</option>
+                                <option>Moderately Active</option>
+                                <option>Very Active</option>
+                                <option>Extra Active</option>
+                            </Input>
+                        </FormGroup>
                     </form>
                 </div>
             ) 
@@ -148,6 +158,15 @@ render() {
                         />
                         </label>
                         <input type="submit" value="Submit" />
+                        <FormGroup>
+                            <Label for="exampleSelect">Select</Label>
+                            <Input type="select" name="select" id="exampleSelect">
+                                <option>Lightly Active</option>
+                                <option>Moderately Active</option>
+                                <option>Very Active</option>
+                                <option>Extra Active</option>
+                            </Input>
+                        </FormGroup>
                     </form>
                 </div>
             )
