@@ -1,5 +1,28 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
+
+const arrayOfActivity = [
+    {
+      number: 1.2,
+      activity: 'sedentary'    
+    },
+    {
+      number: 1.375,
+      activity: 'Light Active'    
+    },
+    {
+      number: 1.55,
+      activity: 'Moderately Active'    
+    },
+    {
+      number: 1.725,
+      activity: 'Very Active'    
+    },
+    {
+      number: 1.9,
+      activity: 'Extra Active'    
+    },
+  ];
 
 export default class CreateYourProfile extends Component {
     constructor(props){
@@ -9,13 +32,6 @@ export default class CreateYourProfile extends Component {
             male: true,
             inches: '',
             pounds: '',
-            activity: [
-                'sedentary', 
-                'lightlyActive', 
-                'moderatelyActive', 
-                'veryActive', 
-                'extraActive'
-            ],
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -80,6 +96,14 @@ export default class CreateYourProfile extends Component {
 
 render() { 
     const male = this.state.male
+    let options = arrayOfActivity.map((data) =>
+                <option 
+                    key={data.number}
+                    value={data.number}
+                >
+                    {data.activity}
+                </option>
+            );
         if (male){
             return (
                 <div>
@@ -116,10 +140,7 @@ render() {
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
                             <Input type="select" name="select" id="exampleSelect">
-                                <option>Lightly Active</option>
-                                <option>Moderately Active</option>
-                                <option>Very Active</option>
-                                <option>Extra Active</option>
+                            {options}
                             </Input>
                         </FormGroup>
                     </form>
@@ -161,18 +182,11 @@ render() {
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
                             <Input type="select" name="select" id="exampleSelect">
-                                <option>Lightly Active</option>
-                                <option>Moderately Active</option>
-                                <option>Very Active</option>
-                                <option>Extra Active</option>
+                            {options}
                             </Input>
                         </FormGroup>
                     </form>
                 </div>
             )
-            return (
-                <div>          
-                </div>
-        )
     }
 }
