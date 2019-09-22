@@ -6,7 +6,7 @@ export default class CreateYourProfile extends Component {
         super(props)
         this.state = { 
             age: '',
-            male: '',
+            male: true,
             inches: '',
             pounds: '',
         }
@@ -14,6 +14,7 @@ export default class CreateYourProfile extends Component {
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
         this.handleChangeWeight = this.handleChangeWeight.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleToggleClick = this.handleToggleClick.bind(this);
     }
 
     getBasalMetabolicRateMale = (weight, height, years) => {
@@ -32,28 +33,29 @@ export default class CreateYourProfile extends Component {
         return basalMetabolicRate
     }
 
-    toggleMaleToFemaleBasalMetabolicRate = (male) =>{
-        const newMale = this.state
-        this.setState(newMale = true ? false : true)
-    }
+    handleToggleClick() {
+        this.setState(state => ({
+          male: !state.male
+        }));
+      }
 
     // getTotalDailyEnergyExpenditure = (bmr, activity) => {
-    //     const sedentary = 1.2
-    //     const lightlyActive = 1.375
-    //     const moderatelyActive = 1.55
-    //     const veryActive = 1.725
-    //     const extraActive = 1.9
-    //     console.log(bmr*activity)
-    // }
-
+        //     const sedentary = 1.2
+        //     const lightlyActive = 1.375
+        //     const moderatelyActive = 1.55
+        //     const veryActive = 1.725
+        //     const extraActive = 1.9
+        //     console.log(bmr*activity)
+        // }
+        
     handleChangeAge(event){
         this.setState({age: event.target.value})
     }
-
+        
     handleChangeHeight(event){
         this.setState({inches: event.target.value})
     }
-
+        
     handleChangeWeight(event){
         this.setState({pounds: event.target.value})
     }
@@ -70,11 +72,14 @@ export default class CreateYourProfile extends Component {
 
 render() { 
     const male = this.state.male
-    {this.toggleMaleToFemaleBasalMetabolicRate()}
         if (male){
             return (
-                <div> 
-                    {this.getBasalMetabolicRateMale()}
+                <div>
+                    <button onClick={this.handleToggleClick}>
+                        MALE
+                    </button>
+                    <br />
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -83,14 +88,14 @@ render() {
                             pattern="[0-9]*" 
                             value={this.state.age}
                             onChange={this.handleChangeAge} 
-                        />
+                        /><br />
                             Height (inches):
                         <input
                             type="text"
                             pattern="[0-9]*"
                             value={this.state.inches}
                             onChange={this.handleChangeHeight}
-                        />
+                        /><br />
                             Weight (pounds):
                         <input
                             type="text"
@@ -98,15 +103,19 @@ render() {
                             value={this.state.pounds}
                             onChange={this.handleChangeWeight}
                         />
-                        </label>
+                        </label><br />
                         <input type="submit" value="Submit" />
                     </form>
                 </div>
             ) 
         } 
             else return (
-                <div> 
-                    {this.getBasalMetabolicRateWoman()}
+                <div>                             
+                    <button onClick={this.handleToggleClick}>
+                        FEMALE                 
+                    </button>
+                    <br />
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -115,14 +124,14 @@ render() {
                             pattern="[0-9]*" 
                             value={this.state.age}
                             onChange={this.handleChangeAge} 
-                        />
+                        /><br />
                             Height (inches):
                         <input
                             type="text"
                             pattern="[0-9]*"
                             value={this.state.inches}
                             onChange={this.handleChangeHeight}
-                        />
+                        /><br />
                             Weight (pounds):
                         <input
                             type="text"
@@ -130,13 +139,13 @@ render() {
                             value={this.state.pounds}
                             onChange={this.handleChangeWeight}
                         />
-                        </label>
+                        </label><br />
                         <input type="submit" value="Submit" />
                     </form>
                 </div>
             )
             return (
-                <div>            
+                <div>          
                 </div>
         )
     }
