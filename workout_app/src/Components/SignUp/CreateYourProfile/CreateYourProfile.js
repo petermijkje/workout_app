@@ -9,6 +9,7 @@ export default class CreateYourProfile extends Component {
             male: true,
             inches: '',
             pounds: '',
+            activity: ['sedentary', 'lightlyActive', 'moderatelyActive', 'veryActive', 'extraActive'],
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -39,14 +40,14 @@ export default class CreateYourProfile extends Component {
         }));
       }
 
-    // getTotalDailyEnergyExpenditure = (bmr, activity) => {
-        //     const sedentary = 1.2
-        //     const lightlyActive = 1.375
-        //     const moderatelyActive = 1.55
-        //     const veryActive = 1.725
-        //     const extraActive = 1.9
-        //     console.log(bmr*activity)
-        // }
+    getTotalDailyEnergyExpenditure = (bmr, activity) => {
+        const sedentary = 1.2
+        const lightlyActive = 1.375
+        const moderatelyActive = 1.55
+        const veryActive = 1.725
+        const extraActive = 1.9
+        console.log(bmr*activity)
+    }
         
     handleChangeAge(event){
         this.setState({age: event.target.value})
