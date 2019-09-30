@@ -32,6 +32,7 @@ export default class CreateYourProfile extends Component {
             male: true,
             inches: '',
             pounds: '',
+            value: 'select',
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -45,7 +46,7 @@ export default class CreateYourProfile extends Component {
          const { pounds, inches, age } = this.state
          let basalMetabolicRate = 0
          basalMetabolicRate += (66 + (6.2 * pounds) + (12.7 * inches) - (6.76 * age))
-        return basalMetabolicRate
+         return Math.round(basalMetabolicRate)
     }
 
     getBasalMetabolicRateWoman = () => {
@@ -53,7 +54,7 @@ export default class CreateYourProfile extends Component {
         const { pounds, inches, age } = this.state
         let basalMetabolicRate = 0
         basalMetabolicRate += (655.1 + (4.35 * pounds) + (4.7 * inches) - (4.7 * age))
-        return basalMetabolicRate
+        return Math.round(basalMetabolicRate)
     }
 
     handleToggleClick() {
@@ -89,15 +90,14 @@ export default class CreateYourProfile extends Component {
             `current age: ` + this.state.age +
             `current height:` + this.state.inches +
             `current weight:` + this.state.pounds 
-            )
-    
+            )    
         event.preventDefault()
     }
 
 render() { 
     const male = this.state.male
     let options = arrayOfActivity.map((data) =>
-                <option 
+                <option onChange={this.change}
                     key={data.number}
                     value={data.number}
                 >
@@ -111,7 +111,7 @@ render() {
                         MALE
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{this.getBasalMetabolicRateMale() * 1.9}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
