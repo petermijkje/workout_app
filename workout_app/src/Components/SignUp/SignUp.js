@@ -15,12 +15,12 @@ class SignUp extends Component {
       part1: false,
       part2: false,
       part3: false,
+      loggedIn: true,
     }
   }
 
   render(){
-
-    return (
+   return (
       <Router>
         <div className="App">
           <div className="box">
@@ -51,19 +51,11 @@ class SignUp extends Component {
               <br />
                  {/* on click move the page to the to create profile page  */}
               <input type="Submit" className="button" /><br />
-              <Switch>
-              <Link to="/createyourprofile"> create_your_profile</Link>
-              </Switch>
               <br />
               <br />
               <br />
               </div>
                 </div>
-        <Route 
-          exact
-          path="/createyourprofile" 
-          component={CreateYourProfile} 
-        />
       </Router>
   );
 }
