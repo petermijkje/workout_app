@@ -5,6 +5,7 @@ import SignUp from './SignUp/SignUp.js'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
 import Clock from '../../src/Components/Time/Clock/Clock.js'
+import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
 
 class HomePage extends React.Component {
     constructor(){
@@ -29,6 +30,7 @@ render (){
             <div className="App">
                 <Clock />
                 <TwelveWeeks />
+                <CreateYourProfile />
             </div>
         )
     } else return (
