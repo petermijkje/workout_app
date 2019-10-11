@@ -1,29 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
-const arrayOfActivity = [
-    {
-      number: 1.2,
-      activity: 'sedentary'    
-    },
-    {
-      number: 1.375,
-      activity: 'Light Active'    
-    },
-    {
-      number: 1.55,
-      activity: 'Moderately Active'    
-    },
-    {
-      number: 1.725,
-      activity: 'Very Active'    
-    },
-    {
-      number: 1.9,
-      activity: 'Extra Active'    
-    },
-  ];
-
 export default class CreateYourProfile extends Component {
     constructor(props){
         super(props)
@@ -33,7 +10,7 @@ export default class CreateYourProfile extends Component {
             inches: '',
             pounds: '',
             value: 'select',
-            TDEE: 'select Activity'
+            activity: 'select Activity'
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -41,6 +18,12 @@ export default class CreateYourProfile extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleToggleClick = this.handleToggleClick.bind(this);
     }
+
+    activityHandleChange(e){
+        this.setState({
+          activity: e.target.value
+        })
+      }
 
     getBasalMetabolicRateMale = () => {
         //Men BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
@@ -63,16 +46,6 @@ export default class CreateYourProfile extends Component {
           male: !state.male
         }));
       }
-
-    getTotalDailyEnergyExpenditure = (bmr, activity) => {
-        this.state.sedentary = 1.2
-        console.log()
-        const lightlyActive = 1.375
-        const moderatelyActive = 1.55
-        const veryActive = 1.725
-        const extraActive = 1.9
-        console.log(bmr*activity)
-    }
         
     handleChangeAge(event){
         this.setState({age: event.target.value})
@@ -97,14 +70,6 @@ export default class CreateYourProfile extends Component {
 
 render() { 
     const male = this.state.male
-    let options = arrayOfActivity.map((data) =>
-                <option onChange={this.change}
-                    key={data.number}
-                    value={data.number}
-                >
-                    {data.activity}
-                </option>
-            );
         if (male){
             return (
                 <div>
@@ -112,7 +77,7 @@ render() {
                         MALE
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{this.state.TDEE}</b>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateMale() * this.state.activity)}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -140,8 +105,13 @@ render() {
                         <input type="submit" value="Submit" />
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
-                            <Input type="select" name="select" id="exampleSelect">
-                            {options}
+                            <Input type="select" name="select" id="exampleSelect" onChange={this.activityHandleChange.bind(this)} value={this.state.activity}>
+                                <option value="select">Select Your Activity</option>
+                                <option value="1.2">Sedentary</option>
+                                <option value="1.375">Light Active</option>
+                                <option value="1.55">Moderately Active</option>
+                                <option value="1.725">Very Active</option>
+                                <option value="1.9">Extra Active</option>
                             </Input>
                         </FormGroup>
                     </form>
@@ -154,7 +124,7 @@ render() {
                         FEMALE                 
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{this.state.TDEE}</b>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateWoman() * this.state.activity)}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -182,8 +152,13 @@ render() {
                         <input type="submit" value="Submit" />
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
-                            <Input type="select" name="select" id="exampleSelect">
-                            {options}
+                            <Input type="select" name="select" id="exampleSelect" onChange={this.activityHandleChange.bind(this)} value={this.state.activity}>
+                                <option value="select">Select Your Activity</option>
+                                <option value="1.2">Sedentary</option>
+                                <option value="1.375">Light Active</option>
+                                <option value="1.55">Moderately Active</option>
+                                <option value="1.725">Very Active</option>
+                                <option value="1.9">Extra Active</option>
                             </Input>
                         </FormGroup>
                     </form>
