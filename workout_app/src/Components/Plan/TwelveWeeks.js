@@ -20,7 +20,7 @@ class TwelveWeeks extends Component {
       <div>
           Here's your plan
           { this.receivePlan() }
-          Don't like it? <Button outline color="primary"> Click Here to Reset it</Button>
+          Don't like it? <br /><Button outline color="primary"> Click Here to Reset it</Button>
       </div> 
     );
   }

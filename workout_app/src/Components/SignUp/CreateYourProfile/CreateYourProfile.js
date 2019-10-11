@@ -33,6 +33,7 @@ export default class CreateYourProfile extends Component {
             inches: '',
             pounds: '',
             value: 'select',
+            TDEE: 'select Activity'
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -111,7 +112,7 @@ render() {
                         MALE
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{this.getBasalMetabolicRateMale() * 1.9}</b>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{this.state.TDEE}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -153,7 +154,7 @@ render() {
                         FEMALE                 
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{this.state.TDEE}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
