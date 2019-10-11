@@ -10,7 +10,7 @@ export default class CreateYourProfile extends Component {
             inches: '',
             pounds: '',
             value: 'select',
-            activity: 'select Activity'
+            activity: 0,
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
@@ -18,13 +18,7 @@ export default class CreateYourProfile extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleToggleClick = this.handleToggleClick.bind(this);
     }
-
-    activityHandleChange(e){
-        this.setState({
-          activity: e.target.value
-        })
-      }
-
+// male and female harris benedict equation functions (original equation)
     getBasalMetabolicRateMale = () => {
         //Men BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
          const { pounds, inches, age } = this.state
@@ -41,6 +35,7 @@ export default class CreateYourProfile extends Component {
         return Math.round(basalMetabolicRate)
     }
 
+// handle changes functions
     handleToggleClick() {
         this.setState(state => ({
           male: !state.male
@@ -58,6 +53,12 @@ export default class CreateYourProfile extends Component {
     handleChangeWeight(event){
         this.setState({pounds: event.target.value})
     }
+    
+    activityHandleChange(e){
+        this.setState({
+          activity: e.target.value
+        })
+    }
 
     handleSubmit(event) {
         alert(
@@ -67,7 +68,7 @@ export default class CreateYourProfile extends Component {
             )    
         event.preventDefault()
     }
-
+//toggles between male and female if you click button 
 render() { 
     const male = this.state.male
         if (male){
@@ -77,7 +78,6 @@ render() {
                         MALE
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateMale() * this.state.activity)}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -106,7 +106,7 @@ render() {
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
                             <Input type="select" name="select" id="exampleSelect" onChange={this.activityHandleChange.bind(this)} value={this.state.activity}>
-                                <option value="select">Select Your Activity</option>
+                                <option value="0">Select Your Activity</option>
                                 <option value="1.2">Sedentary</option>
                                 <option value="1.375">Light Active</option>
                                 <option value="1.55">Moderately Active</option>
@@ -115,6 +115,7 @@ render() {
                             </Input>
                         </FormGroup>
                     </form>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateMale() * this.state.activity)}</b>
                 </div>
             ) 
         } 
@@ -124,7 +125,6 @@ render() {
                         FEMALE                 
                     </button>
                     <br />
-                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateWoman() * this.state.activity)}</b>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Age:
@@ -153,7 +153,7 @@ render() {
                         <FormGroup>
                             <Label for="exampleSelect">Select</Label>
                             <Input type="select" name="select" id="exampleSelect" onChange={this.activityHandleChange.bind(this)} value={this.state.activity}>
-                                <option value="select">Select Your Activity</option>
+                                <option value="0">Select Your Activity</option>
                                 <option value="1.2">Sedentary</option>
                                 <option value="1.375">Light Active</option>
                                 <option value="1.55">Moderately Active</option>
@@ -162,6 +162,7 @@ render() {
                             </Input>
                         </FormGroup>
                     </form>
+                    Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateWoman() * this.state.activity)}</b>
                 </div>
             )
     }
