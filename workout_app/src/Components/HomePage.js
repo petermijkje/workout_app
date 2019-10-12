@@ -29,8 +29,9 @@ render (){
         return (
             <div className="App">
                 <Clock />
-                <TwelveWeeks />
                 <CreateYourProfile />
+                <br />
+                <TwelveWeeks />
             </div>
         )
     } else return (

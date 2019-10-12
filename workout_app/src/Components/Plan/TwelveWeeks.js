@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import '../../../src/Components/Plan/twelveweeks.css'
+import Day from '../../../src/Components/Plan/Day.js'
 
 class TwelveWeeks extends Component {
   constructor(){
     super()
       this.state = { 
-          day: new Date().getDate().toLocaleString()
       }
     }
+    
+    
+    
+    render() { 
+      const exerciseAPI = {
+        Type: 1,
+        name: 'Barbell Squats'
+      }
 
-    receivePlan = () => {
-        const days = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5 ", "Day 6", "Day 7" ]
-        const plan = days.map((number) => <div>Week 1 { number } </div>)
-        return plan 
-    }
-
-  render() { 
     return ( 
-      <div>
+      <div className="twelve__Week__Div">
           Here's your plan
-          { this.receivePlan() }
+          <Day exerciseName={exerciseAPI.name}  />
+          <Day  />
+          <Day  />
+          <Day  />
+          <Day  />
+          <Day  />
+          <Day  />
           Don't like it? <br /><Button outline color="primary"> Click Here to Reset it</Button>
       </div> 
     );

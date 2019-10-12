@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input, Button } from 'reactstrap';
 
 export default class CreateYourProfile extends Component {
     constructor(props){
@@ -74,9 +74,9 @@ render() {
         if (male){
             return (
                 <div>
-                    <button onClick={this.handleToggleClick}>
+                    <Button outline color="primary" onClick={this.handleToggleClick}>
                         MALE
-                    </button>
+                    </Button>
                     <br />
                     <form onSubmit={this.handleSubmit}>
                         <label>
@@ -121,9 +121,9 @@ render() {
         } 
             else return (
                 <div>                             
-                    <button onClick={this.handleToggleClick}>
+                    <Button style={{backgroundColor: 'pink'}} outline color="secondary" onClick={this.handleToggleClick}>
                         FEMALE                 
-                    </button>
+                    </Button>
                     <br />
                     <form onSubmit={this.handleSubmit}>
                         <label>
