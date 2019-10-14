@@ -6,13 +6,20 @@ class Day extends Component {
   constructor(){
     super()
       this.state = { 
+        Type: 1,
+        name: 'Barbell Squats', 
       }
     }
 
-  render() { 
+    //if the parent renders a specific day, the JSON can 
+    //match and return specific information pertaining to that day.
+
+    
+    render() { 
     return ( 
-      <div className="twelve__Week__Div">
-          Day 1
+      <div className="day__div">
+          Day 1 <br />
+          {this.state.name}
       </div> 
     );
   }

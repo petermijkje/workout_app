@@ -1,9 +1,19 @@
 .day__div {
     border-style: solid;
-    border-color: black;
+    border-color: lightpink;
     border-width: 1px;
+    background: lightpink;
+}
+
+.rep__div {
+    border-style: solid;
+    border-color: lightblue;
+    border-width: 1px;
+    background: lightblue;
 }
 
 .twelve__Week__Div {
-    
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
