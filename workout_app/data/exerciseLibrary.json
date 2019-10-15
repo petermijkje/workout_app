@@ -1,0 +1,153 @@
+[
+  {
+    "exerciseName": "Bodyweight Squat",
+    "id": 1,
+    "workoutType": [
+      "legs",
+      "back",
+      "abs"
+    ],
+    "musclesUsed": [
+      "quadriceps femoris",
+      "adductor magnus",
+      "gluteus maximus",
+      "erector spinae",
+      "rectus abdominis"
+    ],
+    "difficulty": 1,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },
+  {
+    "exerciseName": "Barbell Squat",
+    "id": 2,
+    "workoutType": [
+      "legs",
+      "back",
+      "abs"
+    ],
+    "musclesUsed": [
+      "quadriceps femoris",
+      "adductor magnus",
+      "gluteus maximus",
+      "erector spinae",
+      "rectus abdominis"
+    ],
+    "difficulty": 2,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },
+  {
+    "exerciseName": "Push Up",
+    "id": 3,
+    "workoutType": [
+      "chest",
+      "triceps",
+      "biceps"
+    ],
+    "musclesUsed": [
+      "pectoralis major", 
+      "pectoralis minor", 
+      "triceps brachii", 
+      "anterior deltoid", 
+      "serratus anterior", 
+      "coracobrachialis"
+    ],
+    "difficulty": 2,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },    
+  {
+    "exerciseName": "Bench Press",
+    "id": 4,
+    "workoutType": [
+      "chest",
+      "triceps",
+      "biceps"
+    ],
+    "musclesUsed": [
+      "pectoralis major", 
+      "pectoralis minor", 
+      "triceps brachii", 
+      "anterior deltoid", 
+      "serratus anterior", 
+      "coracobrachialis"
+    ],
+    "difficulty": 1,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },
+  {
+    "exerciseName": "Pull Up",
+    "id": 5,
+    "workoutType": [
+      "back",
+      "biceps",
+      "shoulders"
+    ],
+    "musclesUsed": [
+      "latissimus dorsi", 
+      "biceps brachii", 
+      "posterior deltoids", 
+      "rhomboids", 
+      "triceps brachii"
+    ],
+    "difficulty": 5,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },    
+  {
+    "exerciseName": "Bent Over Row",
+    "id": 6,
+    "workoutType": [
+      "back",
+      "shoulders",
+      "biceps"
+    ],
+    "musclesUsed": [
+      "latissimus dorsi", 
+      "rhomboids", 
+      "teres major", 
+      "teres minor", 
+      "trapezius",
+      "posterior deltoids" 
+    ],
+    "difficulty": 1,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  },
+  {
+    "exerciseName": "Dead Lift",
+    "id": 7,
+    "workoutType": [
+      "back",
+      "legs",
+      "abs"
+    ],
+    "musclesUsed": [
+      "gluteus maximus", 
+      "gluteus minimus", 
+      "quadriceps femoris", 
+      "biceps femoris", 
+      "erector spinae",
+      "trapezius" 
+    ],
+    "difficulty": 2,
+    "primary": true,
+    "secondary": true,
+    "tertiary": true,
+    "compound": true
+  }
+]
