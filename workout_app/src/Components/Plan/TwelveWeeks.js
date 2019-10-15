@@ -12,25 +12,25 @@ class TwelveWeeks extends Component {
     }
 // receives input on what type of day the Day component will
 // be rendering.     
-    
+
+//will need to receive the type of plan "bulk", "power", "weight loss" to render amount of reps
+
+    createPlan = () => {
+      const days = ["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"]
+      const listDays = days.map((days) =>      
+        <div>
+          {days}
+          <Day />
+          <Reps />
+        </div>
+      )
+      return listDays
+    }
     
     render() { 
       return ( 
       <div>
-          <Day  />
-          <Reps />
-          <Day  />
-          <Reps />
-          <Day  />
-          <Reps />
-          <Day  />
-          <Reps />
-          <Day  />
-          <Reps />
-          <Day  />
-          <Reps />          
-          <Day  />
-          <Reps />
+        {this.createPlan()}
           Don't like it? <br /><Button outline color="primary"> Click Here to Reset it</Button>
       </div> 
     );

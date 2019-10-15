@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import '../../../src/Components/Plan/twelveweeks.css'
+import exerciseLibrary from '../../../src/exerciseLibrary/data/exerciseLibrary.json' 
 
 class Day extends Component {
   constructor(){
     super()
       this.state = { 
-        Type: 1,
-        name: 'Barbell Squats', 
       }
     }
 
@@ -18,8 +17,7 @@ class Day extends Component {
     render() { 
     return ( 
       <div className="day__div">
-          Day 1 <br />
-          {this.state.name}
+        {exerciseLibrary[3].exerciseName}
       </div> 
     );
   }
