@@ -3,6 +3,7 @@
     border-color: lightpink;
     border-width: 1px;
     background: lightpink;
+    width: 50%;
 }
 
 .rep__div {
@@ -10,10 +11,24 @@
     border-color: lightblue;
     border-width: 1px;
     background: lightblue;
+    width: 50%;
 }
 
-.twelve__Week__Div {
+.twelve__Week__Div__Container {
     border-style: solid;
     border-color: black;
     border-width: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.calendar__day__div{
+    height: 200px;
+    width: 200px;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-wrap: wrap;
 }
