@@ -1,8 +1,6 @@
 import React from 'react';
 import '../App.css';
 import SignIn from './SignIn/SignIn.js'
-import SignUp from './SignUp/SignUp.js'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
 import Clock from '../../src/Components/Time/Clock/Clock.js'
 import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
