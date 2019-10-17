@@ -10,7 +10,7 @@ type Query {
 // 2
 const resolvers = {
   Query: {
-    info: () => `This is the workout app`
+    info: () => `This is the app`
   }
 }
 
