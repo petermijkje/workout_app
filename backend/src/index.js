@@ -1,6 +1,6 @@
 const { GraphQLServer } = require('graphql-yoga')
 
-// 1
+
 const typeDefs = `
 type Query {
   info: String!
@@ -12,7 +12,7 @@ type Link {
     url: String!
   }
 `
-
+//simple in memory storage for GraphQL to link 
 let links = [{
     id: 'link-0',
     url: 'www.howtographql.com',
@@ -23,6 +23,7 @@ let links = [{
 const resolvers = {
   Query: {
     info: () => `This is the app`,
+// feed will retrieve. links has to be the same name as the memory storage.
     feed: () => links,
   },
   Link: {
