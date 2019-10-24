@@ -1,0 +1,16 @@
+# The HTTP endpoint for your Prisma API
+#endpoint: ''
+endpoint: https://us1.prisma.sh/petersarll/workout_backend/dev
+
+# Points to the file that contains your datamodel
+datamodel: datamodel.prisma
+
+# Specifies language & location for the generated Prisma client
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+
+# post deployment hook that gets invoked every time you use prisma deploy
+hooks:
+  post-deploy:
+    - prisma generate
