@@ -1,5 +1,8 @@
 require('dotenv').config()
-
+const Query = require('./resolvers/Query')
+const Mutation = require('./resolvers/Mutation')
+const User = require('./resolvers/User')
+const Link = require('./resolvers/Link')
 const { GraphQLServer } = require('graphql-yoga')
 const { prisma } = require('./generated/prisma-client')
 
@@ -26,25 +29,10 @@ let links = [{
   // 2
 let idCount = links.length
 const resolvers = {
-  Query: {
-    info: () => `This is the app`,
-// feed will retrieve. links has to be the same name as the memory storage.
-// feed now receiving 4 arguments.
-    feed: (root, args, context, info) => {
-      return context.prisma.links()
-    },
-  },
-  Mutation: {
-    post: (parent, args) => {
-       const link = {
-        id: `link-${idCount++}`,
-        description: args.description,
-        url: args.url,
-      }
-      links.push(link)
-      return link
-    }
-  },
+  Query,
+  Mutation,
+  User,
+  Link,
 }
 
 // 3

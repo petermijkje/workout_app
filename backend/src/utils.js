@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+let APP_SECRET = process.env.APP_SECRET
 
 function getUserId(context) {
   const Authorization = context.request.get('Authorization')
