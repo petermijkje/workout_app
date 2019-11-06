@@ -1,4 +1,5 @@
 require('dotenv').config()
+const Subscription = require('./resolvers/Subscription')
 const Query = require('./resolvers/Query')
 const Mutation = require('./resolvers/Mutation')
 const User = require('./resolvers/User')
@@ -33,6 +34,7 @@ const resolvers = {
   Mutation,
   User,
   Link,
+  Subscription,
 }
 
 // 3
