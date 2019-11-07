@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap'
 import '../App.css';
 import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
@@ -24,14 +25,15 @@ class HomePage extends React.Component {
 render (){
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
-        return (
-            <div className="App">
-                <Clock />
-                <CreateYourProfile />
-                <br />
-                <TwelveWeeks />
-            </div>
-        )
+      return (
+        <div className="App">
+          <Clock />
+            <CreateYourProfile />
+            <br />
+            <TwelveWeeks />
+            <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
+          </div>
+      )
     } else return (
         <div>
            <SignIn />
