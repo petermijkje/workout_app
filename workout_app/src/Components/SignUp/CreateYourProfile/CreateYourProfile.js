@@ -184,6 +184,14 @@ render() {
                             </Input>
                         </FormGroup>
                     </form>
+                    <FormGroup>
+                      <Label for="exampleSelect">Choose your repetition type</Label>
+                      <Input type="select" name="select" id="exampleSelect" onChange={this.handleChangeGoal.bind(this)} value={this.state.goal}>
+                        <option>Power</option>
+                        <option>Strength</option>
+                        <option>Endurance</option>
+                      </Input>
+                    </FormGroup>
                     Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateWoman() * this.state.activity)}</b>
                 </div>
             )
