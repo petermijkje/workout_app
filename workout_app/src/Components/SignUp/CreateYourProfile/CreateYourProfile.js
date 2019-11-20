@@ -11,12 +11,14 @@ export default class CreateYourProfile extends Component {
             pounds: '',
             value: 'select',
             activity: 0,
+            goal: '',
         }
         this.handleChangeAge = this.handleChangeAge.bind(this)
         this.handleChangeHeight = this.handleChangeHeight.bind(this)
         this.handleChangeWeight = this.handleChangeWeight.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleToggleClick = this.handleToggleClick.bind(this);
+        this.handleToggleClick = this.handleToggleClick.bind(this)
+        this.handleChangeGoal = this.handleChangeGoal.bind(this)
     }
 // male and female harris benedict equation functions (original equation)
     getBasalMetabolicRateMale = () => {
@@ -43,20 +45,32 @@ export default class CreateYourProfile extends Component {
       }
         
     handleChangeAge(event){
-        this.setState({age: event.target.value})
+        this.setState({
+            age: event.target.value
+        })
     }
         
     handleChangeHeight(event){
-        this.setState({inches: event.target.value})
+        this.setState({
+            inches: event.target.value
+        })
     }
         
     handleChangeWeight(event){
-        this.setState({pounds: event.target.value})
+        this.setState({
+            pounds: event.target.value
+        })
     }
     
     activityHandleChange(e){
         this.setState({
           activity: e.target.value
+        })
+    }
+
+    handleChangeGoal(event){
+        this.setState({
+            goal: event.target.value
         })
     }
 
@@ -104,7 +118,7 @@ render() {
                         </label>
                         <input type="submit" value="Submit" />
                         <FormGroup>
-                            <Label for="exampleSelect">Select</Label>
+                            <Label for="exampleSelect">choose your activity type</Label>
                             <Input type="select" name="select" id="exampleSelect" onChange={this.activityHandleChange.bind(this)} value={this.state.activity}>
                                 <option value="0">Select Your Activity</option>
                                 <option value="1.2">Sedentary</option>
@@ -115,6 +129,14 @@ render() {
                             </Input>
                         </FormGroup>
                     </form>
+                    <FormGroup>
+                      <Label for="exampleSelect">Choose your repetition type</Label>
+                      <Input type="select" name="select" id="exampleSelect" onChange={this.handleChangeGoal.bind(this)} value={this.state.goal}>
+                        <option>Power</option>
+                        <option>Strength</option>
+                        <option>Endurance</option>
+                      </Input>
+                    </FormGroup>
                     Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE: <b>{Math.round(this.getBasalMetabolicRateMale() * this.state.activity)}</b>
                 </div>
             ) 
