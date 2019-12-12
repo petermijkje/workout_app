@@ -4,44 +4,42 @@ class Reps extends Component {
   constructor(){
     super()
     this.state = { 
-      goal: ['power',
-             'strength', 
-             'endurance/tone'
-            ]    
+      goal: ''
     }
   }
-    chooseRepetitions = (goal) => {
-      if (goal === 'power'){
-        const randomIntFromInterval = (min, max) => { // min and max included 
-        return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-        return (
-          <div>{randomIntFromInterval(2, 6)} x {randomIntFromInterval(4, 8)}</div>
-        )
+
+  chooseRepetitions = (goal) => {
+    if (goal === 'power'){
+      const randomIntFromInterval = (min, max) => { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min);
       }
-      else if (goal === 'strength') {
-        const randomIntFromInterval = (min, max) => { // min and max included 
+      return (
+        <div>{randomIntFromInterval(2, 6)} x {randomIntFromInterval(4, 8)}</div>
+      )
+    }
+    else if (goal === 'strength') {
+      const randomIntFromInterval = (min, max) => { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      return (
+        <div>{randomIntFromInterval(4, 6)} x {randomIntFromInterval(6, 15)}</div>
+      )
+    }
+    else if (goal === 'endurance/tone') {
+      const randomIntFromInterval = (min, max) => { // min and max included 
           return Math.floor(Math.random() * (max - min + 1) + min);
         }
         return (
-          <div>{randomIntFromInterval(4, 6)} x {randomIntFromInterval(6, 15)}</div>
+          <div>{randomIntFromInterval(4, 10)} x {randomIntFromInterval(12, 25)}</div>
         )
-      }
-      else if (goal === 'endurance/tone') {
-        const randomIntFromInterval = (min, max) => { // min and max included 
-            return Math.floor(Math.random() * (max - min + 1) + min);
-          }
-          return (
-            <div>{randomIntFromInterval(4, 10)} x {randomIntFromInterval(12, 25)}</div>
-          )
-      }
     }
+  }
 
 
     render() { 
         return (
             <div className="rep__div">
-                {this.chooseRepetitions('power')}
+                {this.chooseRepetitions()}
             </div>
           );
     }

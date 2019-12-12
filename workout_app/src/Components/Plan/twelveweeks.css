@@ -1,16 +1,16 @@
 .day__div {
     border-style: solid;
-    border-color: lightpink;
+    border-color: white;
     border-width: 1px;
-    background: lightpink;
+    background: white;
     width: 50%;
 }
 
 .rep__div {
     border-style: solid;
-    border-color: lightblue;
+    border-color: white;
     border-width: 1px;
-    background: lightblue;
+    background: white;
     width: 50%;
 }
 
