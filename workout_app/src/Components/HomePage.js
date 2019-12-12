@@ -5,6 +5,7 @@ import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
 import Clock from '../../src/Components/Time/Clock/Clock.js'
 import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
+import BodyPercentageChart from '../../src/Components/Chart/BodyPercentageChart'
 
 class HomePage extends React.Component {
     constructor(){
@@ -26,13 +27,14 @@ render (){
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
-        <div className="App">          
+        <div className="App">  
+          <BodyPercentageChart />
           <Clock />
-            <CreateYourProfile />
-            <br />
-            {/* <TwelveWeeks /> */}
-            <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
-          </div>
+          <CreateYourProfile />
+          <br />
+          {/* <TwelveWeeks /> */}
+          <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
+        </div>
       )
     } else return (
         <div>
