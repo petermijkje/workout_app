@@ -5,9 +5,6 @@ import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
 import Clock from '../../src/Components/Time/Clock/Clock.js'
 import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
-import * as CanvasJSReact from '../canvasjs.react'
-import { CanvasJS } from '../canvasjs.react';
-import { CanvasJSChart} from '../canvasjs.react';
 
 class HomePage extends React.Component {
     constructor(){
@@ -26,30 +23,14 @@ class HomePage extends React.Component {
     }  
 
 render (){
-  const bodyChart = {
-    title: {
-      text: "Weekly output per body part"
-    },
-    data: [{				
-              type: "doughnut",
-              dataPoints: [
-                  { label: "Abs",  y: 10  },
-                  { label: "Shoulders", y: 15  },
-                  { label: "Chest", y: 25  },
-                  { label: "Legs",  y: 30  },
-                  { label: "Back",  y: 28  }
-              ]
-     }]
- }
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
-        <div className="App">
-          <CanvasJSChart options = {bodyChart} />
+        <div className="App">          
           <Clock />
             <CreateYourProfile />
             <br />
-            <TwelveWeeks />
+            {/* <TwelveWeeks /> */}
             <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
           </div>
       )
