@@ -6,13 +6,30 @@ export default class Chart extends React.Component {
     constructor(){
         super()
         this.state = {
-            bodypercentagechart: false,
+            bodypercentagechart: true,
         }
+        this.handlePercentageChartChange = this.handlePercentageChartChange.bind(this)
     }
-    render (){
-        const bodypercentagechart = this.state.bodypercentagechart
-        if (bodypercentagechart){
-        return <BuildingStrength />
-        } else return <BodyPercentageChart />
+
+    changeCharts = () => {
+        const {bodypercentagechart} = this.state
+        if (bodypercentagechart === true){
+            return <BodyPercentageChart/>
+        } else return <BuildingStrength />
+    }
+
+    handlePercentageChartChange() {
+        const newChart = this.state.bodypercentagechart === true ? false : true
+        this.setState({bodypercentagechart: newChart})
+    }
+
+    render(){
+        return( 
+            <div
+              onClick={this.handlePercentageChartChange}    
+            >
+                {this.changeCharts()}
+            </div>
+        )
     }
 }

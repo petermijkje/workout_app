@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import {
   PieChart, 
   Pie, 
-  Sector, 
   Cell,
 } from 'recharts';
 

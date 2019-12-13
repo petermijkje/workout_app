@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap'
+import { Button, Accordion, Card } from 'react-bootstrap'
 import '../App.css';
 import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
@@ -31,11 +31,23 @@ render (){
       return (
         <div className="App">
           <Chart />  
-          {/* <Clock />
+          <Clock />
           <CreateYourProfile />
-          <br />
-          <TwelveWeeks />
-          <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button> */}
+          <Accordion>
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                  Click me to see your workout plan!
+                </Accordion.Toggle>
+              </Card.Header>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <TwelveWeeks />
+                  <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
         </div>
       )
     } else return (
