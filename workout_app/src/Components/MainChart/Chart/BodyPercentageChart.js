@@ -17,13 +17,13 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 class BodyPercentageChart extends React.Component {
 render (){
       return (
-          <PieChart width={400} height={400} onMouseEnter={this.onPieEnter}>
+          <PieChart width={600} height={500} onMouseEnter={this.onPieEnter}>
             <Pie
               data={data} 
               cx={120} 
               cy={200} 
-              innerRadius={60}
-              outerRadius={80} 
+              innerRadius={80}
+              outerRadius={120} 
               fill="#8884d8"
               paddingAngle={5}
             >

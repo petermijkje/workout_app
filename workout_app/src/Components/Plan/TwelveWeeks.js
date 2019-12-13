@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import '../../../src/Components/Plan/twelveweeks.css'
-import Day from '../../../src/Components/Plan/Day.js'
-import Reps from '../../../src/Components/Plan/Reps.js'
+import Day from './PlanComponents/Day.js'
+import Reps from './PlanComponents/Reps.js'
 
 class TwelveWeeks extends Component {
   constructor(){

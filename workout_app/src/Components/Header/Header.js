@@ -2,15 +2,16 @@ import React from 'react'
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
+import './Header.css'
 
 class Header extends Component {
     state = {  }
     render() { 
         return ( 
-            <div>
+            <div className="header__div">
               <Nav className="justify-content-end" activeKey="/home">
                   <Nav.Item>
-                    <Nav.Link href="/home">Home</Nav.Link>
+                    <Nav.Link href="/home" >Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="link-2" href="/Today" >Today</Nav.Link>
