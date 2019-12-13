@@ -6,6 +6,7 @@ import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
 import Clock from '../../src/Components/Time/Clock/Clock.js'
 import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
 import Chart from './MainChart/Chart'
+import Header from './Header/Header'
 
 class HomePage extends React.Component {
     constructor(){
@@ -30,6 +31,7 @@ render (){
     if (isLoggedIn) {
       return (
         <div className="App">
+          <Header />
           <Chart />  
           <Clock />
           <CreateYourProfile />
