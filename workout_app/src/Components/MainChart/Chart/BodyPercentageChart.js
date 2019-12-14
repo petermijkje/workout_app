@@ -17,15 +17,15 @@ class BodyPercentageChart extends React.Component {
   
   showResults = () => {
     const data = [
-      { name: 'Group A', value: 400 }, //33.33%
-      { name: 'Group B', value: 300 }, //25%
-      { name: 'Group C', value: 300 }, //25%
-      { name: 'Group D', value: 200 }, //16.67
+      { name: 'Legs', value: 400 }, //33.33%
+      { name: 'Chest', value: 300 }, //25%
+      { name: 'Shoulders', value: 300 }, //25%
+      { name: 'Abs', value: 200 }, //16.67
     ];
     const newData = Object.keys(data).map((item) =>
       <div>
-      {data[item].name} 
-      {data[item].value}
+      {data[item].name} - 
+       {Math.round(data[item].value * 100 / 1200)}%
       </div>
     )
     return newData
