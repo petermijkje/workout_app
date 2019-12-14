@@ -14,8 +14,7 @@ const data = [
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 class BodyPercentageChart extends React.Component {
-
-
+  
   showResults = () => {
     const data = [
       { name: 'Group A', value: 400 }, //33.33%
@@ -31,6 +30,7 @@ class BodyPercentageChart extends React.Component {
     )
     return newData
   }
+  
 render (){
       return (
         <div>
