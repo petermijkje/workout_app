@@ -11,12 +11,15 @@ class Day extends Component {
 
     //if the parent renders a specific day, the JSON can 
     //match and return specific information pertaining to that day.
-
+    createRandomNumber = () => {
+      const number = Math.floor((Math.random() * 906) + 0)
+      return number
+    }
     
     render() { 
     return ( 
       <div className="day__div">
-        {exerciseLibrary[3].exerciseName}
+        {exerciseLibrary[this.createRandomNumber()].exerciseName}
       </div> 
     );
   }

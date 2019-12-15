@@ -1,5 +1,4 @@
-{
-  "Sheet1": [
+[
       {
           "exerciseName": "Bodyweight Squat",
           "id": "1",
@@ -3673,5 +3672,4 @@
           "exerciseName": "zottman preacher curl, biceps",
           "id": "906"
       }
-  ]
-}
+]
