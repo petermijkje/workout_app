@@ -3,6 +3,7 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import './Header.css'
+import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
 
 class Header extends Component {
     state = {  }
@@ -17,7 +18,7 @@ class Header extends Component {
                     <Nav.Link eventKey="link-2" href="/Today" >Today</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-2" href="/month" >This Month</Nav.Link>
+                    <Nav.Link eventKey="link-2" href="/month" component={TwelveWeeks}>This Month</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="link-1" href="/profile" >Profile</Nav.Link>
