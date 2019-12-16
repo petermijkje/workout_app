@@ -4,6 +4,7 @@ import {
   Pie, 
   Cell,
 } from 'recharts';
+import './BodyPercentageChart.css'
 
 const data = [
   { name: 'Group A', value: 400 }, //33.33%

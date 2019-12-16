@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../twelveweeks.css'
 import exerciseLibrary from '../../../../src/exerciseLibrary/data/exerciseLibrary.json' 
+import "./Day.css"
 
 class Day extends Component {
   constructor(){
