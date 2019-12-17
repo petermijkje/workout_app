@@ -24,7 +24,7 @@ class BodyPercentageChart extends React.Component {
       { name: 'Abs', value: 200 }, //16.67
     ];
     const newData = Object.keys(data).map((item) =>
-      <div>
+      <div >
       {data[item].name} - 
        {Math.round(data[item].value * 100 / 1200)}%
       </div>

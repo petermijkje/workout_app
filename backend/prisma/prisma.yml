@@ -13,4 +13,3 @@ generate:
 # post deployment hook that gets invoked every time you use prisma deploy
 hooks:
   post-deploy:
-    - prisma generate
