@@ -14,10 +14,30 @@ type User {
   password: String!
   links: [Link!]!
   votes: [Vote!]!
+  stats: [Stat!]!
 }
 
 type Vote {
   id: ID! @id
   links: [Link!]!
   user: User!
+}
+
+type Stat {
+  id: ID! @id
+  postedBy: User
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!  
+}
+
+type Profile {
+  id: ID! @id
+  postedBy: User
+  feet: Int!
+  inches: Int!
+  male: Boolean!
 }
