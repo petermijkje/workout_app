@@ -7,6 +7,10 @@ module.exports = {
   count: Int!
 }
 
+type AggregateProfile {
+  count: Int!
+}
+
 type AggregateStat {
   count: Int!
 }
@@ -322,6 +326,12 @@ type Mutation {
   upsertLink(where: LinkWhereUniqueInput!, create: LinkCreateInput!, update: LinkUpdateInput!): Link!
   deleteLink(where: LinkWhereUniqueInput!): Link
   deleteManyLinks(where: LinkWhereInput): BatchPayload!
+  createProfile(data: ProfileCreateInput!): Profile!
+  updateProfile(data: ProfileUpdateInput!, where: ProfileWhereUniqueInput!): Profile
+  updateManyProfiles(data: ProfileUpdateManyMutationInput!, where: ProfileWhereInput): BatchPayload!
+  upsertProfile(where: ProfileWhereUniqueInput!, create: ProfileCreateInput!, update: ProfileUpdateInput!): Profile!
+  deleteProfile(where: ProfileWhereUniqueInput!): Profile
+  deleteManyProfiles(where: ProfileWhereInput): BatchPayload!
   createStat(data: StatCreateInput!): Stat!
   updateStat(data: StatUpdateInput!, where: StatWhereUniqueInput!): Stat
   updateManyStats(data: StatUpdateManyMutationInput!, where: StatWhereInput): BatchPayload!
@@ -358,10 +368,132 @@ type PageInfo {
   endCursor: String
 }
 
+type Profile {
+  id: ID!
+  postedBy: User
+  feet: Int!
+  inches: Int!
+  male: Boolean!
+}
+
+type ProfileConnection {
+  pageInfo: PageInfo!
+  edges: [ProfileEdge]!
+  aggregate: AggregateProfile!
+}
+
+input ProfileCreateInput {
+  id: ID
+  postedBy: UserCreateOneInput
+  feet: Int!
+  inches: Int!
+  male: Boolean!
+}
+
+type ProfileEdge {
+  node: Profile!
+  cursor: String!
+}
+
+enum ProfileOrderByInput {
+  id_ASC
+  id_DESC
+  feet_ASC
+  feet_DESC
+  inches_ASC
+  inches_DESC
+  male_ASC
+  male_DESC
+}
+
+type ProfilePreviousValues {
+  id: ID!
+  feet: Int!
+  inches: Int!
+  male: Boolean!
+}
+
+type ProfileSubscriptionPayload {
+  mutation: MutationType!
+  node: Profile
+  updatedFields: [String!]
+  previousValues: ProfilePreviousValues
+}
+
+input ProfileSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ProfileWhereInput
+  AND: [ProfileSubscriptionWhereInput!]
+  OR: [ProfileSubscriptionWhereInput!]
+  NOT: [ProfileSubscriptionWhereInput!]
+}
+
+input ProfileUpdateInput {
+  postedBy: UserUpdateOneInput
+  feet: Int
+  inches: Int
+  male: Boolean
+}
+
+input ProfileUpdateManyMutationInput {
+  feet: Int
+  inches: Int
+  male: Boolean
+}
+
+input ProfileWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  postedBy: UserWhereInput
+  feet: Int
+  feet_not: Int
+  feet_in: [Int!]
+  feet_not_in: [Int!]
+  feet_lt: Int
+  feet_lte: Int
+  feet_gt: Int
+  feet_gte: Int
+  inches: Int
+  inches_not: Int
+  inches_in: [Int!]
+  inches_not_in: [Int!]
+  inches_lt: Int
+  inches_lte: Int
+  inches_gt: Int
+  inches_gte: Int
+  male: Boolean
+  male_not: Boolean
+  AND: [ProfileWhereInput!]
+  OR: [ProfileWhereInput!]
+  NOT: [ProfileWhereInput!]
+}
+
+input ProfileWhereUniqueInput {
+  id: ID
+}
+
 type Query {
   link(where: LinkWhereUniqueInput!): Link
   links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link]!
   linksConnection(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LinkConnection!
+  profile(where: ProfileWhereUniqueInput!): Profile
+  profiles(where: ProfileWhereInput, orderBy: ProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Profile]!
+  profilesConnection(where: ProfileWhereInput, orderBy: ProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProfileConnection!
   stat(where: StatWhereUniqueInput!): Stat
   stats(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stat]!
   statsConnection(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StatConnection!
@@ -675,6 +807,7 @@ input StatWhereUniqueInput {
 
 type Subscription {
   link(where: LinkSubscriptionWhereInput): LinkSubscriptionPayload
+  profile(where: ProfileSubscriptionWhereInput): ProfileSubscriptionPayload
   stat(where: StatSubscriptionWhereInput): StatSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   vote(where: VoteSubscriptionWhereInput): VoteSubscriptionPayload
@@ -704,6 +837,11 @@ input UserCreateInput {
   links: LinkCreateManyWithoutPostedByInput
   votes: VoteCreateManyWithoutUserInput
   stats: StatCreateManyWithoutPostedByInput
+}
+
+input UserCreateOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreateOneWithoutLinksInput {
@@ -789,6 +927,15 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  name: String
+  email: String
+  password: String
+  links: LinkUpdateManyWithoutPostedByInput
+  votes: VoteUpdateManyWithoutUserInput
+  stats: StatUpdateManyWithoutPostedByInput
+}
+
 input UserUpdateInput {
   name: String
   email: String
@@ -802,6 +949,15 @@ input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
+}
+
+input UserUpdateOneInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
 }
 
 input UserUpdateOneRequiredWithoutVotesInput {
@@ -851,6 +1007,11 @@ input UserUpdateWithoutVotesDataInput {
   password: String
   links: LinkUpdateManyWithoutPostedByInput
   stats: StatUpdateManyWithoutPostedByInput
+}
+
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserUpsertWithoutLinksInput {

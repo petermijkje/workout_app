@@ -33,3 +33,11 @@ type Stat {
   sumopull: Int!
   frontsquat: Int!  
 }
+
+type Profile {
+  id: ID! @id
+  postedBy: User
+  feet: Int!
+  inches: Int!
+  male: Boolean!
+}
