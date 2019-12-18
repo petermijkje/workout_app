@@ -7,6 +7,10 @@ module.exports = {
   count: Int!
 }
 
+type AggregateStat {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -318,6 +322,12 @@ type Mutation {
   upsertLink(where: LinkWhereUniqueInput!, create: LinkCreateInput!, update: LinkUpdateInput!): Link!
   deleteLink(where: LinkWhereUniqueInput!): Link
   deleteManyLinks(where: LinkWhereInput): BatchPayload!
+  createStat(data: StatCreateInput!): Stat!
+  updateStat(data: StatUpdateInput!, where: StatWhereUniqueInput!): Stat
+  updateManyStats(data: StatUpdateManyMutationInput!, where: StatWhereInput): BatchPayload!
+  upsertStat(where: StatWhereUniqueInput!, create: StatCreateInput!, update: StatUpdateInput!): Stat!
+  deleteStat(where: StatWhereUniqueInput!): Stat
+  deleteManyStats(where: StatWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -352,6 +362,9 @@ type Query {
   link(where: LinkWhereUniqueInput!): Link
   links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link]!
   linksConnection(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LinkConnection!
+  stat(where: StatWhereUniqueInput!): Stat
+  stats(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stat]!
+  statsConnection(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): StatConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -361,8 +374,308 @@ type Query {
   node(id: ID!): Node
 }
 
+type Stat {
+  id: ID!
+  postedBy: User
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!
+}
+
+type StatConnection {
+  pageInfo: PageInfo!
+  edges: [StatEdge]!
+  aggregate: AggregateStat!
+}
+
+input StatCreateInput {
+  id: ID
+  postedBy: UserCreateOneWithoutStatsInput
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!
+}
+
+input StatCreateManyWithoutPostedByInput {
+  create: [StatCreateWithoutPostedByInput!]
+  connect: [StatWhereUniqueInput!]
+}
+
+input StatCreateWithoutPostedByInput {
+  id: ID
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!
+}
+
+type StatEdge {
+  node: Stat!
+  cursor: String!
+}
+
+enum StatOrderByInput {
+  id_ASC
+  id_DESC
+  deadlift_ASC
+  deadlift_DESC
+  squat_ASC
+  squat_DESC
+  benchpress_ASC
+  benchpress_DESC
+  shoulderpress_ASC
+  shoulderpress_DESC
+  sumopull_ASC
+  sumopull_DESC
+  frontsquat_ASC
+  frontsquat_DESC
+}
+
+type StatPreviousValues {
+  id: ID!
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!
+}
+
+input StatScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  deadlift: Int
+  deadlift_not: Int
+  deadlift_in: [Int!]
+  deadlift_not_in: [Int!]
+  deadlift_lt: Int
+  deadlift_lte: Int
+  deadlift_gt: Int
+  deadlift_gte: Int
+  squat: Int
+  squat_not: Int
+  squat_in: [Int!]
+  squat_not_in: [Int!]
+  squat_lt: Int
+  squat_lte: Int
+  squat_gt: Int
+  squat_gte: Int
+  benchpress: Int
+  benchpress_not: Int
+  benchpress_in: [Int!]
+  benchpress_not_in: [Int!]
+  benchpress_lt: Int
+  benchpress_lte: Int
+  benchpress_gt: Int
+  benchpress_gte: Int
+  shoulderpress: Int
+  shoulderpress_not: Int
+  shoulderpress_in: [Int!]
+  shoulderpress_not_in: [Int!]
+  shoulderpress_lt: Int
+  shoulderpress_lte: Int
+  shoulderpress_gt: Int
+  shoulderpress_gte: Int
+  sumopull: Int
+  sumopull_not: Int
+  sumopull_in: [Int!]
+  sumopull_not_in: [Int!]
+  sumopull_lt: Int
+  sumopull_lte: Int
+  sumopull_gt: Int
+  sumopull_gte: Int
+  frontsquat: Int
+  frontsquat_not: Int
+  frontsquat_in: [Int!]
+  frontsquat_not_in: [Int!]
+  frontsquat_lt: Int
+  frontsquat_lte: Int
+  frontsquat_gt: Int
+  frontsquat_gte: Int
+  AND: [StatScalarWhereInput!]
+  OR: [StatScalarWhereInput!]
+  NOT: [StatScalarWhereInput!]
+}
+
+type StatSubscriptionPayload {
+  mutation: MutationType!
+  node: Stat
+  updatedFields: [String!]
+  previousValues: StatPreviousValues
+}
+
+input StatSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: StatWhereInput
+  AND: [StatSubscriptionWhereInput!]
+  OR: [StatSubscriptionWhereInput!]
+  NOT: [StatSubscriptionWhereInput!]
+}
+
+input StatUpdateInput {
+  postedBy: UserUpdateOneWithoutStatsInput
+  deadlift: Int
+  squat: Int
+  benchpress: Int
+  shoulderpress: Int
+  sumopull: Int
+  frontsquat: Int
+}
+
+input StatUpdateManyDataInput {
+  deadlift: Int
+  squat: Int
+  benchpress: Int
+  shoulderpress: Int
+  sumopull: Int
+  frontsquat: Int
+}
+
+input StatUpdateManyMutationInput {
+  deadlift: Int
+  squat: Int
+  benchpress: Int
+  shoulderpress: Int
+  sumopull: Int
+  frontsquat: Int
+}
+
+input StatUpdateManyWithoutPostedByInput {
+  create: [StatCreateWithoutPostedByInput!]
+  delete: [StatWhereUniqueInput!]
+  connect: [StatWhereUniqueInput!]
+  set: [StatWhereUniqueInput!]
+  disconnect: [StatWhereUniqueInput!]
+  update: [StatUpdateWithWhereUniqueWithoutPostedByInput!]
+  upsert: [StatUpsertWithWhereUniqueWithoutPostedByInput!]
+  deleteMany: [StatScalarWhereInput!]
+  updateMany: [StatUpdateManyWithWhereNestedInput!]
+}
+
+input StatUpdateManyWithWhereNestedInput {
+  where: StatScalarWhereInput!
+  data: StatUpdateManyDataInput!
+}
+
+input StatUpdateWithoutPostedByDataInput {
+  deadlift: Int
+  squat: Int
+  benchpress: Int
+  shoulderpress: Int
+  sumopull: Int
+  frontsquat: Int
+}
+
+input StatUpdateWithWhereUniqueWithoutPostedByInput {
+  where: StatWhereUniqueInput!
+  data: StatUpdateWithoutPostedByDataInput!
+}
+
+input StatUpsertWithWhereUniqueWithoutPostedByInput {
+  where: StatWhereUniqueInput!
+  update: StatUpdateWithoutPostedByDataInput!
+  create: StatCreateWithoutPostedByInput!
+}
+
+input StatWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  postedBy: UserWhereInput
+  deadlift: Int
+  deadlift_not: Int
+  deadlift_in: [Int!]
+  deadlift_not_in: [Int!]
+  deadlift_lt: Int
+  deadlift_lte: Int
+  deadlift_gt: Int
+  deadlift_gte: Int
+  squat: Int
+  squat_not: Int
+  squat_in: [Int!]
+  squat_not_in: [Int!]
+  squat_lt: Int
+  squat_lte: Int
+  squat_gt: Int
+  squat_gte: Int
+  benchpress: Int
+  benchpress_not: Int
+  benchpress_in: [Int!]
+  benchpress_not_in: [Int!]
+  benchpress_lt: Int
+  benchpress_lte: Int
+  benchpress_gt: Int
+  benchpress_gte: Int
+  shoulderpress: Int
+  shoulderpress_not: Int
+  shoulderpress_in: [Int!]
+  shoulderpress_not_in: [Int!]
+  shoulderpress_lt: Int
+  shoulderpress_lte: Int
+  shoulderpress_gt: Int
+  shoulderpress_gte: Int
+  sumopull: Int
+  sumopull_not: Int
+  sumopull_in: [Int!]
+  sumopull_not_in: [Int!]
+  sumopull_lt: Int
+  sumopull_lte: Int
+  sumopull_gt: Int
+  sumopull_gte: Int
+  frontsquat: Int
+  frontsquat_not: Int
+  frontsquat_in: [Int!]
+  frontsquat_not_in: [Int!]
+  frontsquat_lt: Int
+  frontsquat_lte: Int
+  frontsquat_gt: Int
+  frontsquat_gte: Int
+  AND: [StatWhereInput!]
+  OR: [StatWhereInput!]
+  NOT: [StatWhereInput!]
+}
+
+input StatWhereUniqueInput {
+  id: ID
+}
+
 type Subscription {
   link(where: LinkSubscriptionWhereInput): LinkSubscriptionPayload
+  stat(where: StatSubscriptionWhereInput): StatSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   vote(where: VoteSubscriptionWhereInput): VoteSubscriptionPayload
 }
@@ -374,6 +687,7 @@ type User {
   password: String!
   links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link!]
   votes(where: VoteWhereInput, orderBy: VoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Vote!]
+  stats(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stat!]
 }
 
 type UserConnection {
@@ -389,10 +703,16 @@ input UserCreateInput {
   password: String!
   links: LinkCreateManyWithoutPostedByInput
   votes: VoteCreateManyWithoutUserInput
+  stats: StatCreateManyWithoutPostedByInput
 }
 
 input UserCreateOneWithoutLinksInput {
   create: UserCreateWithoutLinksInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutStatsInput {
+  create: UserCreateWithoutStatsInput
   connect: UserWhereUniqueInput
 }
 
@@ -407,6 +727,16 @@ input UserCreateWithoutLinksInput {
   email: String!
   password: String!
   votes: VoteCreateManyWithoutUserInput
+  stats: StatCreateManyWithoutPostedByInput
+}
+
+input UserCreateWithoutStatsInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  links: LinkCreateManyWithoutPostedByInput
+  votes: VoteCreateManyWithoutUserInput
 }
 
 input UserCreateWithoutVotesInput {
@@ -415,6 +745,7 @@ input UserCreateWithoutVotesInput {
   email: String!
   password: String!
   links: LinkCreateManyWithoutPostedByInput
+  stats: StatCreateManyWithoutPostedByInput
 }
 
 type UserEdge {
@@ -464,6 +795,7 @@ input UserUpdateInput {
   password: String
   links: LinkUpdateManyWithoutPostedByInput
   votes: VoteUpdateManyWithoutUserInput
+  stats: StatUpdateManyWithoutPostedByInput
 }
 
 input UserUpdateManyMutationInput {
@@ -488,10 +820,28 @@ input UserUpdateOneWithoutLinksInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdateOneWithoutStatsInput {
+  create: UserCreateWithoutStatsInput
+  update: UserUpdateWithoutStatsDataInput
+  upsert: UserUpsertWithoutStatsInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserWhereUniqueInput
+}
+
 input UserUpdateWithoutLinksDataInput {
   name: String
   email: String
   password: String
+  votes: VoteUpdateManyWithoutUserInput
+  stats: StatUpdateManyWithoutPostedByInput
+}
+
+input UserUpdateWithoutStatsDataInput {
+  name: String
+  email: String
+  password: String
+  links: LinkUpdateManyWithoutPostedByInput
   votes: VoteUpdateManyWithoutUserInput
 }
 
@@ -500,11 +850,17 @@ input UserUpdateWithoutVotesDataInput {
   email: String
   password: String
   links: LinkUpdateManyWithoutPostedByInput
+  stats: StatUpdateManyWithoutPostedByInput
 }
 
 input UserUpsertWithoutLinksInput {
   update: UserUpdateWithoutLinksDataInput!
   create: UserCreateWithoutLinksInput!
+}
+
+input UserUpsertWithoutStatsInput {
+  update: UserUpdateWithoutStatsDataInput!
+  create: UserCreateWithoutStatsInput!
 }
 
 input UserUpsertWithoutVotesInput {
@@ -575,6 +931,9 @@ input UserWhereInput {
   votes_every: VoteWhereInput
   votes_some: VoteWhereInput
   votes_none: VoteWhereInput
+  stats_every: StatWhereInput
+  stats_some: StatWhereInput
+  stats_none: StatWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

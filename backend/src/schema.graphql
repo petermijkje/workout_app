@@ -31,3 +31,14 @@ type User {
 type Subscription {
   newLink: Link
 }
+
+type Stat {
+  id: ID!
+  postedBy: User
+  deadlift: Int!
+  squat: Int!
+  benchpress: Int!
+  shoulderpress: Int!
+  sumopull: Int!
+  frontsquat: Int!
+}  
