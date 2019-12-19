@@ -1,9 +1,10 @@
 type Query {
   info: String!
-  feed: [Stat!]!
+  feed: [Link!]!
 }
 
 type Mutation {
+  stats(deadlift: Int!, squat: Int!, benchpress: Int!, shoulderpress: Int!, sumopull: Int!, frontsquat: Int!): Stat!
   post(url: String!, description: String!): Link!
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
@@ -26,6 +27,8 @@ type User {
   name: String!
   email: String!
   links: [Link!]!
+  stats: [Stat!]!
+  profiles: [Profile!]!
 }
 
 type Subscription {
@@ -42,3 +45,12 @@ type Stat {
   sumopull: Int!
   frontsquat: Int!
 }  
+
+type Profile {
+  id: ID!
+  postedBy: User
+  inches: Int!
+  feet: Int!
+  male: Boolean!
+  weight: Int!
+}

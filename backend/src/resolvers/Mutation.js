@@ -9,7 +9,20 @@ function post(parent, args, context, info) {
       description: args.description,
       postedBy: { connect: { id: userId } },
     })
-  }
+}
+
+function stats(parent, args, context, info) {
+  const userId = getUserId(context)
+  return context.prisma.createStat({
+    deadlift: args.deadlift,
+    squat: args.squat,
+    benchpress: args.benchpress,
+    shoulderpress: args.shoulderpress,
+    sumopull: args.sumopull,
+    frontsquat: args.frontsquat,
+    postedBy: { connect: { id: userId } },
+  })
+}
 
 async function signup(parent, args, context, info) {
     // 1
@@ -43,21 +56,10 @@ async function login(parent, args, context, info) {
       user,
     }
 }
-
-// async function changepassword(parent, args, context, info) {
-//   // wait for user
-//   const user = await context.prisma.user({ email: args.email })
-//   if (!user) {
-//     throw new Error('No such user found')
-//   }
-//   const valid = await bcrypt.compare(args.password, user.password)
-//   if (!valid){
-//     throw new Error('Invalid password')
-//   }
-// }
   
 module.exports = {
     signup,
     login,
     post,
+    stats,
 }
