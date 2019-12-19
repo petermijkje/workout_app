@@ -7,6 +7,7 @@ import Clock from '../../src/Components/Time/Clock/Clock.js'
 import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
 import Chart from './MainChart/Chart'
 import Header from './Header/Header'
+import Profile from './Profile/Profile'
 
 class HomePage extends React.Component {
     constructor(){
@@ -32,7 +33,8 @@ render (){
       return (
         <div className="App">
           <Header />
-          <Chart />  
+          <Chart /> 
+          <Profile />
           <Clock />
           <CreateYourProfile />
           <Accordion>
