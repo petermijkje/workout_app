@@ -1,6 +1,5 @@
 import React from 'react'
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import './Header.css'
 import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
