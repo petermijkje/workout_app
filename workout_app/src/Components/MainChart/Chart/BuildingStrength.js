@@ -31,36 +31,36 @@ export default class BuildingStrength extends PureComponent {
       <Query query={LIFT_QUERY}>
         {({ loading, error, data}) =>{
           const infoToRender = data.feed
-          const deadliftInitial = infoToRender[0].deadlift
-          const squatInitial = infoToRender[0].squat
-          const benchpressInitial = infoToRender[0].benchpress
-          const shoulderpressInitial = infoToRender[0].shoulderpress
-          const frontsquatInitial = infoToRender[0].frontsquat
+          const squatNow = infoToRender[0].squat
+          const deadliftNow = infoToRender[0].deadlift
+          const benchpressNow = infoToRender[0].benchpress
+          const shoulderpressNow = infoToRender[0].shoulderpress
+          const frontsquatNow = infoToRender[0].frontsquat
           const info = [
             {
               "name": "Squat",
               "Initial": 135,
-              "Now": squatInitial,
+              "Now": squatNow,
             },
             {
               "name": "Deadlift",
               "Initial": 190,
-              "Now": deadliftInitial,
+              "Now": deadliftNow,
             },
             {
               "name": "Bench Press",
               "Initial": 200,
-              "Now": benchpressInitial,
+              "Now": benchpressNow,
             },
             {
               "name": "Shoulder Press",
               "Initial": 45,
-              "Now": shoulderpressInitial,
+              "Now": shoulderpressNow,
             },
             {
               "name": "Front Squat ",
               "Initial": 110,
-              "Now": frontsquatInitial,
+              "Now": frontsquatNow,
             },
           ]
 
