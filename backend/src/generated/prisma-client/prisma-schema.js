@@ -375,6 +375,7 @@ type Profile {
   inches: Int!
   male: Boolean!
   weight: Int!
+  createdAt: String!
 }
 
 type ProfileConnection {
@@ -421,6 +422,8 @@ enum ProfileOrderByInput {
   male_DESC
   weight_ASC
   weight_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type ProfilePreviousValues {
@@ -429,6 +432,7 @@ type ProfilePreviousValues {
   inches: Int!
   male: Boolean!
   weight: Int!
+  createdAt: String!
 }
 
 input ProfileScalarWhereInput {
@@ -472,6 +476,20 @@ input ProfileScalarWhereInput {
   weight_lte: Int
   weight_gt: Int
   weight_gte: Int
+  createdAt: String
+  createdAt_not: String
+  createdAt_in: [String!]
+  createdAt_not_in: [String!]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt_contains: String
+  createdAt_not_contains: String
+  createdAt_starts_with: String
+  createdAt_not_starts_with: String
+  createdAt_ends_with: String
+  createdAt_not_ends_with: String
   AND: [ProfileScalarWhereInput!]
   OR: [ProfileScalarWhereInput!]
   NOT: [ProfileScalarWhereInput!]
@@ -594,6 +612,20 @@ input ProfileWhereInput {
   weight_lte: Int
   weight_gt: Int
   weight_gte: Int
+  createdAt: String
+  createdAt_not: String
+  createdAt_in: [String!]
+  createdAt_not_in: [String!]
+  createdAt_lt: String
+  createdAt_lte: String
+  createdAt_gt: String
+  createdAt_gte: String
+  createdAt_contains: String
+  createdAt_not_contains: String
+  createdAt_starts_with: String
+  createdAt_not_starts_with: String
+  createdAt_ends_with: String
+  createdAt_not_ends_with: String
   AND: [ProfileWhereInput!]
   OR: [ProfileWhereInput!]
   NOT: [ProfileWhereInput!]
