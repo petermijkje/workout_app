@@ -291,7 +291,9 @@ export type ProfileOrderByInput =
   | "male_ASC"
   | "male_DESC"
   | "weight_ASC"
-  | "weight_DESC";
+  | "weight_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -578,6 +580,20 @@ export interface ProfileWhereInput {
   weight_lte?: Maybe<Int>;
   weight_gt?: Maybe<Int>;
   weight_gte?: Maybe<Int>;
+  createdAt?: Maybe<String>;
+  createdAt_not?: Maybe<String>;
+  createdAt_in?: Maybe<String[] | String>;
+  createdAt_not_in?: Maybe<String[] | String>;
+  createdAt_lt?: Maybe<String>;
+  createdAt_lte?: Maybe<String>;
+  createdAt_gt?: Maybe<String>;
+  createdAt_gte?: Maybe<String>;
+  createdAt_contains?: Maybe<String>;
+  createdAt_not_contains?: Maybe<String>;
+  createdAt_starts_with?: Maybe<String>;
+  createdAt_not_starts_with?: Maybe<String>;
+  createdAt_ends_with?: Maybe<String>;
+  createdAt_not_ends_with?: Maybe<String>;
   AND?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
   OR?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
   NOT?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
@@ -1102,6 +1118,20 @@ export interface ProfileScalarWhereInput {
   weight_lte?: Maybe<Int>;
   weight_gt?: Maybe<Int>;
   weight_gte?: Maybe<Int>;
+  createdAt?: Maybe<String>;
+  createdAt_not?: Maybe<String>;
+  createdAt_in?: Maybe<String[] | String>;
+  createdAt_not_in?: Maybe<String[] | String>;
+  createdAt_lt?: Maybe<String>;
+  createdAt_lte?: Maybe<String>;
+  createdAt_gt?: Maybe<String>;
+  createdAt_gte?: Maybe<String>;
+  createdAt_contains?: Maybe<String>;
+  createdAt_not_contains?: Maybe<String>;
+  createdAt_starts_with?: Maybe<String>;
+  createdAt_not_starts_with?: Maybe<String>;
+  createdAt_ends_with?: Maybe<String>;
+  createdAt_not_ends_with?: Maybe<String>;
   AND?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
   OR?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
   NOT?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
@@ -1753,6 +1783,7 @@ export interface Profile {
   inches: Int;
   male: Boolean;
   weight: Int;
+  createdAt: String;
 }
 
 export interface ProfilePromise extends Promise<Profile>, Fragmentable {
@@ -1762,6 +1793,7 @@ export interface ProfilePromise extends Promise<Profile>, Fragmentable {
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
+  createdAt: () => Promise<String>;
 }
 
 export interface ProfileSubscription
@@ -1773,6 +1805,7 @@ export interface ProfileSubscription
   inches: () => Promise<AsyncIterator<Int>>;
   male: () => Promise<AsyncIterator<Boolean>>;
   weight: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ProfileNullablePromise
@@ -1784,6 +1817,7 @@ export interface ProfileNullablePromise
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
+  createdAt: () => Promise<String>;
 }
 
 export interface LinkConnection {
@@ -2176,6 +2210,7 @@ export interface ProfilePreviousValues {
   inches: Int;
   male: Boolean;
   weight: Int;
+  createdAt: String;
 }
 
 export interface ProfilePreviousValuesPromise
@@ -2186,6 +2221,7 @@ export interface ProfilePreviousValuesPromise
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
+  createdAt: () => Promise<String>;
 }
 
 export interface ProfilePreviousValuesSubscription
@@ -2196,6 +2232,7 @@ export interface ProfilePreviousValuesSubscription
   inches: () => Promise<AsyncIterator<Int>>;
   male: () => Promise<AsyncIterator<Boolean>>;
   weight: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StatSubscriptionPayload {
