@@ -39,7 +39,7 @@ class Reps extends Component {
     render() { 
         return (
             <div className="rep__div">
-                {this.chooseRepetitions()}
+                {this.chooseRepetitions('strength')}
             </div>
           );
     }

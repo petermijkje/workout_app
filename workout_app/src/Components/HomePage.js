@@ -8,6 +8,9 @@ import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/Cre
 import Chart from './MainChart/Chart'
 import Header from './Header/Header'
 import Profile from './Profile/Profile'
+import ExercisesOfTheDay from './Plan/ExercisesOfTheDay';
+import StatisticsForCharts from './MainChart/StatisticsForCharts';
+import './homepage.css'
 
 class HomePage extends React.Component {
     constructor(){
@@ -31,11 +34,18 @@ render (){
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
-        <div className="App">
+        <div>
           <Header />
           <div className="flex__container">
-            <Chart />
-            
+              <Chart 
+              className="flex__item" 
+              />
+              <StatisticsForCharts 
+              className="flex__item" 
+              />
+              <ExercisesOfTheDay 
+              className="flex__item" 
+              />
           </div> 
           <Profile />
           <Clock />
