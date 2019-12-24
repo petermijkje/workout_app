@@ -1,15 +1,18 @@
 import React from 'react';
 import { Button, Accordion, Card } from 'react-bootstrap'
-import '../App.css';
+
+//components
 import SignIn from './SignIn/SignIn.js'
-import TwelveWeeks from '../../src/Components/Plan/TwelveWeeks.js'
-import Clock from '../../src/Components/Time/Clock/Clock.js'
-import CreateYourProfile from '../../src/Components/SignUp/CreateYourProfile/CreateYourProfile.js'
+import TwelveWeeks from './Plan/TwelveWeeks.js'
+import Clock from './Time/Clock/Clock.js'
+import CreateYourProfile from './SignUp/CreateYourProfile/CreateYourProfile.js'
 import Chart from './MainChart/Chart'
 import Header from './Header/Header'
 import Profile from './Profile/Profile'
 import ExercisesOfTheDay from './Plan/ExercisesOfTheDay';
 import StatisticsForCharts from './MainChart/StatisticsForCharts';
+
+//CSS
 import './homepage.css'
 
 class HomePage extends React.Component {

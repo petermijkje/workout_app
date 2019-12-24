@@ -19,8 +19,8 @@ class ExercisesOfTheDay extends Component {
         <div 
           key={days[day].id}
         >
-          {days[day].day}
           <div className="day__of__exercise__div">
+          {days[day].day}
             <Day />
             <Reps />
             <Day />
