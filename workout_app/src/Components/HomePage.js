@@ -33,7 +33,10 @@ render (){
       return (
         <div className="App">
           <Header />
-          <Chart /> 
+          <div className="flex__container">
+            <Chart />
+            
+          </div> 
           <Profile />
           <Clock />
           <CreateYourProfile />
