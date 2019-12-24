@@ -68,7 +68,7 @@ export default class BuildingStrength extends PureComponent {
           if (error) return <div>Error</div>
         
           return (
-            <div><BarChart width={600} height={500} data={info}>
+            <div><BarChart width={400} height={500} data={info}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis  />
