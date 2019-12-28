@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class EnterGoal extends Component {
-    state = {  }
-    render() { 
-        return (  
-            <div>
-                
-            </div>
-        );
-    }
+  state = {}
+  render() {
+    return <div></div>
+  }
 }
- 
-export default EnterGoal;
+
+export default EnterGoal

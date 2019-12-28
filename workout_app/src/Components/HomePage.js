@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Button, Accordion, Card } from 'react-bootstrap'
 
 //components
@@ -9,47 +9,41 @@ import CreateYourProfile from './SignUp/CreateYourProfile/CreateYourProfile.js'
 import Chart from './MainChart/Chart'
 import Header from './Header/Header'
 import Profile from './Profile/Profile'
-import ExercisesOfTheDay from './Plan/ExercisesOfTheDay';
-import StatisticsForCharts from './MainChart/StatisticsForCharts';
+import ExercisesOfTheDay from './Plan/ExercisesOfTheDay'
+import StatisticsForCharts from './MainChart/StatisticsForCharts'
 
 //CSS
 import './homepage.css'
 
 class HomePage extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            isLoggedIn: true,
-        }
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  constructor() {
+    super()
+    this.state = {
+      isLoggedIn: true
     }
+    this.handleLoginClick = this.handleLoginClick.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
+  }
 
-    handleLogoutClick() {
-        this.setState({isLoggedIn: false});
-      }
+  handleLogoutClick() {
+    this.setState({ isLoggedIn: false })
+  }
 
-    handleLoginClick() {
-        this.setState({isLoggedIn: true})
-    }  
+  handleLoginClick() {
+    this.setState({ isLoggedIn: true })
+  }
 
-render (){
+  render() {
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
         <div>
           <Header />
           <div className="flex__container">
-              <Chart 
-              className="flex__item" 
-              />
-              <StatisticsForCharts 
-              className="flex__item" 
-              />
-              <ExercisesOfTheDay 
-              className="flex__item" 
-              />
-          </div> 
+            <Chart className="flex__item" />
+            <StatisticsForCharts className="flex__item" />
+            <ExercisesOfTheDay className="flex__item" />
+          </div>
           <Profile />
           <Clock />
           <CreateYourProfile />
@@ -63,19 +57,26 @@ render (){
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
                   <TwelveWeeks />
-                  <Button onClick={this.handleLogoutClick} color="secondary" size="lg">Click here to logout</Button>
+                  <Button
+                    onClick={this.handleLogoutClick}
+                    color="secondary"
+                    size="lg"
+                  >
+                    Click here to logout
+                  </Button>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
           </Accordion>
         </div>
       )
-    } else return (
+    } else
+      return (
         <div>
-           <SignIn />
+          <SignIn />
         </div>
-    );
+      )
   }
 }
 
-export default HomePage;
+export default HomePage

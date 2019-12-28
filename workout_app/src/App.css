@@ -7,7 +7,7 @@ html {
   background-repeat: no-repeat;
   background-color: black;
   opacity: 0.9;
-  filter: grayscale(30%)
+  filter: grayscale(30%);
 }
 
 .App {
@@ -15,12 +15,12 @@ html {
   /* background: linear-gradient( #00d2ff 0%, #3a47d5 100%); */
 }
 
-.navbar__ul{
+.navbar__ul {
   margin: 0;
   padding-inline-start: 0px;
 }
 
-.navbar{
+.navbar {
   margin: 0;
   list-style-type: none;
 }
