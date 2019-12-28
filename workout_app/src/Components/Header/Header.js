@@ -2,7 +2,6 @@ import React from 'react'
 import { Component } from 'react'
 import { Nav } from 'react-bootstrap'
 import './Header.css'
-import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
 import { 
   Calendar,
   Activity,
@@ -11,6 +10,9 @@ import {
   LogOut,
   User
 } from 'react-feather'
+
+//Components
+import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
 
 class Header extends Component {
     state = {  }
