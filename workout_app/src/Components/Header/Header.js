@@ -3,6 +3,14 @@ import { Component } from 'react'
 import { Nav } from 'react-bootstrap'
 import './Header.css'
 import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
+import { 
+  Calendar,
+  Activity,
+  Home,
+  Settings,
+  LogOut,
+  User
+} from 'react-feather'
 
 class Header extends Component {
     state = {  }
@@ -11,22 +19,22 @@ class Header extends Component {
             <div className="header__div">
               <Nav className="justify-content-end" activeKey="/home">
                   <Nav.Item>
-                    <Nav.Link href="/home" >Home</Nav.Link>
+                    <Nav.Link href="/home" >Home <Home/></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-2" href="/Today" >Today</Nav.Link>
+                    <Nav.Link eventKey="link-2" href="/Today" >Today <Activity /></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-2" href="/month" component={TwelveWeeks}>This Month</Nav.Link>
+                    <Nav.Link eventKey="link-2" href="/month" component={TwelveWeeks}>This Month <Calendar /></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-1" href="/profile" >Profile</Nav.Link>
+                    <Nav.Link eventKey="link-1" href="/profile" >Profile <User /></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-2" href="/Settings" >Settings</Nav.Link>
+                    <Nav.Link eventKey="link-2" href="/Settings" >Settings <Settings /></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="link-2" href="/Logout" >Logout</Nav.Link>
+                    <Nav.Link eventKey="link-2" href="/Logout" >Logout <LogOut /></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="disabled" disabled>Disabled</Nav.Link>
