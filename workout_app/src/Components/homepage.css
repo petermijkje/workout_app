@@ -15,21 +15,21 @@
     width: 50%;
 } */
 
-.flex__container{
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-evenly;
+.flex__container {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
-.flex__item{
-    height: 200px;
-    width: 200px;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-    flex-wrap: wrap;
+.flex__item {
+  height: 200px;
+  width: 200px;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  flex-wrap: wrap;
 }
