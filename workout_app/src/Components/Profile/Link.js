@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class Link extends Component {
   render() {
@@ -13,8 +13,8 @@ class Link extends Component {
           {/* <span>{this.props.link.frontsquat} </span> */}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Link
+export default Link;

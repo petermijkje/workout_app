@@ -1,7 +1,7 @@
 function feed(parent, args, context, info) {
-    return context.prisma.links()
-  }
-  
-  module.exports = {
-    showstats,
-  }
+  return context.prisma.links();
+}
+
+module.exports = {
+  showstats
+};
