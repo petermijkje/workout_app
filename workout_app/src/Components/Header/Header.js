@@ -1,21 +1,14 @@
-import React from "react";
-import { Component } from "react";
-import { Nav } from "react-bootstrap";
-import "./Header.css";
-import {
-  Calendar,
-  Activity,
-  Home,
-  Settings,
-  LogOut,
-  User
-} from "react-feather";
+import React from 'react'
+import { Component } from 'react'
+import { Nav } from 'react-bootstrap'
+import './Header.css'
+import { Calendar, Activity, Home, Settings, LogOut, User } from 'react-feather'
 
 //Components
-import TwelveWeeks from "../../Components/Plan/TwelveWeeks.js";
+import TwelveWeeks from '../../Components/Plan/TwelveWeeks.js'
 
 class Header extends Component {
-  state = {};
+  state = {}
   render() {
     return (
       <div className="header__div">
@@ -57,8 +50,8 @@ class Header extends Component {
           </Nav.Item>
         </Nav>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

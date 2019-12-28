@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import "../../../src/Components/Plan/twelveweeks.css";
-import Day from "./PlanComponents/Day.js";
-import Reps from "./PlanComponents/Reps.js";
+import React, { Component } from 'react'
+import '../../../src/Components/Plan/twelveweeks.css'
+import Day from './PlanComponents/Day.js'
+import Reps from './PlanComponents/Reps.js'
 
 class ExercisesOfTheDay extends Component {
   constructor() {
-    super();
-    this.state = {};
+    super()
+    this.state = {}
   }
 
   createPlan = () => {
-    const days = [{ id: 1, day: "Day 1" }];
+    const days = [{ id: 1, day: 'Day 1' }]
 
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
@@ -24,9 +24,9 @@ class ExercisesOfTheDay extends Component {
           <Reps />
         </div>
       </div>
-    ));
-    return listDays;
-  };
+    ))
+    return listDays
+  }
 
   render() {
     return (
@@ -34,8 +34,8 @@ class ExercisesOfTheDay extends Component {
         {this.createPlan()}
         <br />
       </div>
-    );
+    )
   }
 }
 
-export default ExercisesOfTheDay;
+export default ExercisesOfTheDay

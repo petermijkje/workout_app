@@ -1,14 +1,14 @@
-import React from "react";
-import { PieChart, Pie, Cell } from "recharts";
-import "./BodyPercentageChart.css";
+import React from 'react'
+import { PieChart, Pie, Cell } from 'recharts'
+import './BodyPercentageChart.css'
 
 const data = [
-  { name: "Group A", value: 400 }, //33.33%
-  { name: "Group B", value: 300 }, //25%
-  { name: "Group C", value: 300 }, //25%
-  { name: "Group D", value: 200 } //16.67
-];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  { name: 'Group A', value: 400 }, //33.33%
+  { name: 'Group B', value: 300 }, //25%
+  { name: 'Group C', value: 300 }, //25%
+  { name: 'Group D', value: 200 } //16.67
+]
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
 class BodyPercentageChart extends React.Component {
   render() {
@@ -31,8 +31,8 @@ class BodyPercentageChart extends React.Component {
         </PieChart>
         These are your results. <br />
       </div>
-    );
+    )
   }
 }
 
-export default BodyPercentageChart;
+export default BodyPercentageChart

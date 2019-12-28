@@ -1,77 +1,77 @@
-import React, { Component } from "react";
-import { FormGroup, Label, Input, Button } from "reactstrap";
+import React, { Component } from 'react'
+import { FormGroup, Label, Input, Button } from 'reactstrap'
 
 export default class CreateYourProfile extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      age: "",
+      age: '',
       male: true,
-      inches: "",
-      pounds: "",
-      value: "select",
+      inches: '',
+      pounds: '',
+      value: 'select',
       activity: 0,
-      goal: ""
-    };
-    this.handleChangeAge = this.handleChangeAge.bind(this);
-    this.handleChangeHeight = this.handleChangeHeight.bind(this);
-    this.handleChangeWeight = this.handleChangeWeight.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleToggleClick = this.handleToggleClick.bind(this);
-    this.handleChangeGoal = this.handleChangeGoal.bind(this);
+      goal: ''
+    }
+    this.handleChangeAge = this.handleChangeAge.bind(this)
+    this.handleChangeHeight = this.handleChangeHeight.bind(this)
+    this.handleChangeWeight = this.handleChangeWeight.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleToggleClick = this.handleToggleClick.bind(this)
+    this.handleChangeGoal = this.handleChangeGoal.bind(this)
   }
   // male and female harris benedict equation functions (original equation)
   getBasalMetabolicRateMale = () => {
     //Men BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
-    const { pounds, inches, age } = this.state;
-    let basalMetabolicRate = 0;
-    basalMetabolicRate += 66 + 6.2 * pounds + 12.7 * inches - 6.76 * age;
-    return Math.round(basalMetabolicRate);
-  };
+    const { pounds, inches, age } = this.state
+    let basalMetabolicRate = 0
+    basalMetabolicRate += 66 + 6.2 * pounds + 12.7 * inches - 6.76 * age
+    return Math.round(basalMetabolicRate)
+  }
 
   getBasalMetabolicRateWoman = () => {
     //Women BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years )
-    const { pounds, inches, age } = this.state;
-    let basalMetabolicRate = 0;
-    basalMetabolicRate += 655.1 + 4.35 * pounds + 4.7 * inches - 4.7 * age;
-    return Math.round(basalMetabolicRate);
-  };
+    const { pounds, inches, age } = this.state
+    let basalMetabolicRate = 0
+    basalMetabolicRate += 655.1 + 4.35 * pounds + 4.7 * inches - 4.7 * age
+    return Math.round(basalMetabolicRate)
+  }
 
   // handle changes functions
   handleToggleClick() {
     this.setState(state => ({
       male: !state.male
-    }));
+    }))
   }
 
   handleChangeAge(event) {
     this.setState({
       age: event.target.value
-    });
+    })
   }
 
   handleChangeHeight(event) {
     this.setState({
       inches: event.target.value
-    });
+    })
   }
 
   handleChangeWeight(event) {
     this.setState({
       pounds: event.target.value
-    });
+    })
   }
 
   activityHandleChange(e) {
     this.setState({
       activity: e.target.value
-    });
+    })
   }
 
   handleChangeGoal(event) {
     this.setState({
       goal: event.target.value
-    });
+    })
   }
 
   handleSubmit(event) {
@@ -82,12 +82,12 @@ export default class CreateYourProfile extends Component {
         this.state.inches +
         `current weight:` +
         this.state.pounds
-    );
-    event.preventDefault();
+    )
+    event.preventDefault()
   }
   //toggles between male and female if you click button
   render() {
-    const male = this.state.male;
+    const male = this.state.male
     if (male) {
       return (
         <div>
@@ -152,17 +152,17 @@ export default class CreateYourProfile extends Component {
               <option>Endurance</option>
             </Input>
           </FormGroup>
-          Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE:{" "}
+          Basal Metabolic Rate: <b>{this.getBasalMetabolicRateMale()}</b> TDEE:{' '}
           <b>
             {Math.round(this.getBasalMetabolicRateMale() * this.state.activity)}
           </b>
         </div>
-      );
+      )
     } else
       return (
         <div>
           <Button
-            style={{ backgroundColor: "pink" }}
+            style={{ backgroundColor: 'pink' }}
             outline
             color="secondary"
             onClick={this.handleToggleClick}
@@ -227,13 +227,13 @@ export default class CreateYourProfile extends Component {
               <option>Endurance</option>
             </Input>
           </FormGroup>
-          Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE:{" "}
+          Basal Metabolic Rate: <b>{this.getBasalMetabolicRateWoman()}</b> TDEE:{' '}
           <b>
             {Math.round(
               this.getBasalMetabolicRateWoman() * this.state.activity
             )}
           </b>
         </div>
-      );
+      )
   }
 }

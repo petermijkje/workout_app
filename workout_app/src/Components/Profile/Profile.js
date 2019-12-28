@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
-import { Button } from "react-bootstrap";
-import "./profile.css";
-import Link from "./Link";
+import React, { Component } from 'react'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+import { Button } from 'react-bootstrap'
+import './profile.css'
+import Link from './Link'
 
 const LIFT_QUERY = gql`
   {
@@ -17,19 +17,19 @@ const LIFT_QUERY = gql`
       benchpress
     }
   }
-`;
+`
 
 class Profile extends Component {
-  state = {};
+  state = {}
   render() {
     return (
       <div>
         <Query query={LIFT_QUERY}>
           {({ loading, error, data }) => {
-            if (loading) return <div>Fetching</div>;
-            if (error) return <div>Error</div>;
+            if (loading) return <div>Fetching</div>
+            if (error) return <div>Error</div>
 
-            const linksToRender = data.feed;
+            const linksToRender = data.feed
 
             return (
               <div>
@@ -37,7 +37,7 @@ class Profile extends Component {
                   <Link key={link.id} link={link} />
                 ))}
               </div>
-            );
+            )
           }}
         </Query>
         <div className="lift__input__div">
@@ -66,8 +66,8 @@ class Profile extends Component {
           <Button>Press to Save </Button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Profile;
+export default Profile

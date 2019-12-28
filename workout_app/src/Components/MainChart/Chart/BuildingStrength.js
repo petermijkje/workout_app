@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import React, { PureComponent } from 'react'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
 import {
   BarChart,
   CartesianGrid,
@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
   Bar
-} from "recharts";
+} from 'recharts'
 
 const LIFT_QUERY = gql`
   {
@@ -23,49 +23,49 @@ const LIFT_QUERY = gql`
       benchpress
     }
   }
-`;
+`
 
 export default class BuildingStrength extends PureComponent {
   render() {
     return (
       <Query query={LIFT_QUERY}>
         {({ loading, error, data }) => {
-          const infoToRender = data.feed;
-          const squatNow = infoToRender[0].squat;
-          const deadliftNow = infoToRender[0].deadlift;
-          const benchpressNow = infoToRender[0].benchpress;
-          const shoulderpressNow = infoToRender[0].shoulderpress;
-          const frontsquatNow = infoToRender[0].frontsquat;
+          const infoToRender = data.feed
+          const squatNow = infoToRender[0].squat
+          const deadliftNow = infoToRender[0].deadlift
+          const benchpressNow = infoToRender[0].benchpress
+          const shoulderpressNow = infoToRender[0].shoulderpress
+          const frontsquatNow = infoToRender[0].frontsquat
           const info = [
             {
-              name: "Squat",
+              name: 'Squat',
               Initial: 135,
               Now: squatNow
             },
             {
-              name: "Deadlift",
+              name: 'Deadlift',
               Initial: 190,
               Now: deadliftNow
             },
             {
-              name: "Bench Press",
+              name: 'Bench Press',
               Initial: 200,
               Now: benchpressNow
             },
             {
-              name: "Shoulder Press",
+              name: 'Shoulder Press',
               Initial: 45,
               Now: shoulderpressNow
             },
             {
-              name: "Front Squat ",
+              name: 'Front Squat ',
               Initial: 110,
               Now: frontsquatNow
             }
-          ];
+          ]
 
-          if (loading) return <div>Fetching</div>;
-          if (error) return <div>Error</div>;
+          if (loading) return <div>Fetching</div>
+          if (error) return <div>Error</div>
 
           return (
             <div>
@@ -80,9 +80,9 @@ export default class BuildingStrength extends PureComponent {
               </BarChart>
               These are your results.
             </div>
-          );
+          )
         }}
       </Query>
-    );
+    )
   }
 }

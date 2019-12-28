@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./signin.css";
-import Logo from "./logo.png";
-import SignUp from "../../../src/Components/SignUp/SignUp.js";
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import './signin.css'
+import Logo from './logo.png'
+import SignUp from '../../../src/Components/SignUp/SignUp.js'
 
 class SignIn extends Component {
   render() {
@@ -53,8 +53,8 @@ class SignIn extends Component {
         </div>
         <Route path="/signup" component={SignUp} />
       </Router>
-    );
+    )
   }
 }
 
-export default SignIn;
+export default SignIn

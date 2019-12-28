@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Logo from "./logo.png";
+import React, { Component } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Logo from './logo.png'
 
 class SignUp extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       loggedInUser: {},
       message: null,
       errors: [],
@@ -15,7 +15,7 @@ class SignUp extends Component {
       part2: false,
       part3: false,
       loggedIn: true
-    };
+    }
   }
 
   render() {
@@ -58,8 +58,8 @@ class SignUp extends Component {
           </div>
         </div>
       </Router>
-    );
+    )
   }
 }
 
-export default SignUp;
+export default SignUp

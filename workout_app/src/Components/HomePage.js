@@ -1,40 +1,40 @@
-import React from "react";
-import { Button, Accordion, Card } from "react-bootstrap";
+import React from 'react'
+import { Button, Accordion, Card } from 'react-bootstrap'
 
 //components
-import SignIn from "./SignIn/SignIn.js";
-import TwelveWeeks from "./Plan/TwelveWeeks.js";
-import Clock from "./Time/Clock/Clock.js";
-import CreateYourProfile from "./SignUp/CreateYourProfile/CreateYourProfile.js";
-import Chart from "./MainChart/Chart";
-import Header from "./Header/Header";
-import Profile from "./Profile/Profile";
-import ExercisesOfTheDay from "./Plan/ExercisesOfTheDay";
-import StatisticsForCharts from "./MainChart/StatisticsForCharts";
+import SignIn from './SignIn/SignIn.js'
+import TwelveWeeks from './Plan/TwelveWeeks.js'
+import Clock from './Time/Clock/Clock.js'
+import CreateYourProfile from './SignUp/CreateYourProfile/CreateYourProfile.js'
+import Chart from './MainChart/Chart'
+import Header from './Header/Header'
+import Profile from './Profile/Profile'
+import ExercisesOfTheDay from './Plan/ExercisesOfTheDay'
+import StatisticsForCharts from './MainChart/StatisticsForCharts'
 
 //CSS
-import "./homepage.css";
+import './homepage.css'
 
 class HomePage extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       isLoggedIn: true
-    };
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    }
+    this.handleLoginClick = this.handleLoginClick.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
   }
 
   handleLogoutClick() {
-    this.setState({ isLoggedIn: false });
+    this.setState({ isLoggedIn: false })
   }
 
   handleLoginClick() {
-    this.setState({ isLoggedIn: true });
+    this.setState({ isLoggedIn: true })
   }
 
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
+    const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
         <div>
@@ -69,14 +69,14 @@ class HomePage extends React.Component {
             </Card>
           </Accordion>
         </div>
-      );
+      )
     } else
       return (
         <div>
           <SignIn />
         </div>
-      );
+      )
   }
 }
 
-export default HomePage;
+export default HomePage
