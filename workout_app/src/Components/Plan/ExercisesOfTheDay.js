@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import '../../../src/Components/Plan/twelveweeks.css'
+import './twelveweeks.css'
+import './exerciseoftheday.css'
 import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
 
 class ExercisesOfTheDay extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      days: [{ id: 1, day: 'Day 1' }]
+    }
   }
 
   createPlan = () => {
@@ -15,13 +18,24 @@ class ExercisesOfTheDay extends Component {
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
         <div className="day__of__exercise__div">
-          {days[day].day}
+          <br />
+          <br />
+          <br />
           <Day />
           <Reps />
+          <br />
+          <br />
+          <br />
           <Day />
           <Reps />
+          <br />
+          <br />
+          <br />
           <Day />
           <Reps />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     ))
@@ -31,8 +45,12 @@ class ExercisesOfTheDay extends Component {
   render() {
     return (
       <div>
-        {this.createPlan()}
+        {this.state.days[0].day}
         <br />
+        <div className="day__of__exercise__container">
+          {this.createPlan()}
+          <br />
+        </div>
       </div>
     )
   }

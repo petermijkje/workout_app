@@ -1,0 +1,17 @@
+.day__of__exercise__container {
+  height: 90%;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 20px 20px 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.day__of__exercise__div {
+  height: 90%;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
