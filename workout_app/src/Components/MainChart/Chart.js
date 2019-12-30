@@ -6,7 +6,7 @@ export default class Chart extends React.Component {
   constructor() {
     super()
     this.state = {
-      bodypercentagechart: true
+      bodypercentagechart: false
     }
     this.handlePercentageChartChange = this.handlePercentageChartChange.bind(
       this

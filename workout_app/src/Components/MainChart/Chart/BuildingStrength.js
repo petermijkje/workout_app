@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import './BuildingStrength.css'
+import { Button, Spinner, Alert } from 'reactstrap'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import {
@@ -24,12 +26,35 @@ const LIFT_QUERY = gql`
     }
   }
 `
-
 export default class BuildingStrength extends PureComponent {
   render() {
     return (
       <Query query={LIFT_QUERY}>
         {({ loading, error, data }) => {
+          if (loading)
+            return (
+              <div className="loading__and__error__div">
+                <Button variant="primary">
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  Loading...
+                </Button>
+              </div>
+            )
+          if (error)
+            return (
+              <div className="loading__and__error__div">
+                <Alert color="danger">
+                  Oops! We can't connect to the database. Try refreshing!
+                </Alert>
+              </div>
+            )
+          //after load
           const infoToRender = data.feed
           const squatNow = infoToRender[0].squat
           const deadliftNow = infoToRender[0].deadlift
@@ -64,9 +89,6 @@ export default class BuildingStrength extends PureComponent {
             }
           ]
 
-          if (loading) return <div>Fetching</div>
-          if (error) return <div>Error</div>
-
           return (
             <div>
               <BarChart width={500} height={500} data={info}>
@@ -78,7 +100,6 @@ export default class BuildingStrength extends PureComponent {
                 <Bar dataKey="Initial" fill="#8884d8" />
                 <Bar dataKey="Now" fill="#82ca9d" />
               </BarChart>
-              These are your results.
             </div>
           )
         }}

@@ -57,6 +57,12 @@ class TwelveWeeks extends Component {
           <Reps />
           <Day />
           <Reps />
+          <Day />
+          <Reps />
+          <Day />
+          <Reps />
+          <Day />
+          <Reps />
         </div>
       </div>
     ))

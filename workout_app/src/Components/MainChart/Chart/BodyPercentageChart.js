@@ -29,7 +29,6 @@ class BodyPercentageChart extends React.Component {
             ))}
           </Pie>
         </PieChart>
-        These are your results. <br />
       </div>
     )
   }
