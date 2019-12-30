@@ -63,7 +63,7 @@ class ExercisesOfTheDay extends Component {
       <div>
         {this.state.days[0].day}
         <br />
-        <div className="day__of__exercise__container">{this.createPlan()}</div>
+        <div>{this.createPlan()}</div>
       </div>
     )
   }
