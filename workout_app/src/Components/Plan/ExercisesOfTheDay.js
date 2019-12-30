@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './twelveweeks.css'
 import './exerciseoftheday.css'
 import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
@@ -17,25 +16,21 @@ class ExercisesOfTheDay extends Component {
 
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
-        <div className="day__of__exercise__div">
-          <br />
-          <br />
-          <br />
-          <Day />
-          <Reps />
-          <br />
-          <br />
-          <br />
-          <Day />
-          <Reps />
-          <br />
-          <br />
-          <br />
-          <Day />
-          <Reps />
-          <br />
-          <br />
-          <br />
+        <div className="border__div__for__exercise__of__day">
+          <div className="day__of__exercise__div">
+            <Day />
+            <Reps />
+            <Day />
+            <Reps />
+            <Day />
+            <Reps />
+            <Day />
+            <Reps />
+            <Day />
+            <Reps />
+            <Day />
+            <Reps />
+          </div>
         </div>
       </div>
     ))
@@ -47,10 +42,7 @@ class ExercisesOfTheDay extends Component {
       <div>
         {this.state.days[0].day}
         <br />
-        <div className="day__of__exercise__container">
-          {this.createPlan()}
-          <br />
-        </div>
+        <div className="day__of__exercise__container">{this.createPlan()}</div>
       </div>
     )
   }

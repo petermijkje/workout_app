@@ -10,8 +10,16 @@
 }
 
 .day__of__exercise__div {
-  height: 90%;
+  height: 100%;
   width: 400px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.border__div__for__exercise__of__day {
+  margin: 20px 20px 20px 20px;
+}
+
+.exercise__div {
+  border: 50px;
 }
