@@ -6,9 +6,10 @@ const data = [
   { name: 'Group A', value: 400 }, //33.33%
   { name: 'Group B', value: 300 }, //25%
   { name: 'Group C', value: 300 }, //25%
-  { name: 'Group D', value: 200 } //16.67
+  { name: 'Group D', value: 200 }, //16.67
+  { name: 'Group E', value: 400 }
 ]
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#D72638']
 
 class BodyPercentageChart extends React.Component {
   render() {
