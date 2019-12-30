@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import './BuildingStrength.css'
 import { Button, Spinner, Alert } from 'reactstrap'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -30,13 +31,9 @@ export default class BuildingStrength extends PureComponent {
     return (
       <Query query={LIFT_QUERY}>
         {({ loading, error, data }) => {
-          const style = {
-            width: 500,
-            height: 500
-          }
           if (loading)
             return (
-              <div style={style}>
+              <div className="loading__and__error__div">
                 <Button variant="primary">
                   <Spinner
                     as="span"
@@ -51,7 +48,7 @@ export default class BuildingStrength extends PureComponent {
             )
           if (error)
             return (
-              <div style={style}>
+              <div className="loading__and__error__div">
                 <Alert color="danger">
                   Oops! We can't connect to the database. Try refreshing!
                 </Alert>
@@ -103,7 +100,6 @@ export default class BuildingStrength extends PureComponent {
                 <Bar dataKey="Initial" fill="#8884d8" />
                 <Bar dataKey="Now" fill="#82ca9d" />
               </BarChart>
-              These are your results.
             </div>
           )
         }}
