@@ -46,15 +46,17 @@ class StatisticsForCharts extends Component {
   }
 
   showResults = () => {
-    const data = [
-      { name: 'Legs', value: 400 }, //33.33%
-      { name: 'Chest', value: 300 }, //25%
-      { name: 'Shoulders', value: 300 }, //25%
-      { name: 'Abs', value: 200 } //16.67
-    ]
-    const newData = Object.keys(data).map(item => (
+    const { todaysExercise } = this.state
+    const totalNumber = 260
+    const newData = Object.keys(todaysExercise).map(item => (
       <div>
-        {data[item].name} -{Math.round((data[item].value * 100) / 1200)}%
+        {todaysExercise[item].workoutType} -
+        {Math.round(
+          ((todaysExercise[item].reps * todaysExercise[item].sets) /
+            totalNumber) *
+            100
+        )}
+        %{' '}
       </div>
     ))
     return newData
@@ -62,7 +64,9 @@ class StatisticsForCharts extends Component {
   render() {
     return (
       <div>
-        Here are your results
+        These are the parts of your body <br />
+        that you'll be hitting today
+        <br /> <br />
         {this.showResults()}
       </div>
     )
