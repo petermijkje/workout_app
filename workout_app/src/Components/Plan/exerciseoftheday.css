@@ -1,23 +1,32 @@
-.day__of__exercise__container {
-  height: 90%;
+.frame__of__eotd {
+  margin: 20px 20px 20px 20px;
   border-style: solid;
   border-color: black;
   border-width: 1px;
   border-radius: 20px 20px 20px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  height: 85%;
+  background: #efefef;
+}
+
+.border__div__for__exercise__of__day {
+  margin: 20px 20px 20px 20px;
+  height: 10%;
 }
 
 .day__of__exercise__div {
   height: 100%;
   width: 400px;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
-.border__div__for__exercise__of__day {
-  margin: 20px 20px 20px 20px;
+.exercise__name__div {
+  width: 50%;
+}
+
+.exercise__sets__and__reps {
+  float: right;
+  width: 50%;
 }
 
 .exercise__div {
