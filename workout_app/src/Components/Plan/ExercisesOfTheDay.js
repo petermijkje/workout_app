@@ -47,8 +47,9 @@ class ExercisesOfTheDay extends Component {
       return (
         <div className="border__div__for__exercise__of__day">
           <div className="day__of__exercise__div">
+            <div>{exercise.exerciseName} |</div>
             <div>
-              {exercise.exerciseName} {exercise.sets} X {exercise.reps}
+              | {exercise.sets} X {exercise.reps}
             </div>
           </div>
         </div>
@@ -62,7 +63,7 @@ class ExercisesOfTheDay extends Component {
       <div>
         {this.state.days[0].day}
         <br />
-        <div>{this.createPlan()}</div>
+        <div className="frame__of__eotd">{this.createPlan()}</div>
       </div>
     )
   }
