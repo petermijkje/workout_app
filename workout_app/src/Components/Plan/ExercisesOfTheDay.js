@@ -47,9 +47,9 @@ class ExercisesOfTheDay extends Component {
       return (
         <div className="border__div__for__exercise__of__day">
           <div className="day__of__exercise__div">
-            <div>{exercise.exerciseName} |</div>
-            <div>
-              | {exercise.sets} X {exercise.reps}
+            <div className="exercise__name__div">{exercise.exerciseName}</div>
+            <div className="exercise__sets__and__reps">
+              {exercise.sets} X {exercise.reps}
             </div>
           </div>
         </div>

@@ -7,17 +7,25 @@
   height: 85%;
 }
 
+.border__div__for__exercise__of__day {
+  margin: 20px 20px 20px 20px;
+  height: 10%;
+}
+
 .day__of__exercise__div {
   height: 100%;
   width: 400px;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
-.border__div__for__exercise__of__day {
-  margin: 20px 20px 20px 20px;
-  text-align: center;
-  height: 10%;
+.exercise__name__div {
+  width: 50%;
+}
+
+.exercise__sets__and__reps {
+  float: right;
+  width: 50%;
 }
 
 .exercise__div {
