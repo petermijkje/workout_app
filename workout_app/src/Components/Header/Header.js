@@ -45,7 +45,7 @@ class Header extends Component {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="disabled" disabled>
-              Disabled
+              are you logged in? {this.props.isLoggedIn}
             </Nav.Link>
           </Nav.Item>
         </Nav>
