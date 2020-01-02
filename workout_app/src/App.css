@@ -5,8 +5,7 @@ html {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: black;
-  opacity: 0.9;
+  background-color: rgba(0, 0, 0, 90);
   filter: grayscale(30%);
 }
 
