@@ -39,13 +39,17 @@ class Header extends Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2" href="/Logout">
+            <Nav.Link
+              eventKey="link-2"
+              href="/Logout"
+              onClick={this.props.logOut}
+            >
               Logout <LogOut />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="disabled" disabled>
-              are you logged in? {this.props.isLoggedIn}
+              are you logged in?
             </Nav.Link>
           </Nav.Item>
         </Nav>
