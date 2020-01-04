@@ -6,21 +6,28 @@ import './Day.css'
 class Day extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      workoutDayType: 'chest'
+    }
   }
 
   //if the parent renders a specific day, the JSON can
   //match and return specific information pertaining to that day.
   createRandomNumber = () => {
+    const workoutDayType = this.state.workoutDayType
+    let number = ''
     for (
-      let number = Math.floor(Math.random() * 200 + 0);
-      number < 201;
+      let number = Math.floor(Math.random() * 906 + 0);
+      number < 906;
       number++
     ) {
-      if (exerciseLibrary[number].workoutType !== 'chest') {
+      if (exerciseLibrary[number].workoutType !== workoutDayType) {
         continue
+        // create an if else statement that says if there are no more types,
+        // start from the beginning.
       } else return exerciseLibrary[number].exerciseName
     }
+    return exerciseLibrary[number.exerciseName]
   }
 
   render() {
