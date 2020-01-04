@@ -6,16 +6,19 @@ import { Route } from 'react-router-dom'
 import HomePage from './Components/HomePage.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-// import "./routes"
-
-function App() {
-  return (
-    <div className="App">
-      <HomePage />
-      <Route exact path="/signin" component={SignIn} />
-      <Route exact path="/signup" component={SignUp} />
-    </div>
-  )
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
+  render() {
+    return (
+      <div className="App">
+        <HomePage />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
+      </div>
+    )
+  }
 }
-
 export default App

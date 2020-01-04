@@ -38,7 +38,10 @@ class HomePage extends React.Component {
     if (isLoggedIn) {
       return (
         <div>
-          <Header isLoggedIn={this.state.isLoggedIn} />
+          <Header
+            isLoggedIn={this.state.isLoggedIn}
+            logOut={this.handleLogoutClick}
+          />
           <div className="flex__container">
             <Chart className="flex__item" />
             <StatisticsForCharts className="flex__item" />
