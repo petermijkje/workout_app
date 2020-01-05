@@ -13,57 +13,59 @@ class SignIn extends Component {
   }
   render() {
     const { login } = this.state
-    return (
-      <Router>
-        <div className="box">
-          <div className="sign__in">
-            <br />
-            Adap-live Fitness
-            <br />
-            <br />
-          </div>
-          <br />
-          <img src={Logo} alt="Logo" />
-          <h4 className="Login__or__logout__word">
-            {login ? 'Login' : 'Sign Up'}
-          </h4>
-          <br />
-          <br />
-          <form>
-            <label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Email"
-                className="email"
-              />
-            </label>
-            <br />
-            <hr className="sign__in__hr" />
-            <br />
-            <input
-              type="password"
-              name="name"
-              placeholder="Password"
-              className="password"
-            />
-            <br />
-            <hr className="sign__in__hr" />
-            <br />
-            <br />
-            <input type="submit" value="READY?" className="button" />
-          </form>
-          <br />
-          <br />
-          <br />
-          <div className="sign__up">
-            Don't have an account?
-            <Link to="/signup"> Sign Up</Link>
-          </div>
-        </div>
-        <Route path="/signup" component={SignUp} />
-      </Router>
-    )
+    {
+      if (login) {
+        return (
+          <Router>
+            <div className="box">
+              <div className="sign__in">
+                <br />
+                Adap-live Fitness
+                <br />
+                <br />
+              </div>
+              <br />
+              <img src={Logo} alt="Logo" />
+              <h4 className="Login__or__logout__word">
+                {login ? 'Login' : 'Sign Up'}
+              </h4>
+              <br />
+              <br />
+              <form>
+                <label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Email"
+                    className="email"
+                  />
+                </label>
+                <br />
+                <hr className="sign__in__hr" />
+                <br />
+                <input
+                  type="password"
+                  name="name"
+                  placeholder="Password"
+                  className="password"
+                />
+                <br />
+                <hr className="sign__in__hr" />
+                <br />
+                <br />
+                <input type="submit" value="READY?" className="button" />
+              </form>
+              <br />
+              <div className="sign__up">
+                Don't have an account?
+                <Link to="/signup"> Sign Up</Link>
+              </div>
+            </div>
+            <Route path="/signup" component={SignUp} />
+          </Router>
+        )
+      } else return <SignUp />
+    }
   }
 }
 
