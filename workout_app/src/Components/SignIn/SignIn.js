@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './signin.css'
 import Logo from './logo.png'
 import SignUp from '../../../src/Components/SignUp/SignUp.js'
 
 class SignIn extends Component {
-  state = {
-    login: true,
-    email: '',
-    password: '',
-    name: ''
+  constructor() {
+    super()
+    this.state = {
+      login: true,
+      email: '',
+      password: '',
+      name: ''
+    }
+    this.handleloginChange = this.handleloginChange.bind(this)
   }
+  handleloginChange() {
+    this.setState({ login: false })
+  }
+
   render() {
     const { login } = this.state
-    return (
-      <Router>
+    if (login) {
+      return (
         <div className="box">
           <div className="sign__in">
             <br />
@@ -54,16 +62,15 @@ class SignIn extends Component {
             <input type="submit" value="READY?" className="button" />
           </form>
           <br />
-          <br />
-          <br />
           <div className="sign__up">
             Don't have an account?
-            <Link to="/signup"> Sign Up</Link>
+            <h5 className="signup__link" onClick={this.handleloginChange}>
+              Sign Up
+            </h5>
           </div>
         </div>
-        <Route path="/signup" component={SignUp} />
-      </Router>
-    )
+      )
+    } else return <SignUp />
   }
 }
 
