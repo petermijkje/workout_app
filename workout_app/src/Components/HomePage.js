@@ -16,8 +16,8 @@ import StatisticsForCharts from './MainChart/StatisticsForCharts'
 import './homepage.css'
 
 class HomePage extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       isLoggedIn: ''
     }
@@ -38,10 +38,7 @@ class HomePage extends React.Component {
     if (isLoggedIn) {
       return (
         <div>
-          <Header
-            isLoggedIn={this.state.isLoggedIn}
-            logOut={this.handleLogoutClick}
-          />
+          <Header logOut={this.handleLogoutClick} />
           <div className="flex__container">
             <Chart className="flex__item" />
             <StatisticsForCharts className="flex__item" />

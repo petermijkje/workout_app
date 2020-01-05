@@ -5,7 +5,14 @@ import Logo from './logo.png'
 import SignUp from '../../../src/Components/SignUp/SignUp.js'
 
 class SignIn extends Component {
+  state = {
+    login: true,
+    email: '',
+    password: '',
+    name: ''
+  }
   render() {
+    const { login } = this.state
     return (
       <Router>
         <div className="box">
@@ -17,6 +24,9 @@ class SignIn extends Component {
           </div>
           <br />
           <img src={Logo} alt="Logo" />
+          <h4 className="Login__or__logout__word">
+            {login ? 'Login' : 'Sign Up'}
+          </h4>
           <br />
           <br />
           <form>
