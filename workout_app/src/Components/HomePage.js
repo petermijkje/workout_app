@@ -19,7 +19,7 @@ class HomePage extends React.Component {
   constructor() {
     super()
     this.state = {
-      isLoggedIn: true
+      isLoggedIn: ''
     }
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
@@ -77,6 +77,9 @@ class HomePage extends React.Component {
       return (
         <div>
           <SignIn />
+          <button onClick={this.handleLoginClick}>
+            Click here bypass login
+          </button>
         </div>
       )
   }

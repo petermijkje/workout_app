@@ -6,21 +6,44 @@ import './Day.css'
 class Day extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      workoutDayType: [
+        'chest',
+        'shoulders',
+        'lats',
+        'middle back',
+        'lower back',
+        'quads',
+        'hamstrings',
+        'calves',
+        'abductors',
+        'adductors',
+        'abs',
+        'triceps',
+        'biceps',
+        'forearms'
+      ]
+    }
   }
 
   //if the parent renders a specific day, the JSON can
   //match and return specific information pertaining to that day.
   createRandomNumber = () => {
+    // console.log(this.props.workoutDay)
+    // const workoutDayType = this.state.workoutDayType[0]
+    let number = ''
     for (
-      let number = Math.floor(Math.random() * 200 + 0);
-      number < 201;
+      let number = Math.floor(Math.random() * 906 + 0);
+      number < 906;
       number++
     ) {
-      if (exerciseLibrary[number].workoutType !== 'chest') {
+      if (exerciseLibrary[number].workoutType !== this.props.workoutDay) {
         continue
+        // create an if else statement that says if there are no more types,
+        // start from the beginning.
       } else return exerciseLibrary[number].exerciseName
     }
+    return exerciseLibrary[number.exerciseName]
   }
 
   render() {

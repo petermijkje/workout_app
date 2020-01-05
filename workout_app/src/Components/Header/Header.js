@@ -49,7 +49,7 @@ class Header extends Component {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="disabled" disabled>
-              are you logged in?
+              Welcome, User.
             </Nav.Link>
           </Nav.Item>
         </Nav>
