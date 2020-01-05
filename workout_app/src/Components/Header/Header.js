@@ -14,36 +14,32 @@ class Header extends Component {
       <div className="header__div">
         <Nav className="justify-content-end" activeKey="/home">
           <Nav.Item>
-            <Nav.Link href="/home">
+            <Nav.Link>
               Home <Home />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2" href="/Today">
+            <Nav.Link eventKey="link-2">
               Today <Activity />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2" href="/month" component={TwelveWeeks}>
+            <Nav.Link eventKey="link-2" component={TwelveWeeks}>
               This Month <Calendar />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1" href="/profile">
+            <Nav.Link eventKey="link-1">
               Profile <User />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2" href="/Settings">
+            <Nav.Link eventKey="link-2">
               Settings <Settings />
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link
-              eventKey="link-2"
-              href="/Logout"
-              onClick={this.props.logOut}
-            >
+            <Nav.Link eventKey="link-2" href="/logout">
               Logout <LogOut />
             </Nav.Link>
           </Nav.Item>
