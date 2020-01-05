@@ -27,6 +27,7 @@ class SignUp extends Component {
               <br />
               Welcome to App
               <br />
+              <br />
               <p> create your profile </p>
               <br />
               <br />

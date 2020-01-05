@@ -87,3 +87,7 @@ font-family: 'Lato', sans-serif; */
   color: darkgrey;
   font-size: 14px;
 }
+
+.signup__link:hover {
+  color: pink;
+}
