@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { APP_SECRET, getUserId } = require('../utils')
-const { createDate } = require('../date')
 
 function post(parent, args, context, info) {
   const userId = getUserId(context)
@@ -14,7 +13,6 @@ function post(parent, args, context, info) {
 
 function stats(parent, args, context, info) {
   const userId = getUserId(context)
-  const createNewDate = createDate
   return context.prisma.createStat({
     deadlift: args.deadlift,
     squat: args.squat,
@@ -22,7 +20,6 @@ function stats(parent, args, context, info) {
     shoulderpress: args.shoulderpress,
     sumopull: args.sumopull,
     frontsquat: args.frontsquat,
-    createdat: { connect: createNewDate },
     postedBy: { connect: { id: userId } }
   })
 }

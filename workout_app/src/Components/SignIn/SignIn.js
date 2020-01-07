@@ -1,8 +1,26 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './signin.css'
+// import { AUTH_TOKEN } from '../../constants'
 import Logo from './logo.png'
-import SignUp from '../../../src/Components/SignUp/SignUp.js'
+// import SignUp from '../../Components/SignUp/SignUp.js'
+import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo'
+import { Link } from 'react-router-dom'
+
+// const SIGNUP_MUTATION = gql`
+//   mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+//     signup(email: $email, password: $password, name: $name) {
+//       token
+//     }
+//   }
+// `
+const LOGIN_MUTATION = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+    }
+  }
+`
 
 class SignIn extends Component {
   constructor() {
@@ -10,8 +28,7 @@ class SignIn extends Component {
     this.state = {
       login: true,
       email: '',
-      password: '',
-      name: ''
+      password: ''
     }
     this.handleloginChange = this.handleloginChange.bind(this)
   }
@@ -20,7 +37,8 @@ class SignIn extends Component {
   }
 
   render() {
-    const { login } = this.state
+    // const authToken = localStorage.getItem(AUTH_TOKEN)
+    const { login, email, password } = this.state
     if (login) {
       return (
         <div className="box">
@@ -32,9 +50,7 @@ class SignIn extends Component {
           </div>
           <br />
           <img src={Logo} alt="Logo" />
-          <h4 className="Login__or__logout__word">
-            {login ? 'Login' : 'Sign Up'}
-          </h4>
+          <h4 className="Login__or__logout__word">Login</h4>
           <br />
           <br />
           <form>
@@ -42,8 +58,10 @@ class SignIn extends Component {
               <input
                 type="text"
                 name="name"
+                value={email}
                 placeholder="Email"
                 className="email"
+                onChange={e => this.setState({ email: e.target.value })}
               />
             </label>
             <br />
@@ -54,24 +72,53 @@ class SignIn extends Component {
               name="name"
               placeholder="Password"
               className="password"
+              value={password}
+              onChange={e => this.setState({ password: e.target.value })}
             />
             <br />
             <hr className="sign__in__hr" />
             <br />
             <br />
-            <input type="submit" value="READY?" className="button" />
+            <Mutation
+              mutation={LOGIN_MUTATION}
+              variables={{ email, password }}
+              onCompleted={data => this._confirm(data)}
+            >
+              {mutation => (
+                <input
+                  type="submit"
+                  value="READY?"
+                  className="button"
+                  onClick={mutation}
+                />
+              )}
+            </Mutation>
+            {/* <input
+              type="submit"
+              value="Bypass this"
+              onClick={this.props.handleLoginClick}
+            /> */}
           </form>
           <br />
           <div className="sign__up">
             Don't have an account?
             <h5 className="signup__link" onClick={this.handleloginChange}>
-              Sign Up
+              <Link to="/signup">Sign Up</Link>
             </h5>
           </div>
         </div>
       )
-    } else return <SignUp />
+    } else return null
   }
+  // _confirm = async () => {
+  //   const { token } = data.login
+  //   this._saveUserData(token)
+  //   this.props.history.push(`/`)
+  // }
+
+  // _saveUserToken = token => {
+  //   localStorage.setItem(AUTH_TOKEN, token)
+  // }
 }
 
 export default SignIn
