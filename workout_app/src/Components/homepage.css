@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
+  height: 530px;
 }
 
 .flex__item {

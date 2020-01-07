@@ -61,9 +61,10 @@ class ExercisesOfTheDay extends Component {
   render() {
     return (
       <div>
-        {this.state.days[0].day}
-        <br />
-        <div className="frame__of__eotd">{this.createPlan()}</div>
+        <div className="frame__of__eotd">
+          {this.state.days[0].day}
+          {this.createPlan()}
+        </div>
       </div>
     )
   }

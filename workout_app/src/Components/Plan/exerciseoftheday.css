@@ -1,26 +1,29 @@
 .frame__of__eotd {
-  margin: 20px 20px 20px 20px;
   border-style: solid;
-  border-color: black;
-  border-width: 1px;
+  border-width: 0px 1px;
   border-radius: 20px 20px 20px 20px;
-  height: 85%;
+  height: 100%;
   background: #efefef;
 }
 
 .border__div__for__exercise__of__day {
-  margin: 20px 20px 20px 20px;
-  height: 10%;
+  margin: 10px 10px 10px 10px;
 }
 
 .day__of__exercise__div {
-  height: 100%;
   width: 400px;
   display: flex;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  border-color: black;
+  background-color: #93a8ac;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .exercise__name__div {
   width: 50%;
+  font-size: 14px;
 }
 
 .exercise__sets__and__reps {

@@ -56,7 +56,6 @@ class StatisticsForCharts extends Component {
             totalNumber) *
             100
         )}
-        %{' '}
       </div>
     ))
     return newData
