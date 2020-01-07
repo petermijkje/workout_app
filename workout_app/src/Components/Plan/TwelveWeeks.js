@@ -104,7 +104,6 @@ class TwelveWeeks extends Component {
   createPlan = () => {
     // const days = ["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"]
     const { days } = this.state
-    console.log(this.state.days.workoutDay)
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
         {days[day].day}
