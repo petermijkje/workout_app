@@ -85,7 +85,7 @@ class BodyPercentageChart extends React.Component {
     ]
 
     return (
-      <div>
+      <div className="pie__chart__container">
         <PieChart width={500} height={500} onMouseEnter={this.onPieEnter}>
           <Pie
             data={data}

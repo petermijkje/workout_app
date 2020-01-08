@@ -1,0 +1,9 @@
+.todays__exercise__container {
+  width: 25%;
+  height: 100%;
+  border-color: black;
+  border-width: 0px 2px 0px 0px;
+  border-radius: 0px 20px 20px 0px;
+  border-style: solid;
+  background: white;
+}

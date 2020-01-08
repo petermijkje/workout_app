@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './statisticsforcharts.css'
 
 class StatisticsForCharts extends Component {
   constructor() {
@@ -62,10 +63,9 @@ class StatisticsForCharts extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="todays__exercise__container">
         These are the parts of your body <br />
         that you'll be hitting today
-        <br /> <br />
         {this.showResults()}
       </div>
     )
