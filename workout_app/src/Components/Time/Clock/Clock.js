@@ -1,10 +1,12 @@
 import React from 'react'
+import './clock.css'
 
 export default class Clock extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      time: new Date().toLocaleString()
+      hours: new Date().toLocaleString(),
+      minutes: new Date().toLocaleString()
     }
   }
   componentDidMount() {
@@ -15,11 +17,19 @@ export default class Clock extends React.Component {
   }
   tick() {
     this.setState({
-      time: new Date().toLocaleString()
+      hours: new Date().getHours().toLocaleString(),
+      minutes: new Date().getMinutes().toLocaleString()
     })
   }
   render() {
-    const { time } = this.state
-    return <p className="App-clock">The time is {time}.</p>
+    const { hours, minutes } = this.state
+    if (minutes < 10) {
+      return `${hours}:0${minutes}`
+    }
+    return (
+      <p className="app__clock">
+        {hours}:{minutes}
+      </p>
+    )
   }
 }
