@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './statisticsforcharts.css'
+import { MousePointer } from 'react-feather'
 
 class StatisticsForCharts extends Component {
   constructor() {
@@ -67,6 +68,9 @@ class StatisticsForCharts extends Component {
         These are the parts of your body <br />
         that you'll be hitting today
         {this.showResults()}
+        <br />
+        <MousePointer />
+        click on the chart to change charts!
       </div>
     )
   }
