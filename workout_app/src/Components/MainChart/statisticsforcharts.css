@@ -10,3 +10,18 @@
 
 .calendar__day__div {
 }
+
+.results__div {
+  position: relative;
+  top: 10%;
+  font-size: 20px;
+}
+
+.individual__results__div {
+  margin: 20px;
+}
+
+.footer__of__stats {
+  top: 20%;
+  position: relative;
+}

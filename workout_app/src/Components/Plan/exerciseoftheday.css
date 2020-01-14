@@ -35,3 +35,14 @@
 .exercise__div {
   border: 50px;
 }
+
+.corresponding__circle {
+  border-radius: 50px;
+  height: 14px;
+  width: 14px;
+  float: left;
+  position: relative;
+  top: 7px;
+  margin-right: 10px;
+  margin-left: 10px;
+}

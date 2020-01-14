@@ -51,7 +51,7 @@ class StatisticsForCharts extends Component {
     const { todaysExercise } = this.state
     const totalNumber = 260
     const newData = Object.keys(todaysExercise).map(item => (
-      <div>
+      <div className="individual__results__div">
         {todaysExercise[item].workoutType} -
         {Math.round(
           ((todaysExercise[item].reps * todaysExercise[item].sets) /
@@ -67,10 +67,11 @@ class StatisticsForCharts extends Component {
       <div className="todays__exercise__container">
         These are the parts of your body <br />
         that you'll be hitting today
-        {this.showResults()}
-        <br />
-        <MousePointer />
-        click on the chart to change charts!
+        <div className="results__div">{this.showResults()}</div>
+        <div className="footer__of__stats">
+          <MousePointer />
+          click on the chart to change charts!
+        </div>
       </div>
     )
   }
