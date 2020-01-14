@@ -29,6 +29,7 @@
 .exercise__sets__and__reps {
   float: right;
   width: 50%;
+  font-size: 14px;
 }
 
 .exercise__div {

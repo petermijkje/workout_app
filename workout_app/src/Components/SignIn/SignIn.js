@@ -15,9 +15,12 @@ import { Link } from 'react-router-dom'
 //   }
 // `
 const LOGIN_MUTATION = gql`
-  mutation login($email: String!, $password: String!) {
+  mutation loginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
+      user {
+        id
+      }
     }
   }
 `
@@ -37,6 +40,7 @@ class SignIn extends Component {
   }
 
   render() {
+    // const loginInfo = data.login
     // const authToken = localStorage.getItem(AUTH_TOKEN)
     const { login, email, password } = this.state
     if (login) {
