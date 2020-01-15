@@ -5,7 +5,7 @@ import { Button, Accordion, Card } from 'react-bootstrap'
 import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from './Plan/TwelveWeeks.js'
 import Clock from './Time/Clock/Clock.js'
-import CreateYourProfile from './SignUp/CreateYourProfile/CreateYourProfile.js'
+// import CreateYourProfile from './SignUp/CreateYourProfile/CreateYourProfile.js'
 import Chart from './MainChart/Chart'
 import Header from './Header/Header'
 import Profile from './Profile/Profile'
@@ -19,7 +19,7 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: true
     }
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
@@ -43,14 +43,14 @@ class HomePage extends React.Component {
       return (
         <div>
           <Header logOut={this.handleLogoutClick} />
+          <Clock />
           <div className="flex__container">
             <Chart className="flex__item" />
             <StatisticsForCharts className="flex__item" />
             <ExercisesOfTheDay className="flex__item" />
           </div>
           <Profile />
-          <Clock />
-          <CreateYourProfile />
+          {/* <CreateYourProfile /> */}
           <Accordion>
             <Card>
               <Card.Header>

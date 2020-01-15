@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import './statisticsforcharts.css'
+import { MousePointer } from 'react-feather'
 
 class StatisticsForCharts extends Component {
   constructor() {
@@ -49,25 +51,27 @@ class StatisticsForCharts extends Component {
     const { todaysExercise } = this.state
     const totalNumber = 260
     const newData = Object.keys(todaysExercise).map(item => (
-      <div>
+      <div className="individual__results__div">
         {todaysExercise[item].workoutType} -
         {Math.round(
           ((todaysExercise[item].reps * todaysExercise[item].sets) /
             totalNumber) *
             100
         )}
-        %{' '}
       </div>
     ))
     return newData
   }
   render() {
     return (
-      <div>
+      <div className="todays__exercise__container">
         These are the parts of your body <br />
         that you'll be hitting today
-        <br /> <br />
-        {this.showResults()}
+        <div className="results__div">{this.showResults()}</div>
+        <div className="footer__of__stats">
+          <MousePointer />
+          click on the chart to change charts!
+        </div>
       </div>
     )
   }

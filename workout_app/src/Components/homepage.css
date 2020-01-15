@@ -1,11 +1,12 @@
 .flex__container {
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 1px 0px 1px 0px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
+  height: 530px;
 }
 
 .flex__item {

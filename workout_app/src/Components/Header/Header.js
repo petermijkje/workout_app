@@ -24,7 +24,7 @@ class Header extends Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2" component={TwelveWeeks}>
+            <Nav.Link eventKey="link-2" exact component={TwelveWeeks}>
               This Month <Calendar />
             </Nav.Link>
           </Nav.Item>
