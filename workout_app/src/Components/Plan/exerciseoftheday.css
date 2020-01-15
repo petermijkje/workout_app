@@ -4,6 +4,7 @@
   border-radius: 20px 20px 20px 20px;
   height: 100%;
   background: #efefef;
+  padding-top: 10px;
 }
 
 .border__div__for__exercise__of__day {
@@ -45,4 +46,8 @@
   top: 7px;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.plan__number {
+  font-size: 20px;
 }
