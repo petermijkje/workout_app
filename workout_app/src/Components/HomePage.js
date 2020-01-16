@@ -59,7 +59,7 @@ class HomePage extends React.Component {
                 </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
-                <Card.Body>
+                <Card>
                   <TwelveWeeks />
                   <Button
                     onClick={this.handleLogoutClick}
@@ -68,7 +68,7 @@ class HomePage extends React.Component {
                   >
                     Click here to logout
                   </Button>
-                </Card.Body>
+                </Card>
               </Accordion.Collapse>
             </Card>
           </Accordion>

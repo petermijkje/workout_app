@@ -106,7 +106,6 @@ class TwelveWeeks extends Component {
     const { days } = this.state
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
-        {days[day].day}
         <div className="calendar__day__div">
           <Day workoutDay={days[day].workoutDay} />
           <Reps />
@@ -517,62 +516,62 @@ class TwelveWeeks extends Component {
     ]
     if (new Date().getMonth() === 0) {
       const januaryFill = january.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return januaryFill
     } else if (new Date().getMonth() === 1) {
       const februaryFill = february.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return februaryFill
     } else if (new Date().getMonth() === 2) {
       const marchFill = march.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return marchFill
     } else if (new Date().getMonth() === 3) {
       const aprilFill = april.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return aprilFill
     } else if (new Date().getMonth() === 5) {
       const mayFill = may.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return mayFill
     } else if (new Date().getMonth() === 6) {
       const juneFill = june.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return juneFill
     } else if (new Date().getMonth() === 7) {
       const julyFill = july.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return julyFill
     } else if (new Date().getMonth() === 8) {
       const augustFill = august.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return augustFill
     } else if (new Date().getMonth() === 9) {
       const septemberFill = september.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return septemberFill
     } else if (new Date().getMonth() === 10) {
       const octoberFill = october.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return octoberFill
     } else if (new Date().getMonth() === 11) {
       const novemberFill = november.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return novemberFill
     } else if (new Date().getMonth() === 1) {
       const decemberFill = december.map(number => (
-        <div className="calendar__day__div">{number}</div>
+        <div className="calendar__empty__div">{number}</div>
       ))
       return decemberFill
     }
@@ -581,7 +580,15 @@ class TwelveWeeks extends Component {
   render() {
     return (
       <div>
+        <div className="month__and__year">January, 2020</div>
         <div className="twelve__Week__Div__Container">
+          <li className="day__of__the_week">Monday</li>
+          <li className="day__of__the_week">Tuesday</li>
+          <li className="day__of__the_week">Wednesday</li>
+          <li className="day__of__the_week">Thursday</li>
+          <li className="day__of__the_week">Friday</li>
+          <li className="day__of__the_week">Saturday</li>
+          <li className="day__of__the_week">Sunday</li>
           {/* {this.createPlan()} */}
           {this.fillCalendar()}
         </div>
