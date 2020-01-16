@@ -25,6 +25,7 @@
   flex-wrap: wrap;
   width: 1396;
   justify-content: space-evenly;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .calendar__day__div {
@@ -43,7 +44,6 @@
   border-width: 0px 0.01px 1px 0.1px;
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .day__of__the_week {
@@ -53,11 +53,10 @@
   border-color: black;
   border-style: dashed;
   list-style-type: none;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .month__and__year {
   text-align: left;
-  font-family: 'Montserrat', sans-serif;
   font-size: 75px;
+  font-family: 'Montserrat', sans-serif;
 }

@@ -9,6 +9,7 @@ class TwelveWeeks extends Component {
     super(props)
     this.state = {
       days: [
+        // play data
         { id: 1, day: 'Day 1', workoutDay: 'chest' },
         { id: 2, day: 'Day 2', workoutDay: 'shoulders' },
         { id: 3, day: 'Day 3', workoutDay: 'quads' },
@@ -37,72 +38,12 @@ class TwelveWeeks extends Component {
         { id: 26, day: 'Day 26', workoutDay: 'triceps' },
         { id: 27, day: 'Day 27', workoutDay: 'lower back' },
         { id: 28, day: 'Day 28', workoutDay: 'hamstrings' }
-        // { id: 29, day: 'Day 29' },
-        // { id: 30, day: 'Day 30' },
-        // { id: 31, day: 'Day 31' },
-        // { id: 32, day: 'Day 32' },
-        // { id: 33, day: 'Day 33' },
-        // { id: 34, day: 'Day 34' },
-        // { id: 35, day: 'Day 35' },
-        // { id: 36, day: 'Day 36' },
-        // { id: 37, day: 'Day 37' },
-        // { id: 38, day: 'Day 38' },
-        // { id: 39, day: 'Day 39' },
-        // { id: 40, day: 'Day 40' },
-        // { id: 41, day: 'Day 41' },
-        // { id: 42, day: 'Day 42' },
-        // { id: 43, day: 'Day 43' },
-        // { id: 44, day: 'Day 44' },
-        // { id: 45, day: 'Day 45' },
-        // { id: 46, day: 'Day 46' },
-        // { id: 47, day: 'Day 47' },
-        // { id: 48, day: 'Day 48' },
-        // { id: 49, day: 'Day 49' },
-        // { id: 50, day: 'Day 50' },
-        // { id: 51, day: 'Day 51' },
-        // { id: 52, day: 'Day 52' },
-        // { id: 53, day: 'Day 53' },
-        // { id: 54, day: 'Day 54' },
-        // { id: 55, day: 'Day 55' },
-        // { id: 56, day: 'Day 56' },
-        // { id: 57, day: 'Day 57' },
-        // { id: 58, day: 'Day 58' },
-        // { id: 59, day: 'Day 59' },
-        // { id: 60, day: 'Day 60' },
-        // { id: 61, day: 'Day 61' },
-        // { id: 62, day: 'Day 62' },
-        // { id: 63, day: 'Day 63' },
-        // { id: 64, day: 'Day 64' },
-        // { id: 65, day: 'Day 65' },
-        // { id: 66, day: 'Day 66' },
-        // { id: 67, day: 'Day 67' },
-        // { id: 68, day: 'Day 68' },
-        // { id: 69, day: 'Day 69' },
-        // { id: 70, day: 'Day 70' },
-        // { id: 71, day: 'Day 71' },
-        // { id: 72, day: 'Day 72' },
-        // { id: 73, day: 'Day 73' },
-        // { id: 74, day: 'Day 74' },
-        // { id: 75, day: 'Day 75' },
-        // { id: 76, day: 'Day 76' },
-        // { id: 77, day: 'Day 77' },
-        // { id: 78, day: 'Day 78' },
-        // { id: 79, day: 'Day 79' },
-        // { id: 80, day: 'Day 80' },
-        // { id: 81, day: 'Day 81' },
-        // { id: 82, day: 'Day 82' },
-        // { id: 83, day: 'Day 83' },
-        // { id: 84, day: 'Day 84' }
       ]
     }
   }
-  // receives input on what type of day the Day component will
-  // be rendering.
 
-  //will need to receive the type of plan "bulk", "power", "weight loss" to render amount of reps
-
+  // makes the plan with exercises
   createPlan = () => {
-    // const days = ["Day 1","Day 2","Day 3","Day 4","Day 5","Day 6","Day 7"]
     const { days } = this.state
     const listDays = Object.keys(days).map(day => (
       <div key={days[day].id}>
@@ -124,7 +65,7 @@ class TwelveWeeks extends Component {
     ))
     return listDays
   }
-
+  // the fill calendar when a program hasnt been created and the
   fillCalendar = () => {
     const january = [
       1,
