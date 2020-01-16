@@ -126,21 +126,475 @@ class TwelveWeeks extends Component {
     return listDays
   }
 
+  fillCalendar = () => {
+    const january = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    const february = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ]
+    const march = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+    const april = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+    const may = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    const june = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+    const july = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    const august = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    const september = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+    const october = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    const november = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+    const december = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+    if (new Date().getMonth() === 0) {
+      const januaryFill = january.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return januaryFill
+    } else if (new Date().getMonth() === 1) {
+      const februaryFill = february.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return februaryFill
+    } else if (new Date().getMonth() === 2) {
+      const marchFill = march.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return marchFill
+    } else if (new Date().getMonth() === 3) {
+      const aprilFill = april.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return aprilFill
+    } else if (new Date().getMonth() === 5) {
+      const mayFill = may.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return mayFill
+    } else if (new Date().getMonth() === 6) {
+      const juneFill = june.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return juneFill
+    } else if (new Date().getMonth() === 7) {
+      const julyFill = july.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return julyFill
+    } else if (new Date().getMonth() === 8) {
+      const augustFill = august.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return augustFill
+    } else if (new Date().getMonth() === 9) {
+      const septemberFill = september.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return septemberFill
+    } else if (new Date().getMonth() === 10) {
+      const octoberFill = october.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return octoberFill
+    } else if (new Date().getMonth() === 11) {
+      const novemberFill = november.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return novemberFill
+    } else if (new Date().getMonth() === 1) {
+      const decemberFill = december.map(number => (
+        <div className="calendar__day__div">{number}</div>
+      ))
+      return decemberFill
+    }
+  }
+
   render() {
     return (
-      <div className="twelve__Week__Div__Container">
-        {this.createPlan()}
-        <br />
-        click here to save your workout
-        <Button outline color="primary">
-          Click Here to Save it
-        </Button>
-        <br />
-        Don't like it?
-        <Button outline color="danger">
-          Click Here to Reset it
-        </Button>
-        <br />
+      <div>
+        <div className="twelve__Week__Div__Container">
+          {/* {this.createPlan()} */}
+          {this.fillCalendar()}
+        </div>
+        <div className="save__or__reset">
+          click here to save your workout
+          <Button outline color="primary">
+            Click Here to Save it
+          </Button>
+          Don't like it?
+          <Button outline color="danger">
+            Click Here to Reset it
+          </Button>
+        </div>
       </div>
     )
   }
