@@ -24,13 +24,13 @@
   display: flex;
   flex-wrap: wrap;
   width: 1396;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   font-family: 'Montserrat', sans-serif;
 }
 
 .calendar__day__div {
   height: 250px;
-  width: 223px;
+  width: 227px;
   border-style: solid;
   border-width: 0px 1px 1px 0.1px;
   display: flex;
@@ -39,15 +39,16 @@
 
 .calendar__empty__div {
   height: 250px;
-  width: 220px;
+  width: 227px;
   border-style: solid;
   border-width: 0px 0.01px 1px 0.1px;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .day__of__the_week {
-  width: 220px;
+  width: 227px;
   margin-top: 20px;
   border-width: 0px 0px 1px 0px;
   border-color: black;
@@ -59,4 +60,11 @@
   text-align: left;
   font-size: 75px;
   font-family: 'Montserrat', sans-serif;
+}
+
+.date__of__calendar {
+  position: absolute;
+  top: 37%;
+  right: 50%;
+  font-size: 40px;
 }
