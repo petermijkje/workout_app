@@ -27,9 +27,9 @@ export default class Clock extends React.Component {
       return `${hours}:0${minutes}`
     }
     return (
-      <p className="app__clock">
+      <div className="app__clock">
         {hours}:{minutes}
-      </p>
+      </div>
     )
   }
 }

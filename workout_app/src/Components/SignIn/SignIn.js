@@ -43,76 +43,64 @@ class SignIn extends Component {
     // const loginInfo = data.login
     // const authToken = localStorage.getItem(AUTH_TOKEN)
     const { login, email, password } = this.state
-    if (login) {
-      return (
-        <div className="box">
-          <div className="sign__in">
-            <br />
-            Adap-live Fitness
-            <br />
-            <br />
-          </div>
+    return (
+      <div className="box">
+        <div className="sign__in">
           <br />
-          <img src={Logo} alt="Logo" />
-          <h4 className="Login__or__logout__word">Login</h4>
+          Adap-live Fitness
           <br />
           <br />
-          <form>
-            <label>
-              <input
-                type="text"
-                name="name"
-                value={email}
-                placeholder="Email"
-                className="email"
-                onChange={e => this.setState({ email: e.target.value })}
-              />
-            </label>
-            <br />
-            <hr className="sign__in__hr" />
-            <br />
-            <input
-              type="password"
-              name="name"
-              placeholder="Password"
-              className="password"
-              value={password}
-              onChange={e => this.setState({ password: e.target.value })}
-            />
-            <br />
-            <hr className="sign__in__hr" />
-            <br />
-            <br />
-            <Mutation
-              mutation={LOGIN_MUTATION}
-              variables={{ email, password }}
-              onCompleted={data => this._confirm(data)}
-            >
-              {mutation => (
-                <input
-                  type="submit"
-                  value="READY?"
-                  className="button"
-                  onClick={mutation}
-                />
-              )}
-            </Mutation>
-            {/* <input
-              type="submit"
-              value="Bypass this"
-              onClick={this.props.handleLoginClick}
-            /> */}
-          </form>
-          <br />
-          <div className="sign__up">
-            Don't have an account?
-            <h5 className="signup__link" onClick={this.handleloginChange}>
-              <Link to="/signup">Sign Up</Link>
-            </h5>
-          </div>
         </div>
-      )
-    } else return null
+        <br />
+        <img src={Logo} alt="Logo" />
+        <h4 className="Login__or__logout__word">Login</h4>
+        <br />
+        <br />
+        <form>
+          <label>
+            <input
+              type="text"
+              name="name"
+              value={email}
+              placeholder="Email"
+              className="email"
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+          </label>
+          <br />
+          <hr className="sign__in__hr" />
+          <br />
+          <input
+            type="password"
+            name="name"
+            placeholder="Password"
+            className="password"
+            value={password}
+            onChange={e => this.setState({ password: e.target.value })}
+          />
+          <br />
+          <hr className="sign__in__hr" />
+          <br />
+          <br />
+
+          <input
+            type="submit"
+            value="READY?"
+            className="button"
+            onClick={this.props.byPassLogin}
+          />
+        </form>
+        <br />
+        <div className="sign__up">
+          Don't have an account?
+          <h5 className="signup__link" onClick={this.handleloginChange}>
+            <Link to="/signup" onClick={this.props.changeSignedUpToFalse}>
+              Sign Up
+            </Link>
+          </h5>
+        </div>
+      </div>
+    )
   }
   // _confirm = async () => {
   //   const { token } = data.login

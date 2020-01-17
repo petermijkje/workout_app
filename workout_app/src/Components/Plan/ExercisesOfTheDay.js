@@ -76,7 +76,7 @@ class ExercisesOfTheDay extends Component {
     return (
       <div>
         <div className="frame__of__eotd">
-          {this.state.days[0].day}
+          <div className="plan__number">{this.state.days[0].day}</div>
           {this.createPlan()}
         </div>
       </div>

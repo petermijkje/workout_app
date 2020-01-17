@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Rep.css'
 
 class Reps extends Component {
   constructor() {
