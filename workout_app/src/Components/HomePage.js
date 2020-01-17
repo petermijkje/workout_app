@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Accordion, Card } from 'react-bootstrap'
 
 //components
+import SignUp from './SignUp/SignUp.js'
 import SignIn from './SignIn/SignIn.js'
 import TwelveWeeks from './Plan/TwelveWeeks.js'
 import Clock from './Time/Clock/Clock.js'
@@ -19,10 +20,12 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoggedIn: true
+      isLoggedIn: false,
+      signedUp: true
     }
     this.handleLoginClick = this.handleLoginClick.bind(this)
     this.handleLogoutClick = this.handleLogoutClick.bind(this)
+    this.changeSignedUpToFalse = this.changeSignedUpToFalse.bind(this)
   }
 
   handleLogoutClick() {
@@ -33,15 +36,16 @@ class HomePage extends React.Component {
     this.setState({ isLoggedIn: true })
   }
 
-  changeToTrue() {
-    this.setState({ isLoggedIn: true })
+  changeSignedUpToFalse() {
+    this.setState({ signedUp: false })
   }
 
   render() {
+    const signedUp = this.state.signedUp
     const isLoggedIn = this.state.isLoggedIn
     if (isLoggedIn) {
       return (
-        <div>
+        <div className="homepage__div">
           <Header logOut={this.handleLogoutClick} />
           <Clock />
           <div className="flex__container">
@@ -74,18 +78,22 @@ class HomePage extends React.Component {
           </Accordion>
         </div>
       )
-    } else
+    } else if (!isLoggedIn && signedUp) {
       return (
         <div>
           <SignIn
-            byPassLogin={this.handleLoginClick}
-            changeToTrue={this.changeToTrue}
+            byPassLogin={this.handleLoginClick.bind(this)}
+            changeSignedUpToFalse={this.changeSignedUpToFalse.bind(this)}
           />
-          <button onClick={this.handleLoginClick}>
-            Click here bypass login
-          </button>
         </div>
       )
+    } else if (!isLoggedIn && !signedUp) {
+      return (
+        <div>
+          <SignUp />
+        </div>
+      )
+    }
   }
 }
 

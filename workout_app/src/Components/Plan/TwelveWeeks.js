@@ -545,7 +545,7 @@ class TwelveWeeks extends Component {
 
   render() {
     return (
-      <div>
+      <div className="twelve__week__app">
         <div className="month__and__year">January, 2020</div>
         <div className="twelve__Week__Div__Container">
           <li className="day__of__the_week">Monday</li>
