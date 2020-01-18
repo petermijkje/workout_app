@@ -90,7 +90,7 @@ class HomePage extends React.Component {
     } else if (!isLoggedIn && !signedUp) {
       return (
         <div>
-          <SignUp />
+          <SignUp byPassLogin={this.handleLoginClick.bind(this)} />
         </div>
       )
     }
