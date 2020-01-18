@@ -150,11 +150,10 @@ class SignUp extends Component {
             <p> create your profile </p>
             <br />
           </div>
-          <Progress value="99">Part 3 of 3</Progress>
-          <br />
-          <br />
-          <br />
+          <Progress value="99">Almost Done!</Progress>
+
           <form>
+            <p>Age</p>
             <label>
               <input
                 type="number"
@@ -166,7 +165,7 @@ class SignUp extends Component {
           </form>
           <hr className="sign__in__hr" />
           <FormGroup>
-            <Label for="exampleSelect">Select</Label>
+            <p>Sex:</p>
             <Input type="select" name="select" id="exampleSelect">
               <option>Female</option>
               <option>Male</option>
@@ -174,6 +173,7 @@ class SignUp extends Component {
           </FormGroup>
           <hr className="sign__in__hr" />
           <form>
+            <p>Date Of Birth:</p>
             <label>
               <input
                 type="date"
@@ -184,8 +184,18 @@ class SignUp extends Component {
             </label>
           </form>
           <hr className="sign__in__hr" />
-          <br />
-          <br />
+          <form>
+            <p>Height in Inches</p>
+            <label>
+              <input
+                type="number"
+                name="Name"
+                placeholder="Age"
+                className="email"
+              />
+            </label>
+          </form>
+          <hr className="sign__in__hr" />
           <input type="Submit" className="button" />
           <br />
           <br />
