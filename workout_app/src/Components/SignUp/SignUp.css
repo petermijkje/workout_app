@@ -2,3 +2,13 @@
   margin-top: 0px;
   margin-bottom: 46px;
 }
+
+#exampleSelect {
+  width: 50%;
+  position: relative;
+  left: 10%;
+}
+
+.progress {
+  border-radius: 0px;
+}
