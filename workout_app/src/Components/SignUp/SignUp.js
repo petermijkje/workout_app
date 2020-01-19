@@ -179,7 +179,6 @@ class SignUp extends Component {
                 Almost Done!
               </Progress>
               <form>
-                <p>Age</p>
                 <label>
                   <input
                     type="number"
@@ -191,7 +190,6 @@ class SignUp extends Component {
               </form>
               <hr className="sign__in__hr" />
               <FormGroup>
-                <p>Sex:</p>
                 <Input type="select" name="select" id="exampleSelect">
                   <option>Female</option>
                   <option>Male</option>
@@ -211,12 +209,11 @@ class SignUp extends Component {
               </form>
               <hr className="sign__in__hr" />
               <form>
-                <p>Height in Inches</p>
                 <label>
                   <input
                     type="number"
                     name="Name"
-                    placeholder="Age"
+                    placeholder="Height in Inches"
                     className="email"
                   />
                 </label>
