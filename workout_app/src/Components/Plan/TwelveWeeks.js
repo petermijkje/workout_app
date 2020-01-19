@@ -555,8 +555,8 @@ class TwelveWeeks extends Component {
           <li className="day__of__the_week">Friday</li>
           <li className="day__of__the_week">Saturday</li>
           <li className="day__of__the_week">Sunday</li>
-          {/* {this.createPlan()} */}
-          {this.fillCalendar()}
+          {this.createPlan()}
+          {/* {this.fillCalendar()} */}
         </div>
         <div className="save__or__reset">
           click here to save your workout
