@@ -12,3 +12,9 @@
 .progress {
   border-radius: 0px;
 }
+
+.date__of__birth {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}

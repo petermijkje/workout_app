@@ -178,6 +178,7 @@ class SignUp extends Component {
               <Progress animated value="99">
                 Almost Done!
               </Progress>
+              <br />
               <form>
                 <label>
                   <input
@@ -197,7 +198,7 @@ class SignUp extends Component {
               </FormGroup>
               <hr className="sign__in__hr" />
               <form>
-                <p>Date Of Birth:</p>
+                <p className="date__of__birth">Date Of Birth:</p>
                 <label>
                   <input
                     type="date"
