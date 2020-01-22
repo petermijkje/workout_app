@@ -91,6 +91,7 @@ class SignIn extends Component {
           />
         </form>
         <br />
+        <br />
         <div className="sign__up">
           Don't have an account?
           <h5 className="signup__link" onClick={this.handleloginChange}>
