@@ -37,6 +37,9 @@ font-family: 'Lato', sans-serif; */
   display: inline-block;
   font-size: 40px;
   outline: 0;
+  position: absolute;
+  top: 83%;
+  left: 22%;
 }
 
 .email {
