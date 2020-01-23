@@ -19,11 +19,11 @@ class SignUp extends Component {
     this.setPart2ToTrue = this.setPart2ToTrue.bind(this)
     this.setPart3ToTrue = this.setPart3ToTrue.bind(this)
   }
-
+  //changes states from first part of sign up to 2nd
   setPart2ToTrue() {
     this.setState({ part2: true })
   }
-
+  //changes states from 2nd part of sign up to 3rd
   setPart3ToTrue() {
     this.setState({ part3: true })
   }
