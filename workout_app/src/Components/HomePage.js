@@ -49,11 +49,11 @@ class HomePage extends React.Component {
           <Header logOut={this.handleLogoutClick} />
           <Clock />
           <div className="flex__container">
-            <Chart className="flex__item" />
-            <StatisticsForCharts className="flex__item" />
             <ExercisesOfTheDay className="flex__item" />
+            <StatisticsForCharts className="flex__item" />
+            <Chart className="flex__item" />
           </div>
-          <Profile />
+          {/* <Profile /> */}
           {/* <CreateYourProfile /> */}
           <Accordion>
             <Card>

@@ -37,7 +37,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to App
+                Welcome to Retrain
                 <br />
                 <br />
                 <p> create your profile </p>
@@ -103,7 +103,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to App
+                Welcome to Retrain
                 <br />
                 <br />
                 <p> create your profile </p>
@@ -140,9 +140,9 @@ class SignUp extends Component {
               <form>
                 <label>
                   <input
-                    type="date"
+                    type="number"
                     name="password"
-                    placeholder="Date of Birth"
+                    placeholder="Weight"
                     className="password"
                   />
                 </label>
@@ -169,7 +169,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to App
+                Welcome to Retrain
                 <br />
                 <br />
                 <p> create your profile </p>
@@ -179,36 +179,8 @@ class SignUp extends Component {
                 Almost Done!
               </Progress>
               <br />
-              <form>
-                <label>
-                  <input
-                    type="number"
-                    name="Name"
-                    placeholder="Age"
-                    className="email"
-                  />
-                </label>
-              </form>
-              <hr className="sign__in__hr" />
-              <FormGroup>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>Female</option>
-                  <option>Male</option>
-                </Input>
-              </FormGroup>
-              <hr className="sign__in__hr" />
-              <form>
-                <p className="date__of__birth">Date Of Birth:</p>
-                <label>
-                  <input
-                    type="date"
-                    name="password"
-                    placeholder="Date of Birth"
-                    className="password"
-                  />
-                </label>
-              </form>
-              <hr className="sign__in__hr" />
+              <br />
+              <br />
               <form>
                 <label>
                   <input
@@ -218,7 +190,30 @@ class SignUp extends Component {
                     className="email"
                   />
                 </label>
+                <hr className="sign__in__hr" />
               </form>
+              <FormGroup>
+                <Input type="select" name="select" id="exampleSelect">
+                  <option>Female</option>
+                  <option>Male</option>
+                </Input>
+              </FormGroup>
+              <hr className="sign__in__hr" />
+              <FormGroup>
+                <Input
+                  type="select"
+                  name="select"
+                  id="exampleSelect"
+                  placeholder="Goal?"
+                >
+                  <option disabled selected>
+                    Select your Goal
+                  </option>
+                  <option>Lose Fat</option>
+                  <option>Gain Muscle</option>
+                  <option>Maintain</option>
+                </Input>
+              </FormGroup>
               <hr className="sign__in__hr" />
               <input
                 type="Submit"
