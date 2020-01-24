@@ -22,8 +22,11 @@
   width: 300px;
 }
 
-.vertical-menu a.active {
+.vertical-menu div.active {
   background-color: #4caf50; /* Add a green color to the "active/current" link */
   color: white;
   width: 300px;
+  height: 153px;
+  padding: 60px;
+  font-family: 'Montserrat', sans-serif;
 }

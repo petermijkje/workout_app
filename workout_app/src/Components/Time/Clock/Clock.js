@@ -28,6 +28,7 @@ export default class Clock extends React.Component {
     }
     return (
       <div className="app__clock">
+        <p>Hello, User</p>
         {hours}:{minutes}
       </div>
     )
