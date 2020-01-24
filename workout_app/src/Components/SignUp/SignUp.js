@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Progress, FormGroup, Label, Input } from 'reactstrap'
+import { Progress, FormGroup, Input } from 'reactstrap'
 import './SignUp.css'
 
 class SignUp extends Component {
