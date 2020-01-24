@@ -47,7 +47,7 @@ class SignIn extends Component {
       <div className="box">
         <div className="sign__in">
           <br />
-          Adap-live Fitness
+          Retrain
           <br />
           <br />
         </div>

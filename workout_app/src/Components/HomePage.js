@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Accordion, Card } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 
 //components
 import SignUp from './SignUp/SignUp.js'
@@ -49,33 +49,16 @@ class HomePage extends React.Component {
           <Header logOut={this.handleLogoutClick} />
           <Clock />
           <div className="flex__container">
-            <Chart className="flex__item" />
-            <StatisticsForCharts className="flex__item" />
             <ExercisesOfTheDay className="flex__item" />
+            <StatisticsForCharts className="flex__item" />
+            <Chart className="flex__item" />
           </div>
-          <Profile />
+          {/* <Profile /> */}
           {/* <CreateYourProfile /> */}
-          <Accordion>
-            <Card>
-              <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                  Click me to see your workout plan!
-                </Accordion.Toggle>
-              </Card.Header>
-              <Accordion.Collapse eventKey="0">
-                <Card>
-                  <TwelveWeeks />
-                  <Button
-                    onClick={this.handleLogoutClick}
-                    color="secondary"
-                    size="lg"
-                  >
-                    Click here to logout
-                  </Button>
-                </Card>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
+          <TwelveWeeks />
+          <Button onClick={this.handleLogoutClick} color="secondary" size="lg">
+            Click here to logout
+          </Button>
         </div>
       )
     } else if (!isLoggedIn && signedUp) {

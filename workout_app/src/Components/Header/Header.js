@@ -11,44 +11,25 @@ class Header extends Component {
   state = {}
   render() {
     return (
-      <div className="header__div">
-        <Nav className="justify-content-end" activeKey="/home">
-          <Nav.Item>
-            <Nav.Link>
-              Home <Home />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">
-              Today <Activity />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2" exact component={TwelveWeeks}>
-              This Month <Calendar />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-1">
-              Profile <User />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2">
-              Settings <Settings />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="link-2" href="/logout">
-              Logout <LogOut />
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="disabled" disabled>
-              Welcome, User.
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
+      <div className="vertical-menu">
+        <a href="/Home" className="active">
+          Home <Home />
+        </a>
+        <a href="/Today">
+          Today <Activity />
+        </a>
+        <a href="/thismonth">
+          This Month <Calendar />
+        </a>
+        <a href="/profile">
+          Profile <User />
+        </a>
+        <a href="settings">
+          Settings <Settings />
+        </a>
+        <a href="/logout">
+          Logout <LogOut />
+        </a>
       </div>
     )
   }
