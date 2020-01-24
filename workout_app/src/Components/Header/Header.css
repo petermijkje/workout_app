@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 
 .vertical-menu {
-  width: 150px; /* Set a width if you like */
+  width: 150px;
   font-family: 'Kanit', sans-serif;
   float: left;
   height: 920px;
@@ -11,11 +11,10 @@
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
   display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
   width: 300px;
   height: 153px;
-  padding: 56px;
+  padding: 60px;
 }
 
 .vertical-menu a:hover {
