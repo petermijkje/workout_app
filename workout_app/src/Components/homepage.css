@@ -9,14 +9,15 @@
 }
 
 .flex__container {
-  border-style: solid;
-  border-color: black;
-  border-width: 1px 0px 1px 0px;
+  background: #f7f7f7;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 1300px;
   justify-content: space-evenly;
-  height: 530px;
+  height: 765px;
+  float: right;
+  top: 153px;
+  left: 300px;
 }
 
 .flex__item {

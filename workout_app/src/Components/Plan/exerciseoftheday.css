@@ -1,36 +1,39 @@
 .frame__of__eotd {
-  border-style: solid;
-  border-width: 0px 1px;
-  border-radius: 20px 20px 20px 20px;
-  height: 100%;
-  background: #efefef;
+  border-radius: 10px 10px 10px 10px;
+  height: 90%;
+  background: white;
   padding-top: 10px;
+  -webkit-box-shadow: 9px 16px 26px -8px #000000;
+  box-shadow: 9px 16px 26px -8px #000000;
+  margin-top: 35px;
 }
 
 .border__div__for__exercise__of__day {
-  margin: 10px 10px 10px 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 .day__of__exercise__div {
-  width: 400px;
+  width: 450px;
   display: flex;
   padding: 10px 10px 10px 10px;
   border-radius: 10px;
-  border-color: black;
-  background-color: #93a8ac;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .exercise__name__div {
-  width: 50%;
-  font-size: 14px;
+  width: 70%;
+  font-size: 20px;
+  text-align: left;
 }
 
 .exercise__sets__and__reps {
   float: right;
-  width: 50%;
-  font-size: 14px;
+  width: 30%;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.exercises__name__div {
+  margin-top: 10px;
 }
 
 .exercise__div {
@@ -38,14 +41,22 @@
 }
 
 .corresponding__circle {
-  border-radius: 50px;
-  height: 14px;
-  width: 14px;
+  border-radius: 10px;
+  height: 70px;
+  width: 55px;
   float: left;
   position: relative;
   top: 7px;
-  margin-right: 10px;
+  margin-right: 30px;
   margin-left: 10px;
+}
+
+.number__in__exercise__div {
+  position: absolute;
+  top: 18px;
+  right: 42%;
+  font-size: 20px;
+  color: #1d6093;
 }
 
 .plan__number {
