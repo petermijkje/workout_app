@@ -90,7 +90,7 @@ export default class BuildingStrength extends PureComponent {
           ]
 
           return (
-            <div>
+            <div className="barchart__div">
               <BarChart width={500} height={500} data={info}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />

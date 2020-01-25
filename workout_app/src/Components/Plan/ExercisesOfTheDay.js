@@ -8,42 +8,42 @@ class ExercisesOfTheDay extends Component {
       days: [{ id: 1, day: 'Day 1' }],
       todaysExercise: [
         {
-          exerciseName: 'cable judo flip, abdominals',
+          exerciseName: 'cable judo flip',
           sets: 5,
           reps: 7,
           color: '#7CC6FE',
           repNumber: 1
         },
         {
-          exerciseName: 'kettlebell pirate ships, shoulders',
+          exerciseName: 'kettlebell pirate ships',
           sets: 6,
           reps: 6,
           color: '#7CC6FE',
           repNumber: 2
         },
         {
-          exerciseName: 'band assisted pull-up, lats',
+          exerciseName: 'band assisted pull-up',
           sets: 5,
           reps: 9,
           color: '#7CC6FE',
           repNumber: 3
         },
         {
-          exerciseName: 'bear crawl sled drags, quadriceps',
+          exerciseName: 'bear crawl sled drags',
           sets: 4,
           reps: 14,
           color: '#7CC6FE',
           repNumber: 4
         },
         {
-          exerciseName: 'incline push-up medium, chest',
+          exerciseName: 'incline push-up medium',
           sets: 5,
           reps: 12,
           color: '#7CC6FE',
           repNumber: 5
         },
         {
-          exerciseName: 'cable shoulder press, shoulders',
+          exerciseName: 'cable shoulder press',
           sets: 4,
           reps: 7,
           color: '#7CC6FE',
@@ -66,9 +66,13 @@ class ExercisesOfTheDay extends Component {
                   background: exercise.color
                 }}
               >
-                {exercise.repNumber}
+                <div className="number__in__exercise__div">
+                  {exercise.repNumber}
+                </div>
               </p>
-              {exercise.exerciseName}
+              <div className="exercises__name__div">
+                {exercise.exerciseName}
+              </div>
             </div>
             <div className="exercise__sets__and__reps">
               {exercise.sets} X {exercise.reps}
