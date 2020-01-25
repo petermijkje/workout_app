@@ -1,7 +1,7 @@
 import React from 'react'
 import { Component } from 'react'
 import './Header.css'
-import { Calendar, Activity, Home, Settings, LogOut, User } from 'react-feather'
+import { Calendar, Home, Settings, LogOut, User } from 'react-feather'
 
 class Header extends Component {
   state = {

@@ -3,6 +3,7 @@ import { Button } from 'reactstrap'
 import './twelveweeks.css'
 import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
+import { ArrowLeft, ArrowRight } from 'react-feather'
 
 class TwelveWeeks extends Component {
   constructor(props) {
@@ -546,7 +547,15 @@ class TwelveWeeks extends Component {
   render() {
     return (
       <div className="twelve__week__app">
-        <div className="month__and__year">January, 2020</div>
+        <div className="month__and__year">
+          <div className="arrow__left">
+            <ArrowLeft size={70} />
+          </div>
+          January, 2020
+          <div className="arrow__right">
+            <ArrowRight size={70} />
+          </div>
+        </div>
         <div className="twelve__Week__Div__Container">
           <li className="day__of__the_week">Monday</li>
           <li className="day__of__the_week">Tuesday</li>
@@ -555,8 +564,8 @@ class TwelveWeeks extends Component {
           <li className="day__of__the_week">Friday</li>
           <li className="day__of__the_week">Saturday</li>
           <li className="day__of__the_week">Sunday</li>
-          {this.createPlan()}
-          {/* {this.fillCalendar()} */}
+          {/* {this.createPlan()} */}
+          {this.fillCalendar()}
         </div>
         <div className="save__or__reset">
           click here to save your workout

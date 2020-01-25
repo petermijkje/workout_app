@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:800&display=swap');
 
 .twelve__week__app {
-  background: linear-gradient(
-    to right,
-    #383838,
-    #414345
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: white;
+  background-image: linear-gradient(315deg, #f1ebec 0%, white 74%);
+  width: 1300px;
+  float: right;
 }
 
 .day__div {
@@ -31,50 +30,58 @@
   border-width: 0px 0px 1px 0px;
   display: flex;
   flex-wrap: wrap;
-  width: 1396;
-  justify-content: flex-start;
+  width: 1300;
+  justify-content: center;
   font-family: 'Montserrat', sans-serif;
 }
 
 .calendar__day__div {
-  height: 250px;
-  width: 227px;
-  border-style: solid;
-  border-width: 0px 1px 1px 0.1px;
+  height: 100px;
+  width: 100px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .calendar__empty__div {
-  height: 250px;
-  width: 227px;
-  border-style: solid;
-  border-width: 1px 1px 1px 1px;
+  height: 121px;
+  width: 180px;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  border-color: #6ed897;
 }
 
 .day__of__the_week {
-  width: 227px;
+  width: 180px;
+  height: 40px;
   margin-top: 20px;
   list-style-type: none;
-  color: #f7f9f9;
-  border-color: #6ed897;
+  color: grey;
+  border-bottom: black;
+  border-width: 0px 0px 1px;
+  border-style: solid;
 }
 
 .month__and__year {
-  text-align: left;
+  text-align: center;
   font-size: 75px;
   font-family: 'Montserrat', sans-serif;
-  color: #f7f9f9;
+  color: black;
 }
 
 .date__of__calendar {
   position: absolute;
-  top: 37%;
+  top: 20%;
   right: 45%;
-  font-size: 40px;
-  color: #f7f9f9;
+  font-size: 20px;
+  color: black;
+}
+
+.arrow__left {
+  float: left;
+  margin-left: 20px;
+}
+
+.arrow__right {
+  float: right;
+  margin-right: 20px;
 }

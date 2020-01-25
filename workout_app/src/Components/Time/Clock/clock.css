@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 .app__clock {
+  background: #eee;
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
-  margin: 0px 0px 10px 0px;
   height: 153px;
   padding: 40px;
+  width: 1300px;
+  float: right;
 }

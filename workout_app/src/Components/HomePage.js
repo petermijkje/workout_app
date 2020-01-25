@@ -40,6 +40,24 @@ class HomePage extends React.Component {
     this.setState({ signedUp: false })
   }
 
+  changeView() {
+    const navbar = 'home'
+    if (navbar === 'twelveweeks') {
+      return (
+        <div>
+          <TwelveWeeks />
+        </div>
+      )
+    } else if (navbar === 'home') {
+      return (
+        <div className="flex__container">
+          <ExercisesOfTheDay className="flex__item" />
+          <Chart className="flex__item" />
+        </div>
+      )
+    }
+  }
+
   render() {
     const signedUp = this.state.signedUp
     const isLoggedIn = this.state.isLoggedIn
@@ -48,6 +66,7 @@ class HomePage extends React.Component {
         <div className="homepage__div">
           <Header logOut={this.handleLogoutClick} />
           <Clock />
+          {this.changeView()}
           {/* <div className="flex__container">
             <ExercisesOfTheDay className="flex__item" />
             <StatisticsForCharts className="flex__item" />
