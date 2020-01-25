@@ -9,14 +9,13 @@
 }
 
 .flex__container {
-  background: white;
+  background: #f7f7f7;
   display: flex;
   flex-wrap: wrap;
   width: 1300px;
   justify-content: space-evenly;
   height: 765px;
   float: right;
-  position: absolute;
   top: 153px;
   left: 300px;
 }

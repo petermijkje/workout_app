@@ -11,37 +11,43 @@ class ExercisesOfTheDay extends Component {
           exerciseName: 'cable judo flip, abdominals',
           sets: 5,
           reps: 7,
-          color: '#0088FE'
+          color: '#7CC6FE',
+          repNumber: 1
         },
         {
           exerciseName: 'kettlebell pirate ships, shoulders',
           sets: 6,
           reps: 6,
-          color: '#00C49F'
+          color: '#7CC6FE',
+          repNumber: 2
         },
         {
           exerciseName: 'band assisted pull-up, lats',
           sets: 5,
           reps: 9,
-          color: '#FFBB28'
+          color: '#7CC6FE',
+          repNumber: 3
         },
         {
           exerciseName: 'bear crawl sled drags, quadriceps',
           sets: 4,
           reps: 14,
-          color: '#FF8042'
+          color: '#7CC6FE',
+          repNumber: 4
         },
         {
           exerciseName: 'incline push-up medium, chest',
           sets: 5,
           reps: 12,
-          color: '#D72638'
+          color: '#7CC6FE',
+          repNumber: 5
         },
         {
           exerciseName: 'cable shoulder press, shoulders',
           sets: 4,
           reps: 7,
-          color: '#D8A47F'
+          color: '#7CC6FE',
+          repNumber: 6
         }
       ]
     }
@@ -59,7 +65,9 @@ class ExercisesOfTheDay extends Component {
                 style={{
                   background: exercise.color
                 }}
-              ></p>
+              >
+                {exercise.repNumber}
+              </p>
               {exercise.exerciseName}
             </div>
             <div className="exercise__sets__and__reps">
