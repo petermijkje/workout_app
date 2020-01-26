@@ -88,14 +88,14 @@ class BodyPercentageChart extends React.Component {
       <div className="pie__chart__container">
         <PieChart
           width={500}
-          height={500}
+          height={280}
           onMouseEnter={this.onPieEnter}
           className="pie__chart__div"
         >
           <Pie
             data={data}
-            cx={120}
-            cy={200}
+            cx={215}
+            cy={140}
             innerRadius={80}
             outerRadius={120}
             fill="#8884d8"
