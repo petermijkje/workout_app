@@ -1,6 +1,7 @@
 .loading__and__error__div {
-  width: 500px;
+  width: 100%;
   height: 500px;
+  margin-top: 25%;
 }
 
 .barchart__div {

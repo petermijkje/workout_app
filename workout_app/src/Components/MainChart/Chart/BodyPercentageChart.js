@@ -96,8 +96,8 @@ class BodyPercentageChart extends React.Component {
             data={data}
             cx={215}
             cy={140}
-            innerRadius={80}
-            outerRadius={120}
+            innerRadius={60}
+            outerRadius={100}
             fill="#8884d8"
             paddingAngle={5}
           >
