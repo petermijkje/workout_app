@@ -8,6 +8,7 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
+      confirmPassword: '',
       loggedInUser: {},
       message: null,
       errors: [],
@@ -26,6 +27,47 @@ class SignUp extends Component {
   //changes states from 2nd part of sign up to 3rd
   setPart3ToTrue() {
     this.setState({ part3: true })
+  }
+
+  handleSignUp = () => {
+    const { email, password, confirmPassword } = this.state
+    const validationErrors = []
+
+    const hasUpper = /[A-Z]/.test(password)
+    const hasLower = /[a-z]/.test(password)
+    const hasNumbers = /\d/.test(password)
+    const hasChars = /\W/.test(password)
+
+    if (
+      password.length < 8 ||
+      hasUpper + hasLower + hasNumbers + hasChars < 3
+    ) {
+      validationErrors.Errors.push('password')
+      this.setState({
+        passwordError:
+          'Password must be at least 8 characters and use at least one of the following characters: Upper case, lower case, number and special character'
+      })
+    } else {
+      this.setState({ passwordError: null })
+    }
+
+    if (password !== confirmPassword) {
+      validationErrors.Errors.push('confirmPassword')
+      this.setState({ confirmPasswordError: 'Password must match' })
+    } else {
+      this.setState({ confirmPasswordError: null })
+    }
+    if (!validationErrors.length) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render() {
@@ -56,6 +98,8 @@ class SignUp extends Component {
                     name="email"
                     placeholder="Email"
                     className="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
                   />
                 </label>
               </form>
@@ -67,6 +111,8 @@ class SignUp extends Component {
                     name="password"
                     placeholder="password"
                     className="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
                   />
                 </label>
               </form>
@@ -78,6 +124,8 @@ class SignUp extends Component {
                     name="password"
                     placeholder="retype password"
                     className="password"
+                    value={this.state.confirmPassword}
+                    onChange={this.handleChange}
                   />
                 </label>
               </form>
