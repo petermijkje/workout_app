@@ -2,6 +2,7 @@ import React from 'react'
 import BuildingStrength from './Chart/BuildingStrength'
 import BodyPercentageChart from './Chart/BodyPercentageChart'
 import './chart.css'
+
 export default class Chart extends React.Component {
   constructor() {
     super()
@@ -29,9 +30,10 @@ export default class Chart extends React.Component {
     return (
       <div
         onClick={this.handlePercentageChartChange}
-        class__name="charts__container"
+        className="charts__container"
       >
-        {this.changeCharts()}
+        <BodyPercentageChart />
+        <BuildingStrength />
       </div>
     )
   }

@@ -41,7 +41,7 @@ class HomePage extends React.Component {
   }
 
   changeView() {
-    const navbar = 'home'
+    const navbar = 'twelveweeks'
     if (navbar === 'twelveweeks') {
       return (
         <div>
