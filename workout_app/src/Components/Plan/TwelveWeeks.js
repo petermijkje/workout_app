@@ -1,14 +1,16 @@
-import React, { Component } from 'react'
-import { Button } from 'reactstrap'
+import React, { Component, useState } from 'react'
+import { Button, UncontrolledTooltip } from 'reactstrap'
 import './twelveweeks.css'
 import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
 import { ArrowLeft, ArrowRight } from 'react-feather'
+import ExercisesOfTheDay from './ExercisesOfTheDay'
 
 class TwelveWeeks extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      hover: false,
       days: [
         // play data
         { id: 1, day: 'Day 1', workoutDay: 'chest' },
@@ -460,7 +462,12 @@ class TwelveWeeks extends Component {
     if (date === 0) {
       const januaryFill = january.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return januaryFill
