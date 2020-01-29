@@ -29,8 +29,8 @@ class SignUp extends Component {
       part3: false,
       loggedIn: true
     }
-    // this.setPart2ToTrue = this.setPart2ToTrue.bind(this)
     this.setPart3ToTrue = this.setPart3ToTrue.bind(this)
+    //handle changes for sign up inputs
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
@@ -41,10 +41,6 @@ class SignUp extends Component {
     this.handleWeightChange = this.handleWeightChange.bind(this)
   }
 
-  //changes states from first part of sign up to 2nd
-  // setPart2ToTrue() {
-  //   this.setState({ part2: true })
-  // }
   //changes states from 2nd part of sign up to 3rd
   setPart3ToTrue() {
     this.setState({ part3: true })
@@ -93,6 +89,7 @@ class SignUp extends Component {
     }
   }
 
+  //handleChanges for all events
   handleEmailChange(event) {
     this.setState({ email: event.target.value })
   }
