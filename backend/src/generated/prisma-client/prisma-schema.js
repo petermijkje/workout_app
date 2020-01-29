@@ -375,7 +375,6 @@ type Profile {
   inches: Int!
   male: Boolean!
   weight: Int!
-  createdAt: String!
 }
 
 type ProfileConnection {
@@ -422,8 +421,6 @@ enum ProfileOrderByInput {
   male_DESC
   weight_ASC
   weight_DESC
-  createdAt_ASC
-  createdAt_DESC
 }
 
 type ProfilePreviousValues {
@@ -432,7 +429,6 @@ type ProfilePreviousValues {
   inches: Int!
   male: Boolean!
   weight: Int!
-  createdAt: String!
 }
 
 input ProfileScalarWhereInput {
@@ -476,20 +472,6 @@ input ProfileScalarWhereInput {
   weight_lte: Int
   weight_gt: Int
   weight_gte: Int
-  createdAt: String
-  createdAt_not: String
-  createdAt_in: [String!]
-  createdAt_not_in: [String!]
-  createdAt_lt: String
-  createdAt_lte: String
-  createdAt_gt: String
-  createdAt_gte: String
-  createdAt_contains: String
-  createdAt_not_contains: String
-  createdAt_starts_with: String
-  createdAt_not_starts_with: String
-  createdAt_ends_with: String
-  createdAt_not_ends_with: String
   AND: [ProfileScalarWhereInput!]
   OR: [ProfileScalarWhereInput!]
   NOT: [ProfileScalarWhereInput!]
@@ -612,20 +594,6 @@ input ProfileWhereInput {
   weight_lte: Int
   weight_gt: Int
   weight_gte: Int
-  createdAt: String
-  createdAt_not: String
-  createdAt_in: [String!]
-  createdAt_not_in: [String!]
-  createdAt_lt: String
-  createdAt_lte: String
-  createdAt_gt: String
-  createdAt_gte: String
-  createdAt_contains: String
-  createdAt_not_contains: String
-  createdAt_starts_with: String
-  createdAt_not_starts_with: String
-  createdAt_ends_with: String
-  createdAt_not_ends_with: String
   AND: [ProfileWhereInput!]
   OR: [ProfileWhereInput!]
   NOT: [ProfileWhereInput!]
@@ -963,7 +931,6 @@ type Subscription {
 
 type User {
   id: ID!
-  name: String!
   email: String!
   password: String!
   links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link!]
@@ -980,7 +947,6 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
-  name: String!
   email: String!
   password: String!
   links: LinkCreateManyWithoutPostedByInput
@@ -1011,7 +977,6 @@ input UserCreateOneWithoutVotesInput {
 
 input UserCreateWithoutLinksInput {
   id: ID
-  name: String!
   email: String!
   password: String!
   votes: VoteCreateManyWithoutUserInput
@@ -1021,7 +986,6 @@ input UserCreateWithoutLinksInput {
 
 input UserCreateWithoutProfilesInput {
   id: ID
-  name: String!
   email: String!
   password: String!
   links: LinkCreateManyWithoutPostedByInput
@@ -1031,7 +995,6 @@ input UserCreateWithoutProfilesInput {
 
 input UserCreateWithoutStatsInput {
   id: ID
-  name: String!
   email: String!
   password: String!
   links: LinkCreateManyWithoutPostedByInput
@@ -1041,7 +1004,6 @@ input UserCreateWithoutStatsInput {
 
 input UserCreateWithoutVotesInput {
   id: ID
-  name: String!
   email: String!
   password: String!
   links: LinkCreateManyWithoutPostedByInput
@@ -1057,8 +1019,6 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
   email_ASC
   email_DESC
   password_ASC
@@ -1067,7 +1027,6 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  name: String!
   email: String!
   password: String!
 }
@@ -1091,7 +1050,6 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  name: String
   email: String
   password: String
   links: LinkUpdateManyWithoutPostedByInput
@@ -1101,7 +1059,6 @@ input UserUpdateInput {
 }
 
 input UserUpdateManyMutationInput {
-  name: String
   email: String
   password: String
 }
@@ -1141,7 +1098,6 @@ input UserUpdateOneWithoutStatsInput {
 }
 
 input UserUpdateWithoutLinksDataInput {
-  name: String
   email: String
   password: String
   votes: VoteUpdateManyWithoutUserInput
@@ -1150,7 +1106,6 @@ input UserUpdateWithoutLinksDataInput {
 }
 
 input UserUpdateWithoutProfilesDataInput {
-  name: String
   email: String
   password: String
   links: LinkUpdateManyWithoutPostedByInput
@@ -1159,7 +1114,6 @@ input UserUpdateWithoutProfilesDataInput {
 }
 
 input UserUpdateWithoutStatsDataInput {
-  name: String
   email: String
   password: String
   links: LinkUpdateManyWithoutPostedByInput
@@ -1168,7 +1122,6 @@ input UserUpdateWithoutStatsDataInput {
 }
 
 input UserUpdateWithoutVotesDataInput {
-  name: String
   email: String
   password: String
   links: LinkUpdateManyWithoutPostedByInput
@@ -1211,20 +1164,6 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]

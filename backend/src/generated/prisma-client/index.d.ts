@@ -291,15 +291,11 @@ export type ProfileOrderByInput =
   | "male_ASC"
   | "male_DESC"
   | "weight_ASC"
-  | "weight_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC";
+  | "weight_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
   | "email_ASC"
   | "email_DESC"
   | "password_ASC"
@@ -386,20 +382,6 @@ export interface UserWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
   email?: Maybe<String>;
   email_not?: Maybe<String>;
   email_in?: Maybe<String[] | String>;
@@ -580,20 +562,6 @@ export interface ProfileWhereInput {
   weight_lte?: Maybe<Int>;
   weight_gt?: Maybe<Int>;
   weight_gte?: Maybe<Int>;
-  createdAt?: Maybe<String>;
-  createdAt_not?: Maybe<String>;
-  createdAt_in?: Maybe<String[] | String>;
-  createdAt_not_in?: Maybe<String[] | String>;
-  createdAt_lt?: Maybe<String>;
-  createdAt_lte?: Maybe<String>;
-  createdAt_gt?: Maybe<String>;
-  createdAt_gte?: Maybe<String>;
-  createdAt_contains?: Maybe<String>;
-  createdAt_not_contains?: Maybe<String>;
-  createdAt_starts_with?: Maybe<String>;
-  createdAt_not_starts_with?: Maybe<String>;
-  createdAt_ends_with?: Maybe<String>;
-  createdAt_not_ends_with?: Maybe<String>;
   AND?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
   OR?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
   NOT?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
@@ -631,7 +599,6 @@ export interface UserCreateOneWithoutLinksInput {
 
 export interface UserCreateWithoutLinksInput {
   id?: Maybe<ID_Input>;
-  name: String;
   email: String;
   password: String;
   votes?: Maybe<VoteCreateManyWithoutUserInput>;
@@ -710,7 +677,6 @@ export interface UserCreateOneWithoutVotesInput {
 
 export interface UserCreateWithoutVotesInput {
   id?: Maybe<ID_Input>;
-  name: String;
   email: String;
   password: String;
   links?: Maybe<LinkCreateManyWithoutPostedByInput>;
@@ -749,7 +715,6 @@ export interface UserUpdateOneWithoutLinksInput {
 }
 
 export interface UserUpdateWithoutLinksDataInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   votes?: Maybe<VoteUpdateManyWithoutUserInput>;
@@ -1118,20 +1083,6 @@ export interface ProfileScalarWhereInput {
   weight_lte?: Maybe<Int>;
   weight_gt?: Maybe<Int>;
   weight_gte?: Maybe<Int>;
-  createdAt?: Maybe<String>;
-  createdAt_not?: Maybe<String>;
-  createdAt_in?: Maybe<String[] | String>;
-  createdAt_not_in?: Maybe<String[] | String>;
-  createdAt_lt?: Maybe<String>;
-  createdAt_lte?: Maybe<String>;
-  createdAt_gt?: Maybe<String>;
-  createdAt_gte?: Maybe<String>;
-  createdAt_contains?: Maybe<String>;
-  createdAt_not_contains?: Maybe<String>;
-  createdAt_starts_with?: Maybe<String>;
-  createdAt_not_starts_with?: Maybe<String>;
-  createdAt_ends_with?: Maybe<String>;
-  createdAt_not_ends_with?: Maybe<String>;
   AND?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
   OR?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
   NOT?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
@@ -1188,7 +1139,6 @@ export interface UserUpdateOneRequiredWithoutVotesInput {
 }
 
 export interface UserUpdateWithoutVotesDataInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
@@ -1267,7 +1217,6 @@ export interface UserCreateOneWithoutProfilesInput {
 
 export interface UserCreateWithoutProfilesInput {
   id?: Maybe<ID_Input>;
-  name: String;
   email: String;
   password: String;
   links?: Maybe<LinkCreateManyWithoutPostedByInput>;
@@ -1293,7 +1242,6 @@ export interface UserUpdateOneWithoutProfilesInput {
 }
 
 export interface UserUpdateWithoutProfilesDataInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
@@ -1331,7 +1279,6 @@ export interface UserCreateOneWithoutStatsInput {
 
 export interface UserCreateWithoutStatsInput {
   id?: Maybe<ID_Input>;
-  name: String;
   email: String;
   password: String;
   links?: Maybe<LinkCreateManyWithoutPostedByInput>;
@@ -1359,7 +1306,6 @@ export interface UserUpdateOneWithoutStatsInput {
 }
 
 export interface UserUpdateWithoutStatsDataInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
@@ -1383,7 +1329,6 @@ export interface StatUpdateManyMutationInput {
 
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
-  name: String;
   email: String;
   password: String;
   links?: Maybe<LinkCreateManyWithoutPostedByInput>;
@@ -1393,7 +1338,6 @@ export interface UserCreateInput {
 }
 
 export interface UserUpdateInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
   links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
@@ -1403,7 +1347,6 @@ export interface UserUpdateInput {
 }
 
 export interface UserUpdateManyMutationInput {
-  name?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
 }
@@ -1542,14 +1485,12 @@ export interface LinkNullablePromise
 
 export interface User {
   id: ID_Output;
-  name: String;
   email: String;
   password: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
   links: <T = FragmentableArray<Link>>(args?: {
@@ -1594,7 +1535,6 @@ export interface UserSubscription
   extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   links: <T = Promise<AsyncIterator<LinkSubscription>>>(args?: {
@@ -1639,7 +1579,6 @@ export interface UserNullablePromise
   extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
   links: <T = FragmentableArray<Link>>(args?: {
@@ -1783,7 +1722,6 @@ export interface Profile {
   inches: Int;
   male: Boolean;
   weight: Int;
-  createdAt: String;
 }
 
 export interface ProfilePromise extends Promise<Profile>, Fragmentable {
@@ -1793,7 +1731,6 @@ export interface ProfilePromise extends Promise<Profile>, Fragmentable {
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
-  createdAt: () => Promise<String>;
 }
 
 export interface ProfileSubscription
@@ -1805,7 +1742,6 @@ export interface ProfileSubscription
   inches: () => Promise<AsyncIterator<Int>>;
   male: () => Promise<AsyncIterator<Boolean>>;
   weight: () => Promise<AsyncIterator<Int>>;
-  createdAt: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ProfileNullablePromise
@@ -1817,7 +1753,6 @@ export interface ProfileNullablePromise
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
-  createdAt: () => Promise<String>;
 }
 
 export interface LinkConnection {
@@ -2210,7 +2145,6 @@ export interface ProfilePreviousValues {
   inches: Int;
   male: Boolean;
   weight: Int;
-  createdAt: String;
 }
 
 export interface ProfilePreviousValuesPromise
@@ -2221,7 +2155,6 @@ export interface ProfilePreviousValuesPromise
   inches: () => Promise<Int>;
   male: () => Promise<Boolean>;
   weight: () => Promise<Int>;
-  createdAt: () => Promise<String>;
 }
 
 export interface ProfilePreviousValuesSubscription
@@ -2232,7 +2165,6 @@ export interface ProfilePreviousValuesSubscription
   inches: () => Promise<AsyncIterator<Int>>;
   male: () => Promise<AsyncIterator<Boolean>>;
   weight: () => Promise<AsyncIterator<Int>>;
-  createdAt: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StatSubscriptionPayload {
@@ -2321,7 +2253,6 @@ export interface UserSubscriptionPayloadSubscription
 
 export interface UserPreviousValues {
   id: ID_Output;
-  name: String;
   email: String;
   password: String;
 }
@@ -2330,7 +2261,6 @@ export interface UserPreviousValuesPromise
   extends Promise<UserPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
 }
@@ -2339,7 +2269,6 @@ export interface UserPreviousValuesSubscription
   extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
 }
