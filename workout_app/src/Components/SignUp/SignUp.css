@@ -18,3 +18,15 @@
   top: 58%;
   left: 10%;
 }
+
+#confirm__password__underline {
+  position: absolute;
+  top: 60%;
+  left: 10%;
+}
+
+.error__span {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+}
