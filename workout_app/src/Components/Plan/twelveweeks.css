@@ -94,8 +94,9 @@
   position: absolute;
   z-index: 1;
   height: 50%;
-  top: -300px;
-  left: 105%;
+  bottom: 261px;
+  left: 0px;
+  position: fixed;
 }
 
 .date__of__calendar:hover .tooltip__text {
