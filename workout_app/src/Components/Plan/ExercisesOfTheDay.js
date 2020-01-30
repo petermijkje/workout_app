@@ -12,42 +12,48 @@ class ExercisesOfTheDay extends Component {
           sets: 5,
           reps: 7,
           color: '#7CC6FE',
-          repNumber: 1
+          repNumber: 1,
+          difficulty: '#3EC300'
         },
         {
           exerciseName: 'kettlebell pirate ships',
           sets: 6,
           reps: 6,
           color: '#7CC6FE',
-          repNumber: 2
+          repNumber: 2,
+          difficulty: '#3EC300'
         },
         {
           exerciseName: 'band assisted pull-up',
           sets: 5,
           reps: 9,
           color: '#7CC6FE',
-          repNumber: 3
+          repNumber: 3,
+          difficulty: '#BF392F'
         },
         {
           exerciseName: 'bear crawl sled drags',
           sets: 4,
           reps: 14,
           color: '#7CC6FE',
-          repNumber: 4
+          repNumber: 4,
+          difficulty: '#BF392F'
         },
         {
           exerciseName: 'incline push-up medium',
           sets: 5,
           reps: 12,
           color: '#7CC6FE',
-          repNumber: 5
+          repNumber: 5,
+          difficulty: '#3EC300'
         },
         {
           exerciseName: 'cable shoulder press',
           sets: 4,
           reps: 7,
           color: '#7CC6FE',
-          repNumber: 6
+          repNumber: 6,
+          difficulty: 'FDE74C'
         }
       ]
     }
