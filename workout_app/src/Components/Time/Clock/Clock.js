@@ -21,15 +21,23 @@ export default class Clock extends Component {
       minutes: new Date().getMinutes().toLocaleString()
     })
   }
-  render() {
+  clock() {
     const { hours, minutes } = this.state
     if (minutes < 10) {
-      return `${hours}:0${minutes}`
+      return (
+        <div className="app__clock">
+          {hours}:0{minutes}
+        </div>
+      )
     }
     return (
       <div className="app__clock">
         {hours}:{minutes}
       </div>
     )
+  }
+
+  render() {
+    return <div>{this.clock()}</div>
   }
 }

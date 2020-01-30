@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { Progress, FormGroup, Input } from 'reactstrap'
 import './SignUp.css'
 import gql from 'graphql-tag'
+import { Mutation } from 'react-apollo'
+import { AUTH_TOKEN } from '../../constants.js'
 
 const SIGNUP_MUTATION = gql`
-  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
-    signup(email: $email, password: $password, name: $name) {
+  mutation SignupMutation($email: String!, $password: String!) {
+    signup(email: $email, password: $password) {
       token
     }
   }
@@ -36,7 +38,7 @@ class SignUp extends Component {
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(
       this
     )
-    this.handleNameChange = this.handleEmailChange.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
     this.handleAgeChange = this.handleAgeChange.bind(this)
     this.handleWeightChange = this.handleWeightChange.bind(this)
   }
@@ -46,7 +48,7 @@ class SignUp extends Component {
     this.setState({ part3: true })
   }
 
-  handleSignUp = () => {
+  handleSignUp = async data => {
     const { email, password, confirmPassword } = this.state
     const validationErrors = []
 
@@ -70,7 +72,7 @@ class SignUp extends Component {
       validationErrors.push('password')
       this.setState({
         passwordError:
-          'Password must be at least 8 characters and use at least 3 of the following character types: (a) uppercase letters, (b) lowercase letters, (c) numbers, and/or (d) special characters.'
+          'Password must be at least 8 characters and use at least 3 of the following character types: (a) uppercase letters, (b) lowercase letters, (c) numbers, and/or (d) special characters. '
       })
     } else {
       this.setState({ passwordError: null })
@@ -83,10 +85,16 @@ class SignUp extends Component {
       this.setState({ confirmPasswordError: null })
     }
     if (!validationErrors.length) {
+      const { token } = data.signup
+      this._saveUserData(token)
       this.setState({ part2: true })
     } else {
       return false
     }
+  }
+
+  _saveUserData = token => {
+    localStorage.setItem(AUTH_TOKEN, token)
   }
 
   //handleChanges for all events
@@ -115,7 +123,16 @@ class SignUp extends Component {
   }
 
   render() {
-    const { part1, part2, part3 } = this.state
+    const {
+      part1,
+      part2,
+      part3,
+      email,
+      password,
+      firstName,
+      age,
+      weight
+    } = this.state
     if (part1 && !part2 && !part3) {
       return (
         <div className="App">
@@ -166,12 +183,20 @@ class SignUp extends Component {
               <br />
               <span className="error__span">{this.state.emailError}</span>
               <span className="error__span">{this.state.passwordError}</span>
-              <input
-                type="Submit"
-                className="button"
-                onClick={this.handleSignUp}
-              />
 
+              <Mutation
+                mutation={SIGNUP_MUTATION}
+                variables={{ email, password }}
+                onCompleted={data => this.handleSignUp(data)}
+              >
+                {mutation => (
+                  <input
+                    type="Submit"
+                    className="button"
+                    onClick={mutation}
+                  ></input>
+                )}
+              </Mutation>
               <br />
               <br />
               <br />
@@ -205,7 +230,8 @@ class SignUp extends Component {
                     name="First Name"
                     placeholder="Name"
                     className="password"
-                    value={this.state.firstName}
+                    value={firstName}
+                    onChange={this.handleNameChange}
                   />
                 </label>
               </form>
@@ -217,7 +243,8 @@ class SignUp extends Component {
                     name="password"
                     placeholder="Age"
                     className="password"
-                    value={this.state.age}
+                    value={age}
+                    onChange={this.handleAgeChange}
                   />
                 </label>
               </form>
@@ -229,7 +256,8 @@ class SignUp extends Component {
                     name="password"
                     placeholder="Weight"
                     className="password"
-                    value={this.state.weight}
+                    value={weight}
+                    onChange={this.handleWeightChange}
                   />
                 </label>
               </form>
