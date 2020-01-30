@@ -2,7 +2,7 @@
   border-radius: 10px 10px 10px 10px;
   height: 90%;
   background: white;
-  padding-top: 10px;
+  padding-top: 0px;
   -webkit-box-shadow: 9px 16px 26px -8px #000000;
   box-shadow: 9px 16px 26px -8px #000000;
   margin-top: 35px;
@@ -21,7 +21,7 @@
 
 .exercise__name__div {
   width: 70%;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
 }
 
@@ -54,7 +54,7 @@
 .number__in__exercise__div {
   position: absolute;
   top: 18px;
-  right: 42%;
+  right: 35%;
   font-size: 20px;
   color: #1d6093;
 }
