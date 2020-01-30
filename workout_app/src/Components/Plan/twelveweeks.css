@@ -71,7 +71,8 @@
 .date__of__calendar {
   position: absolute;
   top: 20%;
-  right: 45%;
+  height: 121px;
+  width: 180px;
   font-size: 20px;
   color: black;
 }
@@ -87,17 +88,22 @@
 }
 
 .date__of__calendar .tooltip__text {
-  visibility: hidden;
   width: 450px;
   text-align: center;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
   height: 50%;
-  top: -300px;
-  left: 105%;
+  bottom: 261px;
+  left: 5px;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 
 .date__of__calendar:hover .tooltip__text {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
 }
