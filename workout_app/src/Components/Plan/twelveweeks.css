@@ -71,7 +71,8 @@
 .date__of__calendar {
   position: absolute;
   top: 20%;
-  right: 45%;
+  height: 121px;
+  width: 180px;
   font-size: 20px;
   color: black;
 }
