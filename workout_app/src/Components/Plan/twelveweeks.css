@@ -87,7 +87,6 @@
 }
 
 .date__of__calendar .tooltip__text {
-  visibility: hidden;
   width: 450px;
   text-align: center;
   /* Position the tooltip */
@@ -95,10 +94,15 @@
   z-index: 1;
   height: 50%;
   bottom: 261px;
-  left: 0px;
+  left: 5px;
   position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 
 .date__of__calendar:hover .tooltip__text {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
 }
