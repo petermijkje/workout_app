@@ -37,3 +37,7 @@
   font-family: 'Rochester', cursive;
   font-size: 60px;
 }
+
+#exampleSelect {
+  width: 320px;
+}
