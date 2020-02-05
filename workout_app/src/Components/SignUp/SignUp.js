@@ -1,4 +1,10 @@
 import React, { Component } from 'react'
+import {
+  Element,
+  Events,
+  animateScroll as scroll,
+  scroller
+} from 'react-scroll'
 import { Progress, FormGroup, Input } from 'reactstrap'
 import './SignUp.css'
 import gql from 'graphql-tag'
@@ -93,7 +99,7 @@ class SignUp extends Component {
       return false
     }
   }
-
+  //token for GraphQL mutation
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
   }
@@ -124,108 +130,75 @@ class SignUp extends Component {
   }
 
   render() {
-    const {
-      part1,
-      part2,
-      part3,
-      email,
-      password,
-      firstName,
-      age,
-      weight
-    } = this.state
-    if (part1 && !part2 && !part3) {
-      return (
-        <div className="App">
-          <div className="box">
-            <div id="disappearing__act">
-              <div className="sign__in" id="sign__in">
-                <br />
-                <span className="retrain__logo">Retrain</span>
-                <br />
-                <br />
-                <p> create your profile </p>
-                <br />
-              </div>
-              <Progress animated value="33">
-                Part 1 of 3
-              </Progress>
-              <br />
-              <br />
-              <br />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="email"
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-              />
-              <hr className="sign__in__hr" />
-              <input
-                type="password"
-                name="password"
-                placeholder="password"
-                className="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-              />
-              <hr className="sign__in__hr" />
-              <input
-                type="password"
-                name="confirm password"
-                placeholder="retype password"
-                className="password"
-                value={this.state.confirmPassword}
-                onChange={this.handleConfirmPasswordChange}
-              />
-              <hr className="sign__in__hr" id="confirm__password__underline" />
-              <br />
-              <br />
-              <span className="error__span">{this.state.emailError}</span>
-              <span className="error__span">{this.state.passwordError}</span>
-
-              <Mutation
-                mutation={SIGNUP_MUTATION}
-                variables={{ email, password }}
-                onCompleted={data => this.handleSignUp(data)}
+    const { email, password, firstName, age, weight } = this.state
+    return (
+      <div className="App">
+        <div className="box">
+          <div id="disappearing__act">
+            <div className="sign__in" id="sign__in">
+              <Element
+                name="test7"
+                className="element"
+                id="containerElement"
+                style={{
+                  position: 'relative',
+                  height: '600px',
+                  overflow: 'scroll'
+                }}
               >
-                {mutation => (
+                <Element
+                  name="firstInsideContainer"
+                  style={{
+                    marginBottom: '17px'
+                  }}
+                >
+                  <br />
+                  <span className="retrain__logo">Retrain</span>
+                  <br />
+                  <br />
+                  <p> create your profile </p>
+                  <br />
+                  <Progress animated value="33">
+                    Part 1 of 3
+                  </Progress>
+                  <br />
+                  <br />
+                  <br />
                   <input
-                    type="Submit"
-                    className="button"
-                    onClick={mutation}
-                  ></input>
-                )}
-              </Mutation>
-              <br />
-              <br />
-              <br />
-            </div>
-          </div>
-        </div>
-      )
-    } else if (part1 && part2 && !part3) {
-      return (
-        <div className="App">
-          <div className="box">
-            <div id="disappearing__act">
-              <div className="sign__in" id="sign__in">
-                <br />
-                Welcome to <p className="retrain__logo">Retrain</p>
-                <br />
-                <br />
-                <p> create your profile </p>
-                <br />
-              </div>
-              <Progress animated value="66">
-                Part 2 of 3
-              </Progress>
-              <br />
-              <br />
-              <br />
-              <form>
-                <label>
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                  />
+                  <span className="error__span">{this.state.emailError}</span>
+                  <hr className="sign__in__hr" />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    className="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <hr className="sign__in__hr" />
+                  <input
+                    type="password"
+                    name="confirm password"
+                    placeholder="retype password"
+                    className="password"
+                    value={this.state.confirmPassword}
+                    onChange={this.handleConfirmPasswordChange}
+                  />
+                  <span className="error__span">
+                    {this.state.passwordError}
+                  </span>
+                  <hr
+                    className="sign__in__hr"
+                    id="confirm__password__underline"
+                  />
+                  <hr className="sign__in__hr" />
                   <input
                     type="text"
                     name="First Name"
@@ -234,11 +207,7 @@ class SignUp extends Component {
                     value={firstName}
                     onChange={this.handleNameChange}
                   />
-                </label>
-              </form>
-              <hr className="sign__in__hr" />
-              <form>
-                <label>
+                  <hr className="sign__in__hr" />
                   <input
                     type="number"
                     name="password"
@@ -247,11 +216,7 @@ class SignUp extends Component {
                     value={age}
                     onChange={this.handleAgeChange}
                   />
-                </label>
-              </form>
-              <hr className="sign__in__hr" />
-              <form>
-                <label>
+                  <hr className="sign__in__hr" />
                   <input
                     type="number"
                     name="password"
@@ -260,89 +225,53 @@ class SignUp extends Component {
                     value={weight}
                     onChange={this.handleWeightChange}
                   />
-                </label>
-              </form>
-              <hr className="sign__in__hr" />
-              <br />
-              <br />
-              <input
-                type="Submit"
-                className="button"
-                onClick={this.setPart3ToTrue}
-              />
-              <br />
-              <br />
-              <br />
-            </div>
-          </div>
-        </div>
-      )
-    } else if (part1 && part2 && part3) {
-      return (
-        <div className="App">
-          <div className="box">
-            <div id="disappearing__act">
-              <div className="sign__in" id="sign__in">
-                <br />
-                Welcome to <p className="retrain__logo">Retrain</p>
-                <br />
-                <br />
-                <p> create your profile </p>
-                <br />
-              </div>
-              <Progress animated value="99">
-                Almost Done!
-              </Progress>
-              <br />
-              <br />
-              <br />
-              <form>
-                <label>
                   <input
                     type="number"
                     name="Name"
                     placeholder="Height in Inches"
                     className="email"
                   />
-                </label>
-                <hr className="sign__in__hr" />
-              </form>
-              <FormGroup>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>Female</option>
-                  <option>Male</option>
-                </Input>
-              </FormGroup>
-              <hr className="sign__in__hr" />
-              <FormGroup>
-                <Input
-                  type="select"
-                  name="select"
-                  id="exampleSelect"
-                  placeholder="Goal?"
-                >
-                  <option disabled selected>
-                    Select your Goal
-                  </option>
-                  <option>Lose Fat</option>
-                  <option>Gain Muscle</option>
-                  <option>Maintain</option>
-                </Input>
-              </FormGroup>
-              <hr className="sign__in__hr" />
-              <input
-                type="Submit"
-                className="button"
-                onClick={this.props.byPassLogin}
-              />
-              <br />
-              <br />
-              <br />
+                  <hr className="sign__in__hr" />
+                  <Input type="select" name="select" id="exampleSelect">
+                    <option>Female</option>
+                    <option>Male</option>
+                  </Input>
+                  <hr className="sign__in__hr" />
+                  <Input
+                    type="select"
+                    name="select"
+                    id="exampleSelect"
+                    placeholder="Goal?"
+                  >
+                    <option disabled selected>
+                      Select your Goal
+                    </option>
+                    <option>Lose Fat</option>
+                    <option>Gain Muscle</option>
+                    <option>Maintain</option>
+                  </Input>
+                  <hr className="sign__in__hr" />
+
+                  <Mutation
+                    mutation={SIGNUP_MUTATION}
+                    variables={{ email, password }}
+                    onCompleted={data => this.handleSignUp(data)}
+                  >
+                    {mutation => (
+                      <input
+                        type="Submit"
+                        className="button"
+                        onClick={mutation}
+                      ></input>
+                    )}
+                  </Mutation>
+                </Element>
+              </Element>
             </div>
           </div>
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
