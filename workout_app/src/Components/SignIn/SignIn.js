@@ -47,14 +47,12 @@ class SignIn extends Component {
       <div className="box">
         <div className="sign__in">
           <br />
-          Retrain
           <br />
+          <div className="sign__in__logo">Retrain</div>
           <br />
         </div>
         <br />
-        <img src={Logo} alt="Logo" />
         <h4 className="Login__or__logout__word">Login</h4>
-        <br />
         <br />
         <form>
           <label>
@@ -62,13 +60,11 @@ class SignIn extends Component {
               type="text"
               name="name"
               value={email}
-              placeholder="Email"
+              placeholder="Email "
               className="email"
               onChange={e => this.setState({ email: e.target.value })}
             />
           </label>
-          <br />
-          <hr className="sign__in__hr" />
           <br />
           <input
             type="password"
@@ -78,11 +74,7 @@ class SignIn extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <br />
           <hr className="sign__in__hr" />
-          <br />
-          <br />
-
           <input
             type="submit"
             value="READY?"
@@ -91,7 +83,8 @@ class SignIn extends Component {
           />
         </form>
         <br />
-        <br />
+        <hr className="sign__in__hr" />
+
         <div className="sign__up">
           Don't have an account?
           <h5 className="signup__link" onClick={this.handleloginChange}>

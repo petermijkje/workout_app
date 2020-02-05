@@ -558,7 +558,7 @@ class TwelveWeeks extends Component {
           <div className="arrow__left">
             <ArrowLeft size={70} />
           </div>
-          January, 2020
+          February, 2020
           <div className="arrow__right">
             <ArrowRight size={70} />
           </div>

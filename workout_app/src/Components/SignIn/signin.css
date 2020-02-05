@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Rochester&display=swap');
 /* font-family: 'Bungee', cursive;
 font-family: 'Rubik', sans-serif;
 font-family: 'Lato', sans-serif; */
@@ -26,8 +26,13 @@ font-family: 'Lato', sans-serif; */
   color: black;
 }
 
+.sign__in__logo {
+  font-family: 'Rochester', cursive;
+  font-size: 60px;
+}
+
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: #83d386; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -37,42 +42,48 @@ font-family: 'Lato', sans-serif; */
   display: inline-block;
   font-size: 40px;
   outline: 0;
-  position: absolute;
-  top: 83%;
-  left: 22%;
-  width: 228px;
+  position: relative;
+  top: 35%;
+  width: 80%;
+}
+
+.button:hover {
+  background-color: #4caf4f;
 }
 
 .email {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.68531162464986) 0%,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   line-height: 70%;
   text-align: left;
   outline: 0;
-  border-style: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  height: 40px;
   width: 320px;
 }
 
+::-webkit-input-placeholder {
+  color: black;
+  background: rgb(240, 240, 240);
+}
+
 .password {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.68531162464986) 0%,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   line-height: 70%;
-  width: 320px;
   text-align: left;
-  border-style: none;
   outline: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  height: 40px;
+  width: 320px;
 }
 
 .sign__in {
