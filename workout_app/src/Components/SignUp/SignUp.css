@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Rochester&display=swap');
+
 .sign__in__hr {
   margin-top: 0px;
   margin-bottom: 46px;
@@ -29,4 +31,9 @@
   color: red;
   font-size: 12px;
   font-weight: bold;
+}
+
+.retrain__logo {
+  font-family: 'Rochester', cursive;
+  font-size: 60px;
 }

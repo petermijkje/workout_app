@@ -5,6 +5,7 @@ import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
 import { ArrowLeft, ArrowRight } from 'react-feather'
 import ExercisesOfTheDay from './ExercisesOfTheDay'
+import DateHeader from './DateHeader/DateHeader.js'
 
 class TwelveWeeks extends Component {
   constructor(props) {
@@ -558,7 +559,7 @@ class TwelveWeeks extends Component {
           <div className="arrow__left">
             <ArrowLeft size={70} />
           </div>
-          January, 2020
+          <DateHeader />, 2020
           <div className="arrow__right">
             <ArrowRight size={70} />
           </div>

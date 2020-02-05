@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Rochester&display=swap');
 /* font-family: 'Bungee', cursive;
 font-family: 'Rubik', sans-serif;
 font-family: 'Lato', sans-serif; */
@@ -26,53 +26,68 @@ font-family: 'Lato', sans-serif; */
   color: black;
 }
 
+.sign__in__logo {
+  font-family: 'Rochester', cursive;
+  font-size: 60px;
+}
+
 .button {
-  background-color: #4caf50; /* Green */
+  background-color: #5bd35f; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 5% 5% 5% 5%;
+  border-radius: 5px 5px 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 40px;
   outline: 0;
-  position: absolute;
-  top: 83%;
-  left: 22%;
-  width: 228px;
+  position: relative;
+  top: 35%;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.button:hover {
+  background-color: #4caf4f;
 }
 
 .email {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.68531162464986) 0%,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 70%;
   text-align: left;
   outline: 0;
-  border-style: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  height: 40px;
   width: 320px;
+  padding-left: 20px;
+  margin-top: 50px;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+  background: rgb(240, 240, 240);
 }
 
 .password {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.68531162464986) 0%,
-    rgba(245, 245, 245, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 70%;
-  width: 320px;
   text-align: left;
-  border-style: none;
   outline: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  height: 40px;
+  width: 320px;
+  padding-left: 20px;
 }
 
 .sign__in {
@@ -88,14 +103,23 @@ font-family: 'Lato', sans-serif; */
 }
 
 .sign__up {
-  color: darkgrey;
+  color: black;
   font-size: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  width: 360px;
+  height: 70px;
+  position: relative;
+  left: 5%;
+  margin-top: 110px;
+  padding-top: 20px;
 }
 
 .signup__link {
-  text-decoration: underline;
-  color: #0000ee;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .signup__link:hover {

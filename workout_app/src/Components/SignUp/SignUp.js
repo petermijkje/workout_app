@@ -4,6 +4,7 @@ import './SignUp.css'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AUTH_TOKEN } from '../../constants.js'
+import './SignUp.css'
 
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation($email: String!, $password: String!) {
@@ -140,7 +141,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to Retrain
+                <span className="retrain__logo">Retrain</span>
                 <br />
                 <br />
                 <p> create your profile </p>
@@ -211,7 +212,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to Retrain
+                Welcome to <p className="retrain__logo">Retrain</p>
                 <br />
                 <br />
                 <p> create your profile </p>
@@ -283,7 +284,7 @@ class SignUp extends Component {
             <div id="disappearing__act">
               <div className="sign__in" id="sign__in">
                 <br />
-                Welcome to Retrain
+                Welcome to <p className="retrain__logo">Retrain</p>
                 <br />
                 <br />
                 <p> create your profile </p>
