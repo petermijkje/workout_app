@@ -32,11 +32,11 @@ font-family: 'Lato', sans-serif; */
 }
 
 .button {
-  background-color: #83d386; /* Green */
+  background-color: #5bd35f; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
-  border-radius: 5% 5% 5% 5%;
+  border-radius: 5px 5px 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -45,6 +45,7 @@ font-family: 'Lato', sans-serif; */
   position: relative;
   top: 35%;
   width: 80%;
+  margin-top: 30px;
 }
 
 .button:hover {
@@ -54,7 +55,7 @@ font-family: 'Lato', sans-serif; */
 .email {
   background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 70%;
   text-align: left;
   outline: 0;
@@ -64,6 +65,8 @@ font-family: 'Lato', sans-serif; */
   border-radius: 3px;
   height: 40px;
   width: 320px;
+  padding-left: 20px;
+  margin-top: 50px;
 }
 
 ::-webkit-input-placeholder {
@@ -74,7 +77,7 @@ font-family: 'Lato', sans-serif; */
 .password {
   background: rgb(240, 240, 240);
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 70%;
   text-align: left;
   outline: 0;
@@ -84,6 +87,7 @@ font-family: 'Lato', sans-serif; */
   border-radius: 3px;
   height: 40px;
   width: 320px;
+  padding-left: 20px;
 }
 
 .sign__in {
@@ -99,14 +103,23 @@ font-family: 'Lato', sans-serif; */
 }
 
 .sign__up {
-  color: darkgrey;
+  color: black;
   font-size: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  border-radius: 3px;
+  width: 360px;
+  height: 70px;
+  position: relative;
+  left: 5%;
+  margin-top: 110px;
+  padding-top: 20px;
 }
 
 .signup__link {
-  text-decoration: underline;
-  color: #0000ee;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .signup__link:hover {

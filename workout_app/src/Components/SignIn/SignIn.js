@@ -74,7 +74,6 @@ class SignIn extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <hr className="sign__in__hr" />
           <input
             type="submit"
             value="READY?"
@@ -82,16 +81,14 @@ class SignIn extends Component {
             onClick={this.props.byPassLogin}
           />
         </form>
-        <br />
-        <hr className="sign__in__hr" />
 
         <div className="sign__up">
-          Don't have an account?
-          <h5 className="signup__link" onClick={this.handleloginChange}>
+          Don't have an account?<span> </span>
+          <p5 className="signup__link" onClick={this.handleloginChange}>
             <Link to="/signup" onClick={this.props.changeSignedUpToFalse}>
               Sign Up
             </Link>
-          </h5>
+          </p5>
         </div>
       </div>
     )
