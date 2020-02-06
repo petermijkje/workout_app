@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
-import {
-  Element,
-  Events,
-  animateScroll as scroll,
-  scroller
-} from 'react-scroll'
-import { Progress, FormGroup, Input } from 'reactstrap'
-import './SignUp.css'
+import { Element } from 'react-scroll'
+import { Input } from 'reactstrap'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AUTH_TOKEN } from '../../constants.js'
@@ -30,12 +24,12 @@ class SignUp extends Component {
       firstName: '',
       age: '',
       weight: '',
+      height: '',
+      sex: '',
+      goal: '',
       loggedInUser: {},
       message: null,
       errors: [],
-      part1: true,
-      part2: false,
-      part3: false,
       loggedIn: true
     }
     this.setPart3ToTrue = this.setPart3ToTrue.bind(this)
@@ -55,6 +49,7 @@ class SignUp extends Component {
     this.setState({ part3: true })
   }
 
+  //password/email verification function
   handleSignUp = async data => {
     const { email, password, confirmPassword } = this.state
     const validationErrors = []
@@ -99,6 +94,7 @@ class SignUp extends Component {
       return false
     }
   }
+
   //token for GraphQL mutation
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
@@ -142,8 +138,10 @@ class SignUp extends Component {
                 id="containerElement"
                 style={{
                   position: 'relative',
-                  height: '600px',
-                  overflow: 'scroll'
+                  height: '590px',
+                  overflow: 'scroll',
+                  marginTop: '17px',
+                  marginBottom: '17px'
                 }}
               >
                 <Element
@@ -153,17 +151,15 @@ class SignUp extends Component {
                   }}
                 >
                   <br />
+                  <br />
                   <span className="retrain__logo">Retrain</span>
                   <br />
                   <br />
-                  <p> create your profile </p>
                   <br />
-                  <Progress animated value="33">
-                    Part 1 of 3
-                  </Progress>
-                  <br />
-                  <br />
-                  <br />
+                  <p className="create_profile"> Create your profile </p>
+                  <p2 className="comment">
+                    (scroll down and answer all questions!)
+                  </p2>
                   <input
                     type="email"
                     name="email"
@@ -171,6 +167,7 @@ class SignUp extends Component {
                     className="email"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    autocomplete="off"
                   />
                   <span className="error__span">{this.state.emailError}</span>
                   <hr className="sign__in__hr" />
@@ -181,6 +178,7 @@ class SignUp extends Component {
                     className="password"
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
+                    autoComplete="new-password"
                   />
                   <hr className="sign__in__hr" />
                   <input
@@ -194,11 +192,8 @@ class SignUp extends Component {
                   <span className="error__span">
                     {this.state.passwordError}
                   </span>
-                  <hr
-                    className="sign__in__hr"
-                    id="confirm__password__underline"
-                  />
                   <hr className="sign__in__hr" />
+
                   <input
                     type="text"
                     name="First Name"
@@ -232,7 +227,10 @@ class SignUp extends Component {
                     className="email"
                   />
                   <hr className="sign__in__hr" />
-                  <Input type="select" name="select" id="exampleSelect">
+                  <Input type="select" name="select" id="selector">
+                    <option disabled selected>
+                      Sex
+                    </option>
                     <option>Female</option>
                     <option>Male</option>
                   </Input>
@@ -240,7 +238,7 @@ class SignUp extends Component {
                   <Input
                     type="select"
                     name="select"
-                    id="exampleSelect"
+                    id="selector"
                     placeholder="Goal?"
                   >
                     <option disabled selected>

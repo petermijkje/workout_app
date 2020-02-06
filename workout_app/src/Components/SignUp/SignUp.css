@@ -5,10 +5,11 @@
   margin-bottom: 46px;
 }
 
-#exampleSelect {
-  width: 50%;
+#selector {
+  width: 320px;
   position: relative;
   left: 10%;
+  background-color: #f0f0f0;
 }
 
 .progress {
@@ -38,6 +39,13 @@
   font-size: 60px;
 }
 
-#exampleSelect {
-  width: 320px;
+.button {
+  height: 90px;
+}
+.comment {
+  font-size: 12px;
+}
+
+.create_profile {
+  margin-bottom: 0;
 }
