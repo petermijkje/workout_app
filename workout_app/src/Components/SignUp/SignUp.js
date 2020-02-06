@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Element } from 'react-scroll'
 import { Input } from 'reactstrap'
-import './SignUp.css'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AUTH_TOKEN } from '../../constants.js'
@@ -139,7 +138,7 @@ class SignUp extends Component {
                   position: 'relative',
                   height: '600px',
                   overflow: 'scroll',
-                  marginTop: '17px'
+                  marginTop: '0px'
                 }}
               >
                 <Element
@@ -149,11 +148,15 @@ class SignUp extends Component {
                   }}
                 >
                   <br />
+                  <br />
                   <span className="retrain__logo">Retrain</span>
                   <br />
                   <br />
                   <br />
-                  <p> create your profile </p>
+                  <p className="create_profile"> Create your profile </p>
+                  <p2 className="comment">
+                    (scroll down and answer all questions!)
+                  </p2>
                   <input
                     type="email"
                     name="email"
@@ -186,11 +189,8 @@ class SignUp extends Component {
                   <span className="error__span">
                     {this.state.passwordError}
                   </span>
-                  <hr
-                    className="sign__in__hr"
-                    id="confirm__password__underline"
-                  />
                   <hr className="sign__in__hr" />
+
                   <input
                     type="text"
                     name="First Name"

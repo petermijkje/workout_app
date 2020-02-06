@@ -42,3 +42,10 @@
 .button {
   height: 90px;
 }
+.comment {
+  font-size: 12px;
+}
+
+.create_profile {
+  margin-bottom: 0;
+}
