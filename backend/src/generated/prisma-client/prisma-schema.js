@@ -48,13 +48,8 @@ input LinkCreateInput {
   id: ID
   description: String!
   url: String!
-  postedBy: UserCreateOneWithoutLinksInput
+  postedBy: UserCreateOneInput
   votes: VoteCreateManyWithoutLinksInput
-}
-
-input LinkCreateManyWithoutPostedByInput {
-  create: [LinkCreateWithoutPostedByInput!]
-  connect: [LinkWhereUniqueInput!]
 }
 
 input LinkCreateManyWithoutVotesInput {
@@ -62,18 +57,11 @@ input LinkCreateManyWithoutVotesInput {
   connect: [LinkWhereUniqueInput!]
 }
 
-input LinkCreateWithoutPostedByInput {
-  id: ID
-  description: String!
-  url: String!
-  votes: VoteCreateManyWithoutLinksInput
-}
-
 input LinkCreateWithoutVotesInput {
   id: ID
   description: String!
   url: String!
-  postedBy: UserCreateOneWithoutLinksInput
+  postedBy: UserCreateOneInput
 }
 
 type LinkEdge {
@@ -176,7 +164,7 @@ input LinkSubscriptionWhereInput {
 input LinkUpdateInput {
   description: String
   url: String
-  postedBy: UserUpdateOneWithoutLinksInput
+  postedBy: UserUpdateOneInput
   votes: VoteUpdateManyWithoutLinksInput
 }
 
@@ -188,18 +176,6 @@ input LinkUpdateManyDataInput {
 input LinkUpdateManyMutationInput {
   description: String
   url: String
-}
-
-input LinkUpdateManyWithoutPostedByInput {
-  create: [LinkCreateWithoutPostedByInput!]
-  delete: [LinkWhereUniqueInput!]
-  connect: [LinkWhereUniqueInput!]
-  set: [LinkWhereUniqueInput!]
-  disconnect: [LinkWhereUniqueInput!]
-  update: [LinkUpdateWithWhereUniqueWithoutPostedByInput!]
-  upsert: [LinkUpsertWithWhereUniqueWithoutPostedByInput!]
-  deleteMany: [LinkScalarWhereInput!]
-  updateMany: [LinkUpdateManyWithWhereNestedInput!]
 }
 
 input LinkUpdateManyWithoutVotesInput {
@@ -219,32 +195,15 @@ input LinkUpdateManyWithWhereNestedInput {
   data: LinkUpdateManyDataInput!
 }
 
-input LinkUpdateWithoutPostedByDataInput {
-  description: String
-  url: String
-  votes: VoteUpdateManyWithoutLinksInput
-}
-
 input LinkUpdateWithoutVotesDataInput {
   description: String
   url: String
-  postedBy: UserUpdateOneWithoutLinksInput
-}
-
-input LinkUpdateWithWhereUniqueWithoutPostedByInput {
-  where: LinkWhereUniqueInput!
-  data: LinkUpdateWithoutPostedByDataInput!
+  postedBy: UserUpdateOneInput
 }
 
 input LinkUpdateWithWhereUniqueWithoutVotesInput {
   where: LinkWhereUniqueInput!
   data: LinkUpdateWithoutVotesDataInput!
-}
-
-input LinkUpsertWithWhereUniqueWithoutPostedByInput {
-  where: LinkWhereUniqueInput!
-  update: LinkUpdateWithoutPostedByDataInput!
-  create: LinkCreateWithoutPostedByInput!
 }
 
 input LinkUpsertWithWhereUniqueWithoutVotesInput {
@@ -385,20 +344,7 @@ type ProfileConnection {
 
 input ProfileCreateInput {
   id: ID
-  postedBy: UserCreateOneWithoutProfilesInput
-  feet: Int!
-  inches: Int!
-  male: Boolean!
-  weight: Int!
-}
-
-input ProfileCreateManyWithoutPostedByInput {
-  create: [ProfileCreateWithoutPostedByInput!]
-  connect: [ProfileWhereUniqueInput!]
-}
-
-input ProfileCreateWithoutPostedByInput {
-  id: ID
+  postedBy: UserCreateOneInput
   feet: Int!
   inches: Int!
   male: Boolean!
@@ -431,52 +377,6 @@ type ProfilePreviousValues {
   weight: Int!
 }
 
-input ProfileScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  feet: Int
-  feet_not: Int
-  feet_in: [Int!]
-  feet_not_in: [Int!]
-  feet_lt: Int
-  feet_lte: Int
-  feet_gt: Int
-  feet_gte: Int
-  inches: Int
-  inches_not: Int
-  inches_in: [Int!]
-  inches_not_in: [Int!]
-  inches_lt: Int
-  inches_lte: Int
-  inches_gt: Int
-  inches_gte: Int
-  male: Boolean
-  male_not: Boolean
-  weight: Int
-  weight_not: Int
-  weight_in: [Int!]
-  weight_not_in: [Int!]
-  weight_lt: Int
-  weight_lte: Int
-  weight_gt: Int
-  weight_gte: Int
-  AND: [ProfileScalarWhereInput!]
-  OR: [ProfileScalarWhereInput!]
-  NOT: [ProfileScalarWhereInput!]
-}
-
 type ProfileSubscriptionPayload {
   mutation: MutationType!
   node: Profile
@@ -496,14 +396,7 @@ input ProfileSubscriptionWhereInput {
 }
 
 input ProfileUpdateInput {
-  postedBy: UserUpdateOneWithoutProfilesInput
-  feet: Int
-  inches: Int
-  male: Boolean
-  weight: Int
-}
-
-input ProfileUpdateManyDataInput {
+  postedBy: UserUpdateOneInput
   feet: Int
   inches: Int
   male: Boolean
@@ -515,41 +408,6 @@ input ProfileUpdateManyMutationInput {
   inches: Int
   male: Boolean
   weight: Int
-}
-
-input ProfileUpdateManyWithoutPostedByInput {
-  create: [ProfileCreateWithoutPostedByInput!]
-  delete: [ProfileWhereUniqueInput!]
-  connect: [ProfileWhereUniqueInput!]
-  set: [ProfileWhereUniqueInput!]
-  disconnect: [ProfileWhereUniqueInput!]
-  update: [ProfileUpdateWithWhereUniqueWithoutPostedByInput!]
-  upsert: [ProfileUpsertWithWhereUniqueWithoutPostedByInput!]
-  deleteMany: [ProfileScalarWhereInput!]
-  updateMany: [ProfileUpdateManyWithWhereNestedInput!]
-}
-
-input ProfileUpdateManyWithWhereNestedInput {
-  where: ProfileScalarWhereInput!
-  data: ProfileUpdateManyDataInput!
-}
-
-input ProfileUpdateWithoutPostedByDataInput {
-  feet: Int
-  inches: Int
-  male: Boolean
-  weight: Int
-}
-
-input ProfileUpdateWithWhereUniqueWithoutPostedByInput {
-  where: ProfileWhereUniqueInput!
-  data: ProfileUpdateWithoutPostedByDataInput!
-}
-
-input ProfileUpsertWithWhereUniqueWithoutPostedByInput {
-  where: ProfileWhereUniqueInput!
-  update: ProfileUpdateWithoutPostedByDataInput!
-  create: ProfileCreateWithoutPostedByInput!
 }
 
 input ProfileWhereInput {
@@ -641,22 +499,7 @@ type StatConnection {
 
 input StatCreateInput {
   id: ID
-  postedBy: UserCreateOneWithoutStatsInput
-  deadlift: Int!
-  squat: Int!
-  benchpress: Int!
-  shoulderpress: Int!
-  sumopull: Int!
-  frontsquat: Int!
-}
-
-input StatCreateManyWithoutPostedByInput {
-  create: [StatCreateWithoutPostedByInput!]
-  connect: [StatWhereUniqueInput!]
-}
-
-input StatCreateWithoutPostedByInput {
-  id: ID
+  postedBy: UserCreateOneInput
   deadlift: Int!
   squat: Int!
   benchpress: Int!
@@ -697,74 +540,6 @@ type StatPreviousValues {
   frontsquat: Int!
 }
 
-input StatScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  deadlift: Int
-  deadlift_not: Int
-  deadlift_in: [Int!]
-  deadlift_not_in: [Int!]
-  deadlift_lt: Int
-  deadlift_lte: Int
-  deadlift_gt: Int
-  deadlift_gte: Int
-  squat: Int
-  squat_not: Int
-  squat_in: [Int!]
-  squat_not_in: [Int!]
-  squat_lt: Int
-  squat_lte: Int
-  squat_gt: Int
-  squat_gte: Int
-  benchpress: Int
-  benchpress_not: Int
-  benchpress_in: [Int!]
-  benchpress_not_in: [Int!]
-  benchpress_lt: Int
-  benchpress_lte: Int
-  benchpress_gt: Int
-  benchpress_gte: Int
-  shoulderpress: Int
-  shoulderpress_not: Int
-  shoulderpress_in: [Int!]
-  shoulderpress_not_in: [Int!]
-  shoulderpress_lt: Int
-  shoulderpress_lte: Int
-  shoulderpress_gt: Int
-  shoulderpress_gte: Int
-  sumopull: Int
-  sumopull_not: Int
-  sumopull_in: [Int!]
-  sumopull_not_in: [Int!]
-  sumopull_lt: Int
-  sumopull_lte: Int
-  sumopull_gt: Int
-  sumopull_gte: Int
-  frontsquat: Int
-  frontsquat_not: Int
-  frontsquat_in: [Int!]
-  frontsquat_not_in: [Int!]
-  frontsquat_lt: Int
-  frontsquat_lte: Int
-  frontsquat_gt: Int
-  frontsquat_gte: Int
-  AND: [StatScalarWhereInput!]
-  OR: [StatScalarWhereInput!]
-  NOT: [StatScalarWhereInput!]
-}
-
 type StatSubscriptionPayload {
   mutation: MutationType!
   node: Stat
@@ -784,16 +559,7 @@ input StatSubscriptionWhereInput {
 }
 
 input StatUpdateInput {
-  postedBy: UserUpdateOneWithoutStatsInput
-  deadlift: Int
-  squat: Int
-  benchpress: Int
-  shoulderpress: Int
-  sumopull: Int
-  frontsquat: Int
-}
-
-input StatUpdateManyDataInput {
+  postedBy: UserUpdateOneInput
   deadlift: Int
   squat: Int
   benchpress: Int
@@ -809,43 +575,6 @@ input StatUpdateManyMutationInput {
   shoulderpress: Int
   sumopull: Int
   frontsquat: Int
-}
-
-input StatUpdateManyWithoutPostedByInput {
-  create: [StatCreateWithoutPostedByInput!]
-  delete: [StatWhereUniqueInput!]
-  connect: [StatWhereUniqueInput!]
-  set: [StatWhereUniqueInput!]
-  disconnect: [StatWhereUniqueInput!]
-  update: [StatUpdateWithWhereUniqueWithoutPostedByInput!]
-  upsert: [StatUpsertWithWhereUniqueWithoutPostedByInput!]
-  deleteMany: [StatScalarWhereInput!]
-  updateMany: [StatUpdateManyWithWhereNestedInput!]
-}
-
-input StatUpdateManyWithWhereNestedInput {
-  where: StatScalarWhereInput!
-  data: StatUpdateManyDataInput!
-}
-
-input StatUpdateWithoutPostedByDataInput {
-  deadlift: Int
-  squat: Int
-  benchpress: Int
-  shoulderpress: Int
-  sumopull: Int
-  frontsquat: Int
-}
-
-input StatUpdateWithWhereUniqueWithoutPostedByInput {
-  where: StatWhereUniqueInput!
-  data: StatUpdateWithoutPostedByDataInput!
-}
-
-input StatUpsertWithWhereUniqueWithoutPostedByInput {
-  where: StatWhereUniqueInput!
-  update: StatUpdateWithoutPostedByDataInput!
-  create: StatCreateWithoutPostedByInput!
 }
 
 input StatWhereInput {
@@ -933,10 +662,12 @@ type User {
   id: ID!
   email: String!
   password: String!
-  links(where: LinkWhereInput, orderBy: LinkOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Link!]
-  votes(where: VoteWhereInput, orderBy: VoteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Vote!]
-  stats(where: StatWhereInput, orderBy: StatOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Stat!]
-  profiles(where: ProfileWhereInput, orderBy: ProfileOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Profile!]
+  firstName: String!
+  age: String!
+  weight: String!
+  height: String!
+  sex: String!
+  goal: String!
 }
 
 type UserConnection {
@@ -949,66 +680,17 @@ input UserCreateInput {
   id: ID
   email: String!
   password: String!
-  links: LinkCreateManyWithoutPostedByInput
-  votes: VoteCreateManyWithoutUserInput
-  stats: StatCreateManyWithoutPostedByInput
-  profiles: ProfileCreateManyWithoutPostedByInput
+  firstName: String!
+  age: String!
+  weight: String!
+  height: String!
+  sex: String!
+  goal: String!
 }
 
-input UserCreateOneWithoutLinksInput {
-  create: UserCreateWithoutLinksInput
+input UserCreateOneInput {
+  create: UserCreateInput
   connect: UserWhereUniqueInput
-}
-
-input UserCreateOneWithoutProfilesInput {
-  create: UserCreateWithoutProfilesInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateOneWithoutStatsInput {
-  create: UserCreateWithoutStatsInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateOneWithoutVotesInput {
-  create: UserCreateWithoutVotesInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutLinksInput {
-  id: ID
-  email: String!
-  password: String!
-  votes: VoteCreateManyWithoutUserInput
-  stats: StatCreateManyWithoutPostedByInput
-  profiles: ProfileCreateManyWithoutPostedByInput
-}
-
-input UserCreateWithoutProfilesInput {
-  id: ID
-  email: String!
-  password: String!
-  links: LinkCreateManyWithoutPostedByInput
-  votes: VoteCreateManyWithoutUserInput
-  stats: StatCreateManyWithoutPostedByInput
-}
-
-input UserCreateWithoutStatsInput {
-  id: ID
-  email: String!
-  password: String!
-  links: LinkCreateManyWithoutPostedByInput
-  votes: VoteCreateManyWithoutUserInput
-  profiles: ProfileCreateManyWithoutPostedByInput
-}
-
-input UserCreateWithoutVotesInput {
-  id: ID
-  email: String!
-  password: String!
-  links: LinkCreateManyWithoutPostedByInput
-  stats: StatCreateManyWithoutPostedByInput
-  profiles: ProfileCreateManyWithoutPostedByInput
 }
 
 type UserEdge {
@@ -1023,12 +705,30 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  firstName_ASC
+  firstName_DESC
+  age_ASC
+  age_DESC
+  weight_ASC
+  weight_DESC
+  height_ASC
+  height_DESC
+  sex_ASC
+  sex_DESC
+  goal_ASC
+  goal_DESC
 }
 
 type UserPreviousValues {
   id: ID!
   email: String!
   password: String!
+  firstName: String!
+  age: String!
+  weight: String!
+  height: String!
+  sex: String!
+  goal: String!
 }
 
 type UserSubscriptionPayload {
@@ -1049,104 +749,58 @@ input UserSubscriptionWhereInput {
   NOT: [UserSubscriptionWhereInput!]
 }
 
+input UserUpdateDataInput {
+  email: String
+  password: String
+  firstName: String
+  age: String
+  weight: String
+  height: String
+  sex: String
+  goal: String
+}
+
 input UserUpdateInput {
   email: String
   password: String
-  links: LinkUpdateManyWithoutPostedByInput
-  votes: VoteUpdateManyWithoutUserInput
-  stats: StatUpdateManyWithoutPostedByInput
-  profiles: ProfileUpdateManyWithoutPostedByInput
+  firstName: String
+  age: String
+  weight: String
+  height: String
+  sex: String
+  goal: String
 }
 
 input UserUpdateManyMutationInput {
   email: String
   password: String
+  firstName: String
+  age: String
+  weight: String
+  height: String
+  sex: String
+  goal: String
 }
 
-input UserUpdateOneRequiredWithoutVotesInput {
-  create: UserCreateWithoutVotesInput
-  update: UserUpdateWithoutVotesDataInput
-  upsert: UserUpsertWithoutVotesInput
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutLinksInput {
-  create: UserCreateWithoutLinksInput
-  update: UserUpdateWithoutLinksDataInput
-  upsert: UserUpsertWithoutLinksInput
+input UserUpdateOneInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateOneWithoutProfilesInput {
-  create: UserCreateWithoutProfilesInput
-  update: UserUpdateWithoutProfilesDataInput
-  upsert: UserUpsertWithoutProfilesInput
-  delete: Boolean
-  disconnect: Boolean
+input UserUpdateOneRequiredInput {
+  create: UserCreateInput
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
   connect: UserWhereUniqueInput
 }
 
-input UserUpdateOneWithoutStatsInput {
-  create: UserCreateWithoutStatsInput
-  update: UserUpdateWithoutStatsDataInput
-  upsert: UserUpsertWithoutStatsInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateWithoutLinksDataInput {
-  email: String
-  password: String
-  votes: VoteUpdateManyWithoutUserInput
-  stats: StatUpdateManyWithoutPostedByInput
-  profiles: ProfileUpdateManyWithoutPostedByInput
-}
-
-input UserUpdateWithoutProfilesDataInput {
-  email: String
-  password: String
-  links: LinkUpdateManyWithoutPostedByInput
-  votes: VoteUpdateManyWithoutUserInput
-  stats: StatUpdateManyWithoutPostedByInput
-}
-
-input UserUpdateWithoutStatsDataInput {
-  email: String
-  password: String
-  links: LinkUpdateManyWithoutPostedByInput
-  votes: VoteUpdateManyWithoutUserInput
-  profiles: ProfileUpdateManyWithoutPostedByInput
-}
-
-input UserUpdateWithoutVotesDataInput {
-  email: String
-  password: String
-  links: LinkUpdateManyWithoutPostedByInput
-  stats: StatUpdateManyWithoutPostedByInput
-  profiles: ProfileUpdateManyWithoutPostedByInput
-}
-
-input UserUpsertWithoutLinksInput {
-  update: UserUpdateWithoutLinksDataInput!
-  create: UserCreateWithoutLinksInput!
-}
-
-input UserUpsertWithoutProfilesInput {
-  update: UserUpdateWithoutProfilesDataInput!
-  create: UserCreateWithoutProfilesInput!
-}
-
-input UserUpsertWithoutStatsInput {
-  update: UserUpdateWithoutStatsDataInput!
-  create: UserCreateWithoutStatsInput!
-}
-
-input UserUpsertWithoutVotesInput {
-  update: UserUpdateWithoutVotesDataInput!
-  create: UserCreateWithoutVotesInput!
+input UserUpsertNestedInput {
+  update: UserUpdateDataInput!
+  create: UserCreateInput!
 }
 
 input UserWhereInput {
@@ -1192,18 +846,90 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
-  links_every: LinkWhereInput
-  links_some: LinkWhereInput
-  links_none: LinkWhereInput
-  votes_every: VoteWhereInput
-  votes_some: VoteWhereInput
-  votes_none: VoteWhereInput
-  stats_every: StatWhereInput
-  stats_some: StatWhereInput
-  stats_none: StatWhereInput
-  profiles_every: ProfileWhereInput
-  profiles_some: ProfileWhereInput
-  profiles_none: ProfileWhereInput
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  age: String
+  age_not: String
+  age_in: [String!]
+  age_not_in: [String!]
+  age_lt: String
+  age_lte: String
+  age_gt: String
+  age_gte: String
+  age_contains: String
+  age_not_contains: String
+  age_starts_with: String
+  age_not_starts_with: String
+  age_ends_with: String
+  age_not_ends_with: String
+  weight: String
+  weight_not: String
+  weight_in: [String!]
+  weight_not_in: [String!]
+  weight_lt: String
+  weight_lte: String
+  weight_gt: String
+  weight_gte: String
+  weight_contains: String
+  weight_not_contains: String
+  weight_starts_with: String
+  weight_not_starts_with: String
+  weight_ends_with: String
+  weight_not_ends_with: String
+  height: String
+  height_not: String
+  height_in: [String!]
+  height_not_in: [String!]
+  height_lt: String
+  height_lte: String
+  height_gt: String
+  height_gte: String
+  height_contains: String
+  height_not_contains: String
+  height_starts_with: String
+  height_not_starts_with: String
+  height_ends_with: String
+  height_not_ends_with: String
+  sex: String
+  sex_not: String
+  sex_in: [String!]
+  sex_not_in: [String!]
+  sex_lt: String
+  sex_lte: String
+  sex_gt: String
+  sex_gte: String
+  sex_contains: String
+  sex_not_contains: String
+  sex_starts_with: String
+  sex_not_starts_with: String
+  sex_ends_with: String
+  sex_not_ends_with: String
+  goal: String
+  goal_not: String
+  goal_in: [String!]
+  goal_not_in: [String!]
+  goal_lt: String
+  goal_lte: String
+  goal_gt: String
+  goal_gte: String
+  goal_contains: String
+  goal_not_contains: String
+  goal_starts_with: String
+  goal_not_starts_with: String
+  goal_ends_with: String
+  goal_not_ends_with: String
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -1229,7 +955,7 @@ type VoteConnection {
 input VoteCreateInput {
   id: ID
   links: LinkCreateManyWithoutVotesInput
-  user: UserCreateOneWithoutVotesInput!
+  user: UserCreateOneInput!
 }
 
 input VoteCreateManyWithoutLinksInput {
@@ -1237,19 +963,9 @@ input VoteCreateManyWithoutLinksInput {
   connect: [VoteWhereUniqueInput!]
 }
 
-input VoteCreateManyWithoutUserInput {
-  create: [VoteCreateWithoutUserInput!]
-  connect: [VoteWhereUniqueInput!]
-}
-
 input VoteCreateWithoutLinksInput {
   id: ID
-  user: UserCreateOneWithoutVotesInput!
-}
-
-input VoteCreateWithoutUserInput {
-  id: ID
-  links: LinkCreateManyWithoutVotesInput
+  user: UserCreateOneInput!
 }
 
 type VoteEdge {
@@ -1306,7 +1022,7 @@ input VoteSubscriptionWhereInput {
 
 input VoteUpdateInput {
   links: LinkUpdateManyWithoutVotesInput
-  user: UserUpdateOneRequiredWithoutVotesInput
+  user: UserUpdateOneRequiredInput
 }
 
 input VoteUpdateManyWithoutLinksInput {
@@ -1320,23 +1036,8 @@ input VoteUpdateManyWithoutLinksInput {
   deleteMany: [VoteScalarWhereInput!]
 }
 
-input VoteUpdateManyWithoutUserInput {
-  create: [VoteCreateWithoutUserInput!]
-  delete: [VoteWhereUniqueInput!]
-  connect: [VoteWhereUniqueInput!]
-  set: [VoteWhereUniqueInput!]
-  disconnect: [VoteWhereUniqueInput!]
-  update: [VoteUpdateWithWhereUniqueWithoutUserInput!]
-  upsert: [VoteUpsertWithWhereUniqueWithoutUserInput!]
-  deleteMany: [VoteScalarWhereInput!]
-}
-
 input VoteUpdateWithoutLinksDataInput {
-  user: UserUpdateOneRequiredWithoutVotesInput
-}
-
-input VoteUpdateWithoutUserDataInput {
-  links: LinkUpdateManyWithoutVotesInput
+  user: UserUpdateOneRequiredInput
 }
 
 input VoteUpdateWithWhereUniqueWithoutLinksInput {
@@ -1344,21 +1045,10 @@ input VoteUpdateWithWhereUniqueWithoutLinksInput {
   data: VoteUpdateWithoutLinksDataInput!
 }
 
-input VoteUpdateWithWhereUniqueWithoutUserInput {
-  where: VoteWhereUniqueInput!
-  data: VoteUpdateWithoutUserDataInput!
-}
-
 input VoteUpsertWithWhereUniqueWithoutLinksInput {
   where: VoteWhereUniqueInput!
   update: VoteUpdateWithoutLinksDataInput!
   create: VoteCreateWithoutLinksInput!
-}
-
-input VoteUpsertWithWhereUniqueWithoutUserInput {
-  where: VoteWhereUniqueInput!
-  update: VoteUpdateWithoutUserDataInput!
-  create: VoteCreateWithoutUserInput!
 }
 
 input VoteWhereInput {

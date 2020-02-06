@@ -253,6 +253,8 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type VoteOrderByInput = "id_ASC" | "id_DESC";
+
 export type LinkOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -263,7 +265,17 @@ export type LinkOrderByInput =
   | "url_ASC"
   | "url_DESC";
 
-export type VoteOrderByInput = "id_ASC" | "id_DESC";
+export type ProfileOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "feet_ASC"
+  | "feet_DESC"
+  | "inches_ASC"
+  | "inches_DESC"
+  | "male_ASC"
+  | "male_DESC"
+  | "weight_ASC"
+  | "weight_DESC";
 
 export type StatOrderByInput =
   | "id_ASC"
@@ -281,31 +293,55 @@ export type StatOrderByInput =
   | "frontsquat_ASC"
   | "frontsquat_DESC";
 
-export type ProfileOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "feet_ASC"
-  | "feet_DESC"
-  | "inches_ASC"
-  | "inches_DESC"
-  | "male_ASC"
-  | "male_DESC"
-  | "weight_ASC"
-  | "weight_DESC";
-
 export type UserOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "email_ASC"
   | "email_DESC"
   | "password_ASC"
-  | "password_DESC";
+  | "password_DESC"
+  | "firstName_ASC"
+  | "firstName_DESC"
+  | "age_ASC"
+  | "age_DESC"
+  | "weight_ASC"
+  | "weight_DESC"
+  | "height_ASC"
+  | "height_DESC"
+  | "sex_ASC"
+  | "sex_DESC"
+  | "goal_ASC"
+  | "goal_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type LinkWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
+
+export interface VoteWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  links_every?: Maybe<LinkWhereInput>;
+  links_some?: Maybe<LinkWhereInput>;
+  links_none?: Maybe<LinkWhereInput>;
+  user?: Maybe<UserWhereInput>;
+  AND?: Maybe<VoteWhereInput[] | VoteWhereInput>;
+  OR?: Maybe<VoteWhereInput[] | VoteWhereInput>;
+  NOT?: Maybe<VoteWhereInput[] | VoteWhereInput>;
+}
 
 export interface LinkWhereInput {
   id?: Maybe<ID_Input>;
@@ -410,24 +446,100 @@ export interface UserWhereInput {
   password_not_starts_with?: Maybe<String>;
   password_ends_with?: Maybe<String>;
   password_not_ends_with?: Maybe<String>;
-  links_every?: Maybe<LinkWhereInput>;
-  links_some?: Maybe<LinkWhereInput>;
-  links_none?: Maybe<LinkWhereInput>;
-  votes_every?: Maybe<VoteWhereInput>;
-  votes_some?: Maybe<VoteWhereInput>;
-  votes_none?: Maybe<VoteWhereInput>;
-  stats_every?: Maybe<StatWhereInput>;
-  stats_some?: Maybe<StatWhereInput>;
-  stats_none?: Maybe<StatWhereInput>;
-  profiles_every?: Maybe<ProfileWhereInput>;
-  profiles_some?: Maybe<ProfileWhereInput>;
-  profiles_none?: Maybe<ProfileWhereInput>;
+  firstName?: Maybe<String>;
+  firstName_not?: Maybe<String>;
+  firstName_in?: Maybe<String[] | String>;
+  firstName_not_in?: Maybe<String[] | String>;
+  firstName_lt?: Maybe<String>;
+  firstName_lte?: Maybe<String>;
+  firstName_gt?: Maybe<String>;
+  firstName_gte?: Maybe<String>;
+  firstName_contains?: Maybe<String>;
+  firstName_not_contains?: Maybe<String>;
+  firstName_starts_with?: Maybe<String>;
+  firstName_not_starts_with?: Maybe<String>;
+  firstName_ends_with?: Maybe<String>;
+  firstName_not_ends_with?: Maybe<String>;
+  age?: Maybe<String>;
+  age_not?: Maybe<String>;
+  age_in?: Maybe<String[] | String>;
+  age_not_in?: Maybe<String[] | String>;
+  age_lt?: Maybe<String>;
+  age_lte?: Maybe<String>;
+  age_gt?: Maybe<String>;
+  age_gte?: Maybe<String>;
+  age_contains?: Maybe<String>;
+  age_not_contains?: Maybe<String>;
+  age_starts_with?: Maybe<String>;
+  age_not_starts_with?: Maybe<String>;
+  age_ends_with?: Maybe<String>;
+  age_not_ends_with?: Maybe<String>;
+  weight?: Maybe<String>;
+  weight_not?: Maybe<String>;
+  weight_in?: Maybe<String[] | String>;
+  weight_not_in?: Maybe<String[] | String>;
+  weight_lt?: Maybe<String>;
+  weight_lte?: Maybe<String>;
+  weight_gt?: Maybe<String>;
+  weight_gte?: Maybe<String>;
+  weight_contains?: Maybe<String>;
+  weight_not_contains?: Maybe<String>;
+  weight_starts_with?: Maybe<String>;
+  weight_not_starts_with?: Maybe<String>;
+  weight_ends_with?: Maybe<String>;
+  weight_not_ends_with?: Maybe<String>;
+  height?: Maybe<String>;
+  height_not?: Maybe<String>;
+  height_in?: Maybe<String[] | String>;
+  height_not_in?: Maybe<String[] | String>;
+  height_lt?: Maybe<String>;
+  height_lte?: Maybe<String>;
+  height_gt?: Maybe<String>;
+  height_gte?: Maybe<String>;
+  height_contains?: Maybe<String>;
+  height_not_contains?: Maybe<String>;
+  height_starts_with?: Maybe<String>;
+  height_not_starts_with?: Maybe<String>;
+  height_ends_with?: Maybe<String>;
+  height_not_ends_with?: Maybe<String>;
+  sex?: Maybe<String>;
+  sex_not?: Maybe<String>;
+  sex_in?: Maybe<String[] | String>;
+  sex_not_in?: Maybe<String[] | String>;
+  sex_lt?: Maybe<String>;
+  sex_lte?: Maybe<String>;
+  sex_gt?: Maybe<String>;
+  sex_gte?: Maybe<String>;
+  sex_contains?: Maybe<String>;
+  sex_not_contains?: Maybe<String>;
+  sex_starts_with?: Maybe<String>;
+  sex_not_starts_with?: Maybe<String>;
+  sex_ends_with?: Maybe<String>;
+  sex_not_ends_with?: Maybe<String>;
+  goal?: Maybe<String>;
+  goal_not?: Maybe<String>;
+  goal_in?: Maybe<String[] | String>;
+  goal_not_in?: Maybe<String[] | String>;
+  goal_lt?: Maybe<String>;
+  goal_lte?: Maybe<String>;
+  goal_gt?: Maybe<String>;
+  goal_gte?: Maybe<String>;
+  goal_contains?: Maybe<String>;
+  goal_not_contains?: Maybe<String>;
+  goal_starts_with?: Maybe<String>;
+  goal_not_starts_with?: Maybe<String>;
+  goal_ends_with?: Maybe<String>;
+  goal_not_ends_with?: Maybe<String>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface VoteWhereInput {
+export type ProfileWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ProfileWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -442,14 +554,41 @@ export interface VoteWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  links_every?: Maybe<LinkWhereInput>;
-  links_some?: Maybe<LinkWhereInput>;
-  links_none?: Maybe<LinkWhereInput>;
-  user?: Maybe<UserWhereInput>;
-  AND?: Maybe<VoteWhereInput[] | VoteWhereInput>;
-  OR?: Maybe<VoteWhereInput[] | VoteWhereInput>;
-  NOT?: Maybe<VoteWhereInput[] | VoteWhereInput>;
+  postedBy?: Maybe<UserWhereInput>;
+  feet?: Maybe<Int>;
+  feet_not?: Maybe<Int>;
+  feet_in?: Maybe<Int[] | Int>;
+  feet_not_in?: Maybe<Int[] | Int>;
+  feet_lt?: Maybe<Int>;
+  feet_lte?: Maybe<Int>;
+  feet_gt?: Maybe<Int>;
+  feet_gte?: Maybe<Int>;
+  inches?: Maybe<Int>;
+  inches_not?: Maybe<Int>;
+  inches_in?: Maybe<Int[] | Int>;
+  inches_not_in?: Maybe<Int[] | Int>;
+  inches_lt?: Maybe<Int>;
+  inches_lte?: Maybe<Int>;
+  inches_gt?: Maybe<Int>;
+  inches_gte?: Maybe<Int>;
+  male?: Maybe<Boolean>;
+  male_not?: Maybe<Boolean>;
+  weight?: Maybe<Int>;
+  weight_not?: Maybe<Int>;
+  weight_in?: Maybe<Int[] | Int>;
+  weight_not_in?: Maybe<Int[] | Int>;
+  weight_lt?: Maybe<Int>;
+  weight_lte?: Maybe<Int>;
+  weight_gt?: Maybe<Int>;
+  weight_gte?: Maybe<Int>;
+  AND?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
+  OR?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
+  NOT?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
 }
+
+export type StatWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface StatWhereInput {
   id?: Maybe<ID_Input>;
@@ -520,7 +659,122 @@ export interface StatWhereInput {
   NOT?: Maybe<StatWhereInput[] | StatWhereInput>;
 }
 
-export interface ProfileWhereInput {
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export type VoteWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface LinkCreateInput {
+  id?: Maybe<ID_Input>;
+  description: String;
+  url: String;
+  postedBy?: Maybe<UserCreateOneInput>;
+  votes?: Maybe<VoteCreateManyWithoutLinksInput>;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  password: String;
+  firstName: String;
+  age: String;
+  weight: String;
+  height: String;
+  sex: String;
+  goal: String;
+}
+
+export interface VoteCreateManyWithoutLinksInput {
+  create?: Maybe<VoteCreateWithoutLinksInput[] | VoteCreateWithoutLinksInput>;
+  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
+}
+
+export interface VoteCreateWithoutLinksInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneInput;
+}
+
+export interface LinkUpdateInput {
+  description?: Maybe<String>;
+  url?: Maybe<String>;
+  postedBy?: Maybe<UserUpdateOneInput>;
+  votes?: Maybe<VoteUpdateManyWithoutLinksInput>;
+}
+
+export interface UserUpdateOneInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  firstName?: Maybe<String>;
+  age?: Maybe<String>;
+  weight?: Maybe<String>;
+  height?: Maybe<String>;
+  sex?: Maybe<String>;
+  goal?: Maybe<String>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface VoteUpdateManyWithoutLinksInput {
+  create?: Maybe<VoteCreateWithoutLinksInput[] | VoteCreateWithoutLinksInput>;
+  delete?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
+  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
+  set?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
+  disconnect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
+  update?: Maybe<
+    | VoteUpdateWithWhereUniqueWithoutLinksInput[]
+    | VoteUpdateWithWhereUniqueWithoutLinksInput
+  >;
+  upsert?: Maybe<
+    | VoteUpsertWithWhereUniqueWithoutLinksInput[]
+    | VoteUpsertWithWhereUniqueWithoutLinksInput
+  >;
+  deleteMany?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
+}
+
+export interface VoteUpdateWithWhereUniqueWithoutLinksInput {
+  where: VoteWhereUniqueInput;
+  data: VoteUpdateWithoutLinksDataInput;
+}
+
+export interface VoteUpdateWithoutLinksDataInput {
+  user?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface VoteUpsertWithWhereUniqueWithoutLinksInput {
+  where: VoteWhereUniqueInput;
+  update: VoteUpdateWithoutLinksDataInput;
+  create: VoteCreateWithoutLinksInput;
+}
+
+export interface VoteScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -535,85 +789,96 @@ export interface ProfileWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  postedBy?: Maybe<UserWhereInput>;
+  AND?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
+  OR?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
+  NOT?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
+}
+
+export interface LinkUpdateManyMutationInput {
+  description?: Maybe<String>;
+  url?: Maybe<String>;
+}
+
+export interface ProfileCreateInput {
+  id?: Maybe<ID_Input>;
+  postedBy?: Maybe<UserCreateOneInput>;
+  feet: Int;
+  inches: Int;
+  male: Boolean;
+  weight: Int;
+}
+
+export interface ProfileUpdateInput {
+  postedBy?: Maybe<UserUpdateOneInput>;
   feet?: Maybe<Int>;
-  feet_not?: Maybe<Int>;
-  feet_in?: Maybe<Int[] | Int>;
-  feet_not_in?: Maybe<Int[] | Int>;
-  feet_lt?: Maybe<Int>;
-  feet_lte?: Maybe<Int>;
-  feet_gt?: Maybe<Int>;
-  feet_gte?: Maybe<Int>;
   inches?: Maybe<Int>;
-  inches_not?: Maybe<Int>;
-  inches_in?: Maybe<Int[] | Int>;
-  inches_not_in?: Maybe<Int[] | Int>;
-  inches_lt?: Maybe<Int>;
-  inches_lte?: Maybe<Int>;
-  inches_gt?: Maybe<Int>;
-  inches_gte?: Maybe<Int>;
   male?: Maybe<Boolean>;
-  male_not?: Maybe<Boolean>;
   weight?: Maybe<Int>;
-  weight_not?: Maybe<Int>;
-  weight_in?: Maybe<Int[] | Int>;
-  weight_not_in?: Maybe<Int[] | Int>;
-  weight_lt?: Maybe<Int>;
-  weight_lte?: Maybe<Int>;
-  weight_gt?: Maybe<Int>;
-  weight_gte?: Maybe<Int>;
-  AND?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
-  OR?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
-  NOT?: Maybe<ProfileWhereInput[] | ProfileWhereInput>;
 }
 
-export type ProfileWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface ProfileUpdateManyMutationInput {
+  feet?: Maybe<Int>;
+  inches?: Maybe<Int>;
+  male?: Maybe<Boolean>;
+  weight?: Maybe<Int>;
+}
 
-export type StatWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface StatCreateInput {
+  id?: Maybe<ID_Input>;
+  postedBy?: Maybe<UserCreateOneInput>;
+  deadlift: Int;
+  squat: Int;
+  benchpress: Int;
+  shoulderpress: Int;
+  sumopull: Int;
+  frontsquat: Int;
+}
 
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
+export interface StatUpdateInput {
+  postedBy?: Maybe<UserUpdateOneInput>;
+  deadlift?: Maybe<Int>;
+  squat?: Maybe<Int>;
+  benchpress?: Maybe<Int>;
+  shoulderpress?: Maybe<Int>;
+  sumopull?: Maybe<Int>;
+  frontsquat?: Maybe<Int>;
+}
+
+export interface StatUpdateManyMutationInput {
+  deadlift?: Maybe<Int>;
+  squat?: Maybe<Int>;
+  benchpress?: Maybe<Int>;
+  shoulderpress?: Maybe<Int>;
+  sumopull?: Maybe<Int>;
+  frontsquat?: Maybe<Int>;
+}
+
+export interface UserUpdateInput {
   email?: Maybe<String>;
-}>;
-
-export type VoteWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface LinkCreateInput {
-  id?: Maybe<ID_Input>;
-  description: String;
-  url: String;
-  postedBy?: Maybe<UserCreateOneWithoutLinksInput>;
-  votes?: Maybe<VoteCreateManyWithoutLinksInput>;
+  password?: Maybe<String>;
+  firstName?: Maybe<String>;
+  age?: Maybe<String>;
+  weight?: Maybe<String>;
+  height?: Maybe<String>;
+  sex?: Maybe<String>;
+  goal?: Maybe<String>;
 }
 
-export interface UserCreateOneWithoutLinksInput {
-  create?: Maybe<UserCreateWithoutLinksInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
+export interface UserUpdateManyMutationInput {
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  firstName?: Maybe<String>;
+  age?: Maybe<String>;
+  weight?: Maybe<String>;
+  height?: Maybe<String>;
+  sex?: Maybe<String>;
+  goal?: Maybe<String>;
 }
 
-export interface UserCreateWithoutLinksInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  votes?: Maybe<VoteCreateManyWithoutUserInput>;
-  stats?: Maybe<StatCreateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileCreateManyWithoutPostedByInput>;
-}
-
-export interface VoteCreateManyWithoutUserInput {
-  create?: Maybe<VoteCreateWithoutUserInput[] | VoteCreateWithoutUserInput>;
-  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-}
-
-export interface VoteCreateWithoutUserInput {
+export interface VoteCreateInput {
   id?: Maybe<ID_Input>;
   links?: Maybe<LinkCreateManyWithoutVotesInput>;
+  user: UserCreateOneInput;
 }
 
 export interface LinkCreateManyWithoutVotesInput {
@@ -625,127 +890,12 @@ export interface LinkCreateWithoutVotesInput {
   id?: Maybe<ID_Input>;
   description: String;
   url: String;
-  postedBy?: Maybe<UserCreateOneWithoutLinksInput>;
+  postedBy?: Maybe<UserCreateOneInput>;
 }
 
-export interface StatCreateManyWithoutPostedByInput {
-  create?: Maybe<
-    StatCreateWithoutPostedByInput[] | StatCreateWithoutPostedByInput
-  >;
-  connect?: Maybe<StatWhereUniqueInput[] | StatWhereUniqueInput>;
-}
-
-export interface StatCreateWithoutPostedByInput {
-  id?: Maybe<ID_Input>;
-  deadlift: Int;
-  squat: Int;
-  benchpress: Int;
-  shoulderpress: Int;
-  sumopull: Int;
-  frontsquat: Int;
-}
-
-export interface ProfileCreateManyWithoutPostedByInput {
-  create?: Maybe<
-    ProfileCreateWithoutPostedByInput[] | ProfileCreateWithoutPostedByInput
-  >;
-  connect?: Maybe<ProfileWhereUniqueInput[] | ProfileWhereUniqueInput>;
-}
-
-export interface ProfileCreateWithoutPostedByInput {
-  id?: Maybe<ID_Input>;
-  feet: Int;
-  inches: Int;
-  male: Boolean;
-  weight: Int;
-}
-
-export interface VoteCreateManyWithoutLinksInput {
-  create?: Maybe<VoteCreateWithoutLinksInput[] | VoteCreateWithoutLinksInput>;
-  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-}
-
-export interface VoteCreateWithoutLinksInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneWithoutVotesInput;
-}
-
-export interface UserCreateOneWithoutVotesInput {
-  create?: Maybe<UserCreateWithoutVotesInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateWithoutVotesInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  links?: Maybe<LinkCreateManyWithoutPostedByInput>;
-  stats?: Maybe<StatCreateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileCreateManyWithoutPostedByInput>;
-}
-
-export interface LinkCreateManyWithoutPostedByInput {
-  create?: Maybe<
-    LinkCreateWithoutPostedByInput[] | LinkCreateWithoutPostedByInput
-  >;
-  connect?: Maybe<LinkWhereUniqueInput[] | LinkWhereUniqueInput>;
-}
-
-export interface LinkCreateWithoutPostedByInput {
-  id?: Maybe<ID_Input>;
-  description: String;
-  url: String;
-  votes?: Maybe<VoteCreateManyWithoutLinksInput>;
-}
-
-export interface LinkUpdateInput {
-  description?: Maybe<String>;
-  url?: Maybe<String>;
-  postedBy?: Maybe<UserUpdateOneWithoutLinksInput>;
-  votes?: Maybe<VoteUpdateManyWithoutLinksInput>;
-}
-
-export interface UserUpdateOneWithoutLinksInput {
-  create?: Maybe<UserCreateWithoutLinksInput>;
-  update?: Maybe<UserUpdateWithoutLinksDataInput>;
-  upsert?: Maybe<UserUpsertWithoutLinksInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateWithoutLinksDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  votes?: Maybe<VoteUpdateManyWithoutUserInput>;
-  stats?: Maybe<StatUpdateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileUpdateManyWithoutPostedByInput>;
-}
-
-export interface VoteUpdateManyWithoutUserInput {
-  create?: Maybe<VoteCreateWithoutUserInput[] | VoteCreateWithoutUserInput>;
-  delete?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  set?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  disconnect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  update?: Maybe<
-    | VoteUpdateWithWhereUniqueWithoutUserInput[]
-    | VoteUpdateWithWhereUniqueWithoutUserInput
-  >;
-  upsert?: Maybe<
-    | VoteUpsertWithWhereUniqueWithoutUserInput[]
-    | VoteUpsertWithWhereUniqueWithoutUserInput
-  >;
-  deleteMany?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
-}
-
-export interface VoteUpdateWithWhereUniqueWithoutUserInput {
-  where: VoteWhereUniqueInput;
-  data: VoteUpdateWithoutUserDataInput;
-}
-
-export interface VoteUpdateWithoutUserDataInput {
+export interface VoteUpdateInput {
   links?: Maybe<LinkUpdateManyWithoutVotesInput>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
 }
 
 export interface LinkUpdateManyWithoutVotesInput {
@@ -776,7 +926,7 @@ export interface LinkUpdateWithWhereUniqueWithoutVotesInput {
 export interface LinkUpdateWithoutVotesDataInput {
   description?: Maybe<String>;
   url?: Maybe<String>;
-  postedBy?: Maybe<UserUpdateOneWithoutLinksInput>;
+  postedBy?: Maybe<UserUpdateOneInput>;
 }
 
 export interface LinkUpsertWithWhereUniqueWithoutVotesInput {
@@ -849,517 +999,6 @@ export interface LinkUpdateManyWithWhereNestedInput {
 export interface LinkUpdateManyDataInput {
   description?: Maybe<String>;
   url?: Maybe<String>;
-}
-
-export interface VoteUpsertWithWhereUniqueWithoutUserInput {
-  where: VoteWhereUniqueInput;
-  update: VoteUpdateWithoutUserDataInput;
-  create: VoteCreateWithoutUserInput;
-}
-
-export interface VoteScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  AND?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
-  OR?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
-  NOT?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
-}
-
-export interface StatUpdateManyWithoutPostedByInput {
-  create?: Maybe<
-    StatCreateWithoutPostedByInput[] | StatCreateWithoutPostedByInput
-  >;
-  delete?: Maybe<StatWhereUniqueInput[] | StatWhereUniqueInput>;
-  connect?: Maybe<StatWhereUniqueInput[] | StatWhereUniqueInput>;
-  set?: Maybe<StatWhereUniqueInput[] | StatWhereUniqueInput>;
-  disconnect?: Maybe<StatWhereUniqueInput[] | StatWhereUniqueInput>;
-  update?: Maybe<
-    | StatUpdateWithWhereUniqueWithoutPostedByInput[]
-    | StatUpdateWithWhereUniqueWithoutPostedByInput
-  >;
-  upsert?: Maybe<
-    | StatUpsertWithWhereUniqueWithoutPostedByInput[]
-    | StatUpsertWithWhereUniqueWithoutPostedByInput
-  >;
-  deleteMany?: Maybe<StatScalarWhereInput[] | StatScalarWhereInput>;
-  updateMany?: Maybe<
-    StatUpdateManyWithWhereNestedInput[] | StatUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface StatUpdateWithWhereUniqueWithoutPostedByInput {
-  where: StatWhereUniqueInput;
-  data: StatUpdateWithoutPostedByDataInput;
-}
-
-export interface StatUpdateWithoutPostedByDataInput {
-  deadlift?: Maybe<Int>;
-  squat?: Maybe<Int>;
-  benchpress?: Maybe<Int>;
-  shoulderpress?: Maybe<Int>;
-  sumopull?: Maybe<Int>;
-  frontsquat?: Maybe<Int>;
-}
-
-export interface StatUpsertWithWhereUniqueWithoutPostedByInput {
-  where: StatWhereUniqueInput;
-  update: StatUpdateWithoutPostedByDataInput;
-  create: StatCreateWithoutPostedByInput;
-}
-
-export interface StatScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  deadlift?: Maybe<Int>;
-  deadlift_not?: Maybe<Int>;
-  deadlift_in?: Maybe<Int[] | Int>;
-  deadlift_not_in?: Maybe<Int[] | Int>;
-  deadlift_lt?: Maybe<Int>;
-  deadlift_lte?: Maybe<Int>;
-  deadlift_gt?: Maybe<Int>;
-  deadlift_gte?: Maybe<Int>;
-  squat?: Maybe<Int>;
-  squat_not?: Maybe<Int>;
-  squat_in?: Maybe<Int[] | Int>;
-  squat_not_in?: Maybe<Int[] | Int>;
-  squat_lt?: Maybe<Int>;
-  squat_lte?: Maybe<Int>;
-  squat_gt?: Maybe<Int>;
-  squat_gte?: Maybe<Int>;
-  benchpress?: Maybe<Int>;
-  benchpress_not?: Maybe<Int>;
-  benchpress_in?: Maybe<Int[] | Int>;
-  benchpress_not_in?: Maybe<Int[] | Int>;
-  benchpress_lt?: Maybe<Int>;
-  benchpress_lte?: Maybe<Int>;
-  benchpress_gt?: Maybe<Int>;
-  benchpress_gte?: Maybe<Int>;
-  shoulderpress?: Maybe<Int>;
-  shoulderpress_not?: Maybe<Int>;
-  shoulderpress_in?: Maybe<Int[] | Int>;
-  shoulderpress_not_in?: Maybe<Int[] | Int>;
-  shoulderpress_lt?: Maybe<Int>;
-  shoulderpress_lte?: Maybe<Int>;
-  shoulderpress_gt?: Maybe<Int>;
-  shoulderpress_gte?: Maybe<Int>;
-  sumopull?: Maybe<Int>;
-  sumopull_not?: Maybe<Int>;
-  sumopull_in?: Maybe<Int[] | Int>;
-  sumopull_not_in?: Maybe<Int[] | Int>;
-  sumopull_lt?: Maybe<Int>;
-  sumopull_lte?: Maybe<Int>;
-  sumopull_gt?: Maybe<Int>;
-  sumopull_gte?: Maybe<Int>;
-  frontsquat?: Maybe<Int>;
-  frontsquat_not?: Maybe<Int>;
-  frontsquat_in?: Maybe<Int[] | Int>;
-  frontsquat_not_in?: Maybe<Int[] | Int>;
-  frontsquat_lt?: Maybe<Int>;
-  frontsquat_lte?: Maybe<Int>;
-  frontsquat_gt?: Maybe<Int>;
-  frontsquat_gte?: Maybe<Int>;
-  AND?: Maybe<StatScalarWhereInput[] | StatScalarWhereInput>;
-  OR?: Maybe<StatScalarWhereInput[] | StatScalarWhereInput>;
-  NOT?: Maybe<StatScalarWhereInput[] | StatScalarWhereInput>;
-}
-
-export interface StatUpdateManyWithWhereNestedInput {
-  where: StatScalarWhereInput;
-  data: StatUpdateManyDataInput;
-}
-
-export interface StatUpdateManyDataInput {
-  deadlift?: Maybe<Int>;
-  squat?: Maybe<Int>;
-  benchpress?: Maybe<Int>;
-  shoulderpress?: Maybe<Int>;
-  sumopull?: Maybe<Int>;
-  frontsquat?: Maybe<Int>;
-}
-
-export interface ProfileUpdateManyWithoutPostedByInput {
-  create?: Maybe<
-    ProfileCreateWithoutPostedByInput[] | ProfileCreateWithoutPostedByInput
-  >;
-  delete?: Maybe<ProfileWhereUniqueInput[] | ProfileWhereUniqueInput>;
-  connect?: Maybe<ProfileWhereUniqueInput[] | ProfileWhereUniqueInput>;
-  set?: Maybe<ProfileWhereUniqueInput[] | ProfileWhereUniqueInput>;
-  disconnect?: Maybe<ProfileWhereUniqueInput[] | ProfileWhereUniqueInput>;
-  update?: Maybe<
-    | ProfileUpdateWithWhereUniqueWithoutPostedByInput[]
-    | ProfileUpdateWithWhereUniqueWithoutPostedByInput
-  >;
-  upsert?: Maybe<
-    | ProfileUpsertWithWhereUniqueWithoutPostedByInput[]
-    | ProfileUpsertWithWhereUniqueWithoutPostedByInput
-  >;
-  deleteMany?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
-  updateMany?: Maybe<
-    | ProfileUpdateManyWithWhereNestedInput[]
-    | ProfileUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ProfileUpdateWithWhereUniqueWithoutPostedByInput {
-  where: ProfileWhereUniqueInput;
-  data: ProfileUpdateWithoutPostedByDataInput;
-}
-
-export interface ProfileUpdateWithoutPostedByDataInput {
-  feet?: Maybe<Int>;
-  inches?: Maybe<Int>;
-  male?: Maybe<Boolean>;
-  weight?: Maybe<Int>;
-}
-
-export interface ProfileUpsertWithWhereUniqueWithoutPostedByInput {
-  where: ProfileWhereUniqueInput;
-  update: ProfileUpdateWithoutPostedByDataInput;
-  create: ProfileCreateWithoutPostedByInput;
-}
-
-export interface ProfileScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  feet?: Maybe<Int>;
-  feet_not?: Maybe<Int>;
-  feet_in?: Maybe<Int[] | Int>;
-  feet_not_in?: Maybe<Int[] | Int>;
-  feet_lt?: Maybe<Int>;
-  feet_lte?: Maybe<Int>;
-  feet_gt?: Maybe<Int>;
-  feet_gte?: Maybe<Int>;
-  inches?: Maybe<Int>;
-  inches_not?: Maybe<Int>;
-  inches_in?: Maybe<Int[] | Int>;
-  inches_not_in?: Maybe<Int[] | Int>;
-  inches_lt?: Maybe<Int>;
-  inches_lte?: Maybe<Int>;
-  inches_gt?: Maybe<Int>;
-  inches_gte?: Maybe<Int>;
-  male?: Maybe<Boolean>;
-  male_not?: Maybe<Boolean>;
-  weight?: Maybe<Int>;
-  weight_not?: Maybe<Int>;
-  weight_in?: Maybe<Int[] | Int>;
-  weight_not_in?: Maybe<Int[] | Int>;
-  weight_lt?: Maybe<Int>;
-  weight_lte?: Maybe<Int>;
-  weight_gt?: Maybe<Int>;
-  weight_gte?: Maybe<Int>;
-  AND?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
-  OR?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
-  NOT?: Maybe<ProfileScalarWhereInput[] | ProfileScalarWhereInput>;
-}
-
-export interface ProfileUpdateManyWithWhereNestedInput {
-  where: ProfileScalarWhereInput;
-  data: ProfileUpdateManyDataInput;
-}
-
-export interface ProfileUpdateManyDataInput {
-  feet?: Maybe<Int>;
-  inches?: Maybe<Int>;
-  male?: Maybe<Boolean>;
-  weight?: Maybe<Int>;
-}
-
-export interface UserUpsertWithoutLinksInput {
-  update: UserUpdateWithoutLinksDataInput;
-  create: UserCreateWithoutLinksInput;
-}
-
-export interface VoteUpdateManyWithoutLinksInput {
-  create?: Maybe<VoteCreateWithoutLinksInput[] | VoteCreateWithoutLinksInput>;
-  delete?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  connect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  set?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  disconnect?: Maybe<VoteWhereUniqueInput[] | VoteWhereUniqueInput>;
-  update?: Maybe<
-    | VoteUpdateWithWhereUniqueWithoutLinksInput[]
-    | VoteUpdateWithWhereUniqueWithoutLinksInput
-  >;
-  upsert?: Maybe<
-    | VoteUpsertWithWhereUniqueWithoutLinksInput[]
-    | VoteUpsertWithWhereUniqueWithoutLinksInput
-  >;
-  deleteMany?: Maybe<VoteScalarWhereInput[] | VoteScalarWhereInput>;
-}
-
-export interface VoteUpdateWithWhereUniqueWithoutLinksInput {
-  where: VoteWhereUniqueInput;
-  data: VoteUpdateWithoutLinksDataInput;
-}
-
-export interface VoteUpdateWithoutLinksDataInput {
-  user?: Maybe<UserUpdateOneRequiredWithoutVotesInput>;
-}
-
-export interface UserUpdateOneRequiredWithoutVotesInput {
-  create?: Maybe<UserCreateWithoutVotesInput>;
-  update?: Maybe<UserUpdateWithoutVotesDataInput>;
-  upsert?: Maybe<UserUpsertWithoutVotesInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateWithoutVotesDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
-  stats?: Maybe<StatUpdateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileUpdateManyWithoutPostedByInput>;
-}
-
-export interface LinkUpdateManyWithoutPostedByInput {
-  create?: Maybe<
-    LinkCreateWithoutPostedByInput[] | LinkCreateWithoutPostedByInput
-  >;
-  delete?: Maybe<LinkWhereUniqueInput[] | LinkWhereUniqueInput>;
-  connect?: Maybe<LinkWhereUniqueInput[] | LinkWhereUniqueInput>;
-  set?: Maybe<LinkWhereUniqueInput[] | LinkWhereUniqueInput>;
-  disconnect?: Maybe<LinkWhereUniqueInput[] | LinkWhereUniqueInput>;
-  update?: Maybe<
-    | LinkUpdateWithWhereUniqueWithoutPostedByInput[]
-    | LinkUpdateWithWhereUniqueWithoutPostedByInput
-  >;
-  upsert?: Maybe<
-    | LinkUpsertWithWhereUniqueWithoutPostedByInput[]
-    | LinkUpsertWithWhereUniqueWithoutPostedByInput
-  >;
-  deleteMany?: Maybe<LinkScalarWhereInput[] | LinkScalarWhereInput>;
-  updateMany?: Maybe<
-    LinkUpdateManyWithWhereNestedInput[] | LinkUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface LinkUpdateWithWhereUniqueWithoutPostedByInput {
-  where: LinkWhereUniqueInput;
-  data: LinkUpdateWithoutPostedByDataInput;
-}
-
-export interface LinkUpdateWithoutPostedByDataInput {
-  description?: Maybe<String>;
-  url?: Maybe<String>;
-  votes?: Maybe<VoteUpdateManyWithoutLinksInput>;
-}
-
-export interface LinkUpsertWithWhereUniqueWithoutPostedByInput {
-  where: LinkWhereUniqueInput;
-  update: LinkUpdateWithoutPostedByDataInput;
-  create: LinkCreateWithoutPostedByInput;
-}
-
-export interface UserUpsertWithoutVotesInput {
-  update: UserUpdateWithoutVotesDataInput;
-  create: UserCreateWithoutVotesInput;
-}
-
-export interface VoteUpsertWithWhereUniqueWithoutLinksInput {
-  where: VoteWhereUniqueInput;
-  update: VoteUpdateWithoutLinksDataInput;
-  create: VoteCreateWithoutLinksInput;
-}
-
-export interface LinkUpdateManyMutationInput {
-  description?: Maybe<String>;
-  url?: Maybe<String>;
-}
-
-export interface ProfileCreateInput {
-  id?: Maybe<ID_Input>;
-  postedBy?: Maybe<UserCreateOneWithoutProfilesInput>;
-  feet: Int;
-  inches: Int;
-  male: Boolean;
-  weight: Int;
-}
-
-export interface UserCreateOneWithoutProfilesInput {
-  create?: Maybe<UserCreateWithoutProfilesInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateWithoutProfilesInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  links?: Maybe<LinkCreateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteCreateManyWithoutUserInput>;
-  stats?: Maybe<StatCreateManyWithoutPostedByInput>;
-}
-
-export interface ProfileUpdateInput {
-  postedBy?: Maybe<UserUpdateOneWithoutProfilesInput>;
-  feet?: Maybe<Int>;
-  inches?: Maybe<Int>;
-  male?: Maybe<Boolean>;
-  weight?: Maybe<Int>;
-}
-
-export interface UserUpdateOneWithoutProfilesInput {
-  create?: Maybe<UserCreateWithoutProfilesInput>;
-  update?: Maybe<UserUpdateWithoutProfilesDataInput>;
-  upsert?: Maybe<UserUpsertWithoutProfilesInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateWithoutProfilesDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteUpdateManyWithoutUserInput>;
-  stats?: Maybe<StatUpdateManyWithoutPostedByInput>;
-}
-
-export interface UserUpsertWithoutProfilesInput {
-  update: UserUpdateWithoutProfilesDataInput;
-  create: UserCreateWithoutProfilesInput;
-}
-
-export interface ProfileUpdateManyMutationInput {
-  feet?: Maybe<Int>;
-  inches?: Maybe<Int>;
-  male?: Maybe<Boolean>;
-  weight?: Maybe<Int>;
-}
-
-export interface StatCreateInput {
-  id?: Maybe<ID_Input>;
-  postedBy?: Maybe<UserCreateOneWithoutStatsInput>;
-  deadlift: Int;
-  squat: Int;
-  benchpress: Int;
-  shoulderpress: Int;
-  sumopull: Int;
-  frontsquat: Int;
-}
-
-export interface UserCreateOneWithoutStatsInput {
-  create?: Maybe<UserCreateWithoutStatsInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateWithoutStatsInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  links?: Maybe<LinkCreateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteCreateManyWithoutUserInput>;
-  profiles?: Maybe<ProfileCreateManyWithoutPostedByInput>;
-}
-
-export interface StatUpdateInput {
-  postedBy?: Maybe<UserUpdateOneWithoutStatsInput>;
-  deadlift?: Maybe<Int>;
-  squat?: Maybe<Int>;
-  benchpress?: Maybe<Int>;
-  shoulderpress?: Maybe<Int>;
-  sumopull?: Maybe<Int>;
-  frontsquat?: Maybe<Int>;
-}
-
-export interface UserUpdateOneWithoutStatsInput {
-  create?: Maybe<UserCreateWithoutStatsInput>;
-  update?: Maybe<UserUpdateWithoutStatsDataInput>;
-  upsert?: Maybe<UserUpsertWithoutStatsInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateWithoutStatsDataInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteUpdateManyWithoutUserInput>;
-  profiles?: Maybe<ProfileUpdateManyWithoutPostedByInput>;
-}
-
-export interface UserUpsertWithoutStatsInput {
-  update: UserUpdateWithoutStatsDataInput;
-  create: UserCreateWithoutStatsInput;
-}
-
-export interface StatUpdateManyMutationInput {
-  deadlift?: Maybe<Int>;
-  squat?: Maybe<Int>;
-  benchpress?: Maybe<Int>;
-  shoulderpress?: Maybe<Int>;
-  sumopull?: Maybe<Int>;
-  frontsquat?: Maybe<Int>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  password: String;
-  links?: Maybe<LinkCreateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteCreateManyWithoutUserInput>;
-  stats?: Maybe<StatCreateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileCreateManyWithoutPostedByInput>;
-}
-
-export interface UserUpdateInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-  links?: Maybe<LinkUpdateManyWithoutPostedByInput>;
-  votes?: Maybe<VoteUpdateManyWithoutUserInput>;
-  stats?: Maybe<StatUpdateManyWithoutPostedByInput>;
-  profiles?: Maybe<ProfileUpdateManyWithoutPostedByInput>;
-}
-
-export interface UserUpdateManyMutationInput {
-  email?: Maybe<String>;
-  password?: Maybe<String>;
-}
-
-export interface VoteCreateInput {
-  id?: Maybe<ID_Input>;
-  links?: Maybe<LinkCreateManyWithoutVotesInput>;
-  user: UserCreateOneWithoutVotesInput;
-}
-
-export interface VoteUpdateInput {
-  links?: Maybe<LinkUpdateManyWithoutVotesInput>;
-  user?: Maybe<UserUpdateOneRequiredWithoutVotesInput>;
 }
 
 export interface LinkSubscriptionWhereInput {
@@ -1487,48 +1126,24 @@ export interface User {
   id: ID_Output;
   email: String;
   password: String;
+  firstName: String;
+  age: String;
+  weight: String;
+  height: String;
+  sex: String;
+  goal: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   email: () => Promise<String>;
   password: () => Promise<String>;
-  links: <T = FragmentableArray<Link>>(args?: {
-    where?: LinkWhereInput;
-    orderBy?: LinkOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  votes: <T = FragmentableArray<Vote>>(args?: {
-    where?: VoteWhereInput;
-    orderBy?: VoteOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  stats: <T = FragmentableArray<Stat>>(args?: {
-    where?: StatWhereInput;
-    orderBy?: StatOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  profiles: <T = FragmentableArray<Profile>>(args?: {
-    where?: ProfileWhereInput;
-    orderBy?: ProfileOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  firstName: () => Promise<String>;
+  age: () => Promise<String>;
+  weight: () => Promise<String>;
+  height: () => Promise<String>;
+  sex: () => Promise<String>;
+  goal: () => Promise<String>;
 }
 
 export interface UserSubscription
@@ -1537,42 +1152,12 @@ export interface UserSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
-  links: <T = Promise<AsyncIterator<LinkSubscription>>>(args?: {
-    where?: LinkWhereInput;
-    orderBy?: LinkOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  votes: <T = Promise<AsyncIterator<VoteSubscription>>>(args?: {
-    where?: VoteWhereInput;
-    orderBy?: VoteOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  stats: <T = Promise<AsyncIterator<StatSubscription>>>(args?: {
-    where?: StatWhereInput;
-    orderBy?: StatOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  profiles: <T = Promise<AsyncIterator<ProfileSubscription>>>(args?: {
-    where?: ProfileWhereInput;
-    orderBy?: ProfileOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  firstName: () => Promise<AsyncIterator<String>>;
+  age: () => Promise<AsyncIterator<String>>;
+  weight: () => Promise<AsyncIterator<String>>;
+  height: () => Promise<AsyncIterator<String>>;
+  sex: () => Promise<AsyncIterator<String>>;
+  goal: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserNullablePromise
@@ -1581,42 +1166,12 @@ export interface UserNullablePromise
   id: () => Promise<ID_Output>;
   email: () => Promise<String>;
   password: () => Promise<String>;
-  links: <T = FragmentableArray<Link>>(args?: {
-    where?: LinkWhereInput;
-    orderBy?: LinkOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  votes: <T = FragmentableArray<Vote>>(args?: {
-    where?: VoteWhereInput;
-    orderBy?: VoteOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  stats: <T = FragmentableArray<Stat>>(args?: {
-    where?: StatWhereInput;
-    orderBy?: StatOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  profiles: <T = FragmentableArray<Profile>>(args?: {
-    where?: ProfileWhereInput;
-    orderBy?: ProfileOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  firstName: () => Promise<String>;
+  age: () => Promise<String>;
+  weight: () => Promise<String>;
+  height: () => Promise<String>;
+  sex: () => Promise<String>;
+  goal: () => Promise<String>;
 }
 
 export interface Vote {
@@ -1667,92 +1222,6 @@ export interface VoteNullablePromise
     last?: Int;
   }) => T;
   user: <T = UserPromise>() => T;
-}
-
-export interface Stat {
-  id: ID_Output;
-  deadlift: Int;
-  squat: Int;
-  benchpress: Int;
-  shoulderpress: Int;
-  sumopull: Int;
-  frontsquat: Int;
-}
-
-export interface StatPromise extends Promise<Stat>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  deadlift: () => Promise<Int>;
-  squat: () => Promise<Int>;
-  benchpress: () => Promise<Int>;
-  shoulderpress: () => Promise<Int>;
-  sumopull: () => Promise<Int>;
-  frontsquat: () => Promise<Int>;
-}
-
-export interface StatSubscription
-  extends Promise<AsyncIterator<Stat>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  postedBy: <T = UserSubscription>() => T;
-  deadlift: () => Promise<AsyncIterator<Int>>;
-  squat: () => Promise<AsyncIterator<Int>>;
-  benchpress: () => Promise<AsyncIterator<Int>>;
-  shoulderpress: () => Promise<AsyncIterator<Int>>;
-  sumopull: () => Promise<AsyncIterator<Int>>;
-  frontsquat: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface StatNullablePromise
-  extends Promise<Stat | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  deadlift: () => Promise<Int>;
-  squat: () => Promise<Int>;
-  benchpress: () => Promise<Int>;
-  shoulderpress: () => Promise<Int>;
-  sumopull: () => Promise<Int>;
-  frontsquat: () => Promise<Int>;
-}
-
-export interface Profile {
-  id: ID_Output;
-  feet: Int;
-  inches: Int;
-  male: Boolean;
-  weight: Int;
-}
-
-export interface ProfilePromise extends Promise<Profile>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  feet: () => Promise<Int>;
-  inches: () => Promise<Int>;
-  male: () => Promise<Boolean>;
-  weight: () => Promise<Int>;
-}
-
-export interface ProfileSubscription
-  extends Promise<AsyncIterator<Profile>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  postedBy: <T = UserSubscription>() => T;
-  feet: () => Promise<AsyncIterator<Int>>;
-  inches: () => Promise<AsyncIterator<Int>>;
-  male: () => Promise<AsyncIterator<Boolean>>;
-  weight: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ProfileNullablePromise
-  extends Promise<Profile | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  postedBy: <T = UserPromise>() => T;
-  feet: () => Promise<Int>;
-  inches: () => Promise<Int>;
-  male: () => Promise<Boolean>;
-  weight: () => Promise<Int>;
 }
 
 export interface LinkConnection {
@@ -1832,6 +1301,45 @@ export interface AggregateLinkSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Profile {
+  id: ID_Output;
+  feet: Int;
+  inches: Int;
+  male: Boolean;
+  weight: Int;
+}
+
+export interface ProfilePromise extends Promise<Profile>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  postedBy: <T = UserPromise>() => T;
+  feet: () => Promise<Int>;
+  inches: () => Promise<Int>;
+  male: () => Promise<Boolean>;
+  weight: () => Promise<Int>;
+}
+
+export interface ProfileSubscription
+  extends Promise<AsyncIterator<Profile>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  postedBy: <T = UserSubscription>() => T;
+  feet: () => Promise<AsyncIterator<Int>>;
+  inches: () => Promise<AsyncIterator<Int>>;
+  male: () => Promise<AsyncIterator<Boolean>>;
+  weight: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface ProfileNullablePromise
+  extends Promise<Profile | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  postedBy: <T = UserPromise>() => T;
+  feet: () => Promise<Int>;
+  inches: () => Promise<Int>;
+  male: () => Promise<Boolean>;
+  weight: () => Promise<Int>;
+}
+
 export interface ProfileConnection {
   pageInfo: PageInfo;
   edges: ProfileEdge[];
@@ -1884,6 +1392,53 @@ export interface AggregateProfileSubscription
   extends Promise<AsyncIterator<AggregateProfile>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Stat {
+  id: ID_Output;
+  deadlift: Int;
+  squat: Int;
+  benchpress: Int;
+  shoulderpress: Int;
+  sumopull: Int;
+  frontsquat: Int;
+}
+
+export interface StatPromise extends Promise<Stat>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  postedBy: <T = UserPromise>() => T;
+  deadlift: () => Promise<Int>;
+  squat: () => Promise<Int>;
+  benchpress: () => Promise<Int>;
+  shoulderpress: () => Promise<Int>;
+  sumopull: () => Promise<Int>;
+  frontsquat: () => Promise<Int>;
+}
+
+export interface StatSubscription
+  extends Promise<AsyncIterator<Stat>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  postedBy: <T = UserSubscription>() => T;
+  deadlift: () => Promise<AsyncIterator<Int>>;
+  squat: () => Promise<AsyncIterator<Int>>;
+  benchpress: () => Promise<AsyncIterator<Int>>;
+  shoulderpress: () => Promise<AsyncIterator<Int>>;
+  sumopull: () => Promise<AsyncIterator<Int>>;
+  frontsquat: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface StatNullablePromise
+  extends Promise<Stat | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  postedBy: <T = UserPromise>() => T;
+  deadlift: () => Promise<Int>;
+  squat: () => Promise<Int>;
+  benchpress: () => Promise<Int>;
+  shoulderpress: () => Promise<Int>;
+  sumopull: () => Promise<Int>;
+  frontsquat: () => Promise<Int>;
 }
 
 export interface StatConnection {
@@ -2255,6 +1810,12 @@ export interface UserPreviousValues {
   id: ID_Output;
   email: String;
   password: String;
+  firstName: String;
+  age: String;
+  weight: String;
+  height: String;
+  sex: String;
+  goal: String;
 }
 
 export interface UserPreviousValuesPromise
@@ -2263,6 +1824,12 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  firstName: () => Promise<String>;
+  age: () => Promise<String>;
+  weight: () => Promise<String>;
+  height: () => Promise<String>;
+  sex: () => Promise<String>;
+  goal: () => Promise<String>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -2271,6 +1838,12 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  firstName: () => Promise<AsyncIterator<String>>;
+  age: () => Promise<AsyncIterator<String>>;
+  weight: () => Promise<AsyncIterator<String>>;
+  height: () => Promise<AsyncIterator<String>>;
+  sex: () => Promise<AsyncIterator<String>>;
+  goal: () => Promise<AsyncIterator<String>>;
 }
 
 export interface VoteSubscriptionPayload {
