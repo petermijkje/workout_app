@@ -224,7 +224,7 @@ class SignUp extends Component {
                     className="email"
                   />
                   <hr className="sign__in__hr" />
-                  <Input type="select" name="select" id="exampleSelect">
+                  <Input type="select" name="select" id="selector">
                     <option>Female</option>
                     <option>Male</option>
                   </Input>
@@ -232,7 +232,7 @@ class SignUp extends Component {
                   <Input
                     type="select"
                     name="select"
-                    id="exampleSelect"
+                    id="selector"
                     placeholder="Goal?"
                   >
                     <option disabled selected>

@@ -71,6 +71,7 @@ class SignIn extends Component {
             name="name"
             placeholder="Password"
             className="password"
+            autoComplete="new-password"
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />

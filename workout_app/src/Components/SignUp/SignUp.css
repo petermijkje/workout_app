@@ -5,10 +5,11 @@
   margin-bottom: 46px;
 }
 
-#exampleSelect {
+#selector {
   width: 320px;
   position: relative;
   left: 10%;
+  background-color: #f0f0f0;
 }
 
 .progress {
