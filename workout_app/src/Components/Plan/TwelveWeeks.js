@@ -1,11 +1,12 @@
-import React, { Component, useState } from 'react'
-import { Button, UncontrolledTooltip } from 'reactstrap'
+import React, { Component } from 'react'
+import { Button } from 'reactstrap'
 import './twelveweeks.css'
 import Day from './PlanComponents/Day.js'
 import Reps from './PlanComponents/Reps.js'
 import { ArrowLeft, ArrowRight } from 'react-feather'
 import ExercisesOfTheDay from './ExercisesOfTheDay'
 import DateHeader from './DateHeader/DateHeader.js'
+import YearHeader from './YearHeader/YearHeader.js'
 
 class TwelveWeeks extends Component {
   constructor(props) {
@@ -559,7 +560,8 @@ class TwelveWeeks extends Component {
           <div className="arrow__left">
             <ArrowLeft size={70} />
           </div>
-          <DateHeader />, 2020
+          <DateHeader />
+          <YearHeader />
           <div className="arrow__right">
             <ArrowRight size={70} />
           </div>

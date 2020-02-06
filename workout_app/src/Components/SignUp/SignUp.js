@@ -7,8 +7,26 @@ import { AUTH_TOKEN } from '../../constants.js'
 import './SignUp.css'
 
 const SIGNUP_MUTATION = gql`
-  mutation SignupMutation($email: String!, $password: String!) {
-    signup(email: $email, password: $password) {
+  mutation SignupMutation(
+    $email: String!
+    $password: String!
+    $firstName: String!
+    $age: String!
+    $weight: String!
+    $height: String!
+    $sex: String!
+    $goal: String!
+  ) {
+    signup(
+      email: $email
+      password: $password
+      firstName: $firstName
+      age: $age
+      weight: $weight
+      height: $height
+      sex: $sex
+      goal: $goal
+    ) {
       token
     }
   }
@@ -42,6 +60,9 @@ class SignUp extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleAgeChange = this.handleAgeChange.bind(this)
     this.handleWeightChange = this.handleWeightChange.bind(this)
+    this.handleHeightChange = this.handleHeightChange.bind(this)
+    this.handleSexChange = this.handleSexChange.bind(this)
+    this.handleGoalChange = this.handleGoalChange.bind(this)
   }
 
   //changes states from 2nd part of sign up to 3rd
@@ -124,9 +145,29 @@ class SignUp extends Component {
   handleWeightChange(event) {
     this.setState({ weight: event.target.value })
   }
+  handleHeightChange(event) {
+    this.setState({ height: event.target.value })
+  }
+
+  handleSexChange(event) {
+    this.setState({ sex: event.target.value })
+  }
+
+  handleGoalChange(event) {
+    this.setState({ goal: event.target.value })
+  }
 
   render() {
-    const { email, password, firstName, age, weight } = this.state
+    const {
+      email,
+      password,
+      firstName,
+      age,
+      weight,
+      height,
+      sex,
+      goal
+    } = this.state
     return (
       <div className="App">
         <div className="box">
@@ -167,7 +208,7 @@ class SignUp extends Component {
                     className="email"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
-                    autocomplete="off"
+                    autoComplete="off"
                   />
                   <span className="error__span">{this.state.emailError}</span>
                   <hr className="sign__in__hr" />
@@ -225,9 +266,15 @@ class SignUp extends Component {
                     name="Name"
                     placeholder="Height in Inches"
                     className="email"
+                    onChange={this.handleHeightChange}
                   />
                   <hr className="sign__in__hr" />
-                  <Input type="select" name="select" id="selector">
+                  <Input
+                    type="select"
+                    name="select"
+                    id="selector"
+                    onChange={this.handleSexChange}
+                  >
                     <option disabled selected>
                       Sex
                     </option>
@@ -240,6 +287,7 @@ class SignUp extends Component {
                     name="select"
                     id="selector"
                     placeholder="Goal?"
+                    onChange={this.handleGoalChange}
                   >
                     <option disabled selected>
                       Select your Goal
@@ -252,14 +300,23 @@ class SignUp extends Component {
 
                   <Mutation
                     mutation={SIGNUP_MUTATION}
-                    variables={{ email, password }}
+                    variables={{
+                      email,
+                      password,
+                      firstName,
+                      age,
+                      weight,
+                      height,
+                      sex,
+                      goal
+                    }}
                     onCompleted={data => this.handleSignUp(data)}
                   >
                     {mutation => (
                       <input
                         type="Submit"
                         className="button"
-                        onClick={mutation}
+                        onClick={(mutation, this.props.byPassLogin)}
                       ></input>
                     )}
                   </Mutation>
