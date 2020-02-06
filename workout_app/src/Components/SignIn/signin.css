@@ -29,6 +29,8 @@ font-family: 'Lato', sans-serif; */
 .sign__in__logo {
   font-family: 'Rochester', cursive;
   font-size: 60px;
+  margin-top: 17px;
+  margin-bottom: -17px;
 }
 
 .button {

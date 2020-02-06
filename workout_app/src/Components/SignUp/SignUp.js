@@ -24,12 +24,12 @@ class SignUp extends Component {
       firstName: '',
       age: '',
       weight: '',
+      height: '',
+      sex: '',
+      goal: '',
       loggedInUser: {},
       message: null,
       errors: [],
-      part1: true,
-      part2: false,
-      part3: false,
       loggedIn: true
     }
     this.setPart3ToTrue = this.setPart3ToTrue.bind(this)
@@ -49,6 +49,7 @@ class SignUp extends Component {
     this.setState({ part3: true })
   }
 
+  //password/email verification function
   handleSignUp = async data => {
     const { email, password, confirmPassword } = this.state
     const validationErrors = []
@@ -93,6 +94,7 @@ class SignUp extends Component {
       return false
     }
   }
+
   //token for GraphQL mutation
   _saveUserData = token => {
     localStorage.setItem(AUTH_TOKEN, token)
@@ -136,9 +138,10 @@ class SignUp extends Component {
                 id="containerElement"
                 style={{
                   position: 'relative',
-                  height: '600px',
+                  height: '590px',
                   overflow: 'scroll',
-                  marginTop: '0px'
+                  marginTop: '17px',
+                  marginBottom: '17px'
                 }}
               >
                 <Element
@@ -225,6 +228,9 @@ class SignUp extends Component {
                   />
                   <hr className="sign__in__hr" />
                   <Input type="select" name="select" id="selector">
+                    <option disabled selected>
+                      Sex
+                    </option>
                     <option>Female</option>
                     <option>Male</option>
                   </Input>
