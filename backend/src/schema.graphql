@@ -13,7 +13,16 @@ type Mutation {
     frontsquat: Int!
   ): Stat!
   post(url: String!, description: String!): Link!
-  signup(email: String!, password: String!): AuthPayload
+  signup(
+    email: String!
+    password: String!
+    firstName: String!
+    age: String!
+    weight: String!
+    height: String!
+    sex: String!
+    goal: String!
+  ): AuthPayload
   login(email: String!, password: String!): AuthPayload
 }
 
@@ -32,9 +41,14 @@ type AuthPayload {
 type User {
   id: ID!
   email: String!
+  password: String!
+  firstName: String!
+  age: String!
+  weight: String!
+  height: String!
+  sex: String!
+  goal: String!
   links: [Link!]!
-  stats: [Stat!]!
-  profiles: [Profile!]!
 }
 
 type Subscription {
