@@ -6,7 +6,7 @@
 }
 
 #exampleSelect {
-  width: 50%;
+  width: 320px;
   position: relative;
   left: 10%;
 }
@@ -38,6 +38,6 @@
   font-size: 60px;
 }
 
-#exampleSelect {
-  width: 320px;
+.button {
+  height: 90px;
 }

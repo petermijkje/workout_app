@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import {
-  Element,
-  Events,
-  animateScroll as scroll,
-  scroller
-} from 'react-scroll'
-import { Progress, FormGroup, Input } from 'reactstrap'
+import { Element } from 'react-scroll'
+import { Input } from 'reactstrap'
 import './SignUp.css'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
@@ -143,7 +138,8 @@ class SignUp extends Component {
                 style={{
                   position: 'relative',
                   height: '600px',
-                  overflow: 'scroll'
+                  overflow: 'scroll',
+                  marginTop: '17px'
                 }}
               >
                 <Element
@@ -156,14 +152,8 @@ class SignUp extends Component {
                   <span className="retrain__logo">Retrain</span>
                   <br />
                   <br />
+                  <br />
                   <p> create your profile </p>
-                  <br />
-                  <Progress animated value="33">
-                    Part 1 of 3
-                  </Progress>
-                  <br />
-                  <br />
-                  <br />
                   <input
                     type="email"
                     name="email"
@@ -171,6 +161,7 @@ class SignUp extends Component {
                     className="email"
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    autocomplete="off"
                   />
                   <span className="error__span">{this.state.emailError}</span>
                   <hr className="sign__in__hr" />
@@ -181,6 +172,7 @@ class SignUp extends Component {
                     className="password"
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
+                    autoComplete="new-password"
                   />
                   <hr className="sign__in__hr" />
                   <input
