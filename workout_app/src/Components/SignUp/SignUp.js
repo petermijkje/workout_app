@@ -110,7 +110,7 @@ class SignUp extends Component {
     if (!validationErrors.length) {
       const { token } = data.signup
       this._saveUserData(token)
-      this.setState({ part2: true })
+      this.props.byPassLogin({ isLoggedIn: true })
     } else {
       return false
     }
@@ -246,7 +246,7 @@ class SignUp extends Component {
                   <hr className="sign__in__hr" />
                   <input
                     type="number"
-                    name="password"
+                    name="Age"
                     placeholder="Age"
                     className="password"
                     value={age}
@@ -255,7 +255,7 @@ class SignUp extends Component {
                   <hr className="sign__in__hr" />
                   <input
                     type="number"
-                    name="password"
+                    name="Weight"
                     placeholder="Weight"
                     className="password"
                     value={weight}
@@ -263,7 +263,7 @@ class SignUp extends Component {
                   />
                   <input
                     type="number"
-                    name="Name"
+                    name="Height"
                     placeholder="Height in Inches"
                     className="email"
                     onChange={this.handleHeightChange}
@@ -316,7 +316,7 @@ class SignUp extends Component {
                       <input
                         type="Submit"
                         className="button"
-                        onClick={(mutation, this.props.byPassLogin)}
+                        onClick={mutation}
                       ></input>
                     )}
                   </Mutation>
