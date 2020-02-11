@@ -90,7 +90,7 @@ class SignIn extends Component {
               <input
                 type="Submit"
                 className="button"
-                onClick={mutation}
+                onClick={this.props.byPassLogin}
               ></input>
             )}
           </Mutation>

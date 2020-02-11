@@ -1,109 +1,233 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:800&display=swap');
 
-.twelve__week__app {
-  background-color: white;
-  background-image: linear-gradient(315deg, #f1ebec 0%, white 74%);
-  width: 1300px;
-  float: right;
+@media screen and (min-width: 479px) {
+  .twelve__week__app {
+    background-color: white;
+    background-image: linear-gradient(315deg, #f1ebec 0%, white 74%);
+    width: 1300px;
+    float: right;
+  }
+
+  .day__div {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    background: white;
+    width: 50%;
+    font-size: 8px;
+  }
+
+  .rep__div {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    background: white;
+    width: 50%;
+  }
+
+  .twelve__Week__Div__Container {
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 0px 1px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1300;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .calendar__day__div {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .calendar__empty__div {
+    height: 121px;
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .day__of__the_week {
+    width: 180px;
+    height: 40px;
+    margin-top: 20px;
+    list-style-type: none;
+    color: grey;
+    border-bottom: black;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+  }
+
+  .month__and__year {
+    text-align: center;
+    font-size: 75px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+  }
+
+  .date__of__calendar {
+    position: absolute;
+    top: 20%;
+    height: 121px;
+    width: 180px;
+    font-size: 20px;
+    color: black;
+  }
+
+  .arrow__left {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .arrow__right {
+    position: absolute;
+    top: 151px;
+    right: 10px;
+    margin-right: 20px;
+  }
+
+  .date__of__calendar .tooltip__text {
+    width: 450px;
+    text-align: center;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    height: 50%;
+    bottom: 261px;
+    left: 5px;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s linear;
+  }
+
+  .date__of__calendar:hover .tooltip__text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+  }
 }
 
-.day__div {
-  border-style: solid;
-  border-color: white;
-  border-width: 1px;
-  background: white;
-  width: 50%;
-  font-size: 8px;
-}
+@media screen and (max-width: 479px) {
+  .twelve__week__app {
+    background-color: white;
+    background-image: linear-gradient(315deg, #f1ebec 0%, white 74%);
+    width: 479px;
+    position: absolute;
+    top: 918px;
+  }
 
-.rep__div {
-  border-style: solid;
-  border-color: white;
-  border-width: 1px;
-  background: white;
-  width: 50%;
-}
+  .day__div {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    background: white;
+    width: 50%;
+    font-size: 8px;
+    top: 918px;
+  }
 
-.twelve__Week__Div__Container {
-  border-style: solid;
-  border-color: black;
-  border-width: 0px 0px 1px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 1300;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-}
+  .rep__div {
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    background: white;
+    width: 50%;
+    top: 918px;
+  }
 
-.calendar__day__div {
-  height: 100px;
-  width: 100px;
-  display: flex;
-  flex-wrap: wrap;
-}
+  .twelve__Week__Div__Container {
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 0px 1px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 479px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    top: 918px;
+  }
 
-.calendar__empty__div {
-  height: 121px;
-  width: 180px;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-}
+  .calendar__day__div {
+    height: 100px;
+    width: 68;
+    display: flex;
+    flex-wrap: wrap;
+    top: 918px;
+  }
 
-.day__of__the_week {
-  width: 180px;
-  height: 40px;
-  margin-top: 20px;
-  list-style-type: none;
-  color: grey;
-  border-bottom: black;
-  border-width: 0px 0px 1px;
-  border-style: solid;
-}
+  .calendar__empty__div {
+    height: 60px;
+    width: 68px;
+    display: flex;
+    flex-wrap: wrap;
+    top: 918px;
+    position: center;
+  }
 
-.month__and__year {
-  text-align: center;
-  font-size: 75px;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
-}
+  .day__of__the_week {
+    width: 68px;
+    height: 40px;
+    margin-top: 20px;
+    list-style-type: none;
+    color: grey;
+    border-bottom: black;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+    top: 918px;
+    font-size: 10px;
+  }
 
-.date__of__calendar {
-  position: absolute;
-  top: 20%;
-  height: 121px;
-  width: 180px;
-  font-size: 20px;
-  color: black;
-}
+  .month__and__year {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+  }
 
-.arrow__left {
-  float: left;
-  margin-left: 20px;
-}
+  .date__of__calendar {
+    top: 20%;
+    height: 121px;
+    width: 68px;
+    font-size: 20px;
+    color: black;
+    top: 400px;
+  }
 
-.arrow__right {
-  float: right;
-  margin-right: 20px;
-}
+  .arrow__left {
+    float: left;
+    margin-left: 20px;
+  }
 
-.date__of__calendar .tooltip__text {
-  width: 450px;
-  text-align: center;
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  height: 50%;
-  bottom: 261px;
-  left: 5px;
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.2s, opacity 0.2s linear;
-}
+  .arrow__right {
+    margin-right: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
 
-.date__of__calendar:hover .tooltip__text {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.2s linear;
+  .date__of__calendar .tooltip__text {
+    width: 450px;
+    text-align: center;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    height: 50%;
+    bottom: 261px;
+    left: 5px;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s linear;
+  }
+
+  .date__of__calendar:hover .tooltip__text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+  }
 }

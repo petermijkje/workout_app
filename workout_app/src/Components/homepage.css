@@ -28,3 +28,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/*  for large talet styles */
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 767px) {
+  /* start of medium tablet styles */
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
+}
