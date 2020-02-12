@@ -1,32 +1,67 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 
-.vertical-menu {
-  width: 150px;
-  font-family: 'Kanit', sans-serif;
-  float: left;
-  height: 920px;
+@media screen and (min-width: 479px) {
+  .vertical-menu {
+    width: 150px;
+    font-family: 'Kanit', sans-serif;
+    float: left;
+    height: 920px;
+  }
+
+  .vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    text-decoration: none; /* Remove underline from links */
+    width: 300px;
+    height: 153px;
+    padding: 60px;
+  }
+
+  .vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    width: 300px;
+  }
+
+  .vertical-menu div.active {
+    background-color: #4caf50; /* Add a green color to the "active/current" link */
+    color: white;
+    width: 300px;
+    height: 153px;
+    padding: 60px;
+    font-family: 'Montserrat', sans-serif;
+  }
 }
 
-.vertical-menu a {
-  background-color: #eee; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  text-decoration: none; /* Remove underline from links */
-  width: 300px;
-  height: 153px;
-  padding: 60px;
-}
+@media screen and (max-width: 479px) {
+  .vertical-menu {
+    width: 479px;
+    font-family: 'Kanit', sans-serif;
+    height: 50px;
+  }
 
-.vertical-menu a:hover {
-  background-color: #ccc; /* Dark grey background on mouse-over */
-  width: 300px;
-}
+  .vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    text-decoration: none; /* Remove underline from links */
+    width: 479px;
+    height: 153px;
+    padding: 60px;
+  }
 
-.vertical-menu div.active {
-  background-color: #4caf50; /* Add a green color to the "active/current" link */
-  color: white;
-  width: 300px;
-  height: 153px;
-  padding: 60px;
-  font-family: 'Montserrat', sans-serif;
+  .vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    width: 479px;
+  }
+
+  .vertical-menu div.active {
+    background-color: #4caf50; /* Add a green color to the "active/current" link */
+    color: white;
+    width: 479px;
+    height: 153px;
+    padding: 60px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  /* start of phone styles */
 }

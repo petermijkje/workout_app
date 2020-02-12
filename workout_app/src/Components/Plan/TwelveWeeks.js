@@ -476,77 +476,132 @@ class TwelveWeeks extends Component {
     } else if (date === 1) {
       const februaryFill = february.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return februaryFill
     } else if (date === 2) {
       const marchFill = march.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return marchFill
     } else if (date === 3) {
       const aprilFill = april.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return aprilFill
     } else if (date === 4) {
       const mayFill = may.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return mayFill
     } else if (date === 5) {
       const juneFill = june.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return juneFill
     } else if (date === 6) {
       const julyFill = july.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return julyFill
     } else if (date === 7) {
       const augustFill = august.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return augustFill
     } else if (date === 8) {
       const septemberFill = september.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return septemberFill
     } else if (date === 9) {
       const octoberFill = october.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return octoberFill
     } else if (date === 10) {
       const novemberFill = november.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return novemberFill
     } else if (date === 11) {
       const decemberFill = december.map(number => (
         <div className="calendar__empty__div">
-          <div className="date__of__calendar">{number}</div>
+          <div className="date__of__calendar">
+            {number}
+            <div className="tooltip__text">
+              <ExercisesOfTheDay />
+            </div>
+          </div>
         </div>
       ))
       return decemberFill
