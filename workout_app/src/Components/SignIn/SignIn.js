@@ -3,7 +3,7 @@ import './signin.css'
 import { AUTH_TOKEN } from '../../constants'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
-import { Link } from 'react-router-dom'
+import { BrowserRouter, Link, Router } from 'react-router-dom'
 
 const LOGIN_MUTATION = gql`
   mutation loginMutation($email: String!, $password: String!) {
@@ -97,11 +97,13 @@ class SignIn extends Component {
         </form>
         <div className="sign__up">
           Don't have an account?<span> </span>
-          <p5 className="signup__link" onClick={this.handleloginChange}>
-            <Link to="/signup" onClick={this.props.changeSignedUpToFalse}>
-              Sign Up
-            </Link>
-          </p5>
+          <span className="signup__link" onClick={this.handleloginChange}>
+            <BrowserRouter>
+              <Link to="/signup" onClick={this.props.changeSignedUpToFalse}>
+                Sign Up
+              </Link>
+            </BrowserRouter>
+          </span>
         </div>
       </div>
     )
