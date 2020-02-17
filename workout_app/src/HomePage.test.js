@@ -11,11 +11,11 @@ import { configure, shallow } from 'enzyme'
 
 describe('testing the App Component', () => {
   let wrapper
-  it('renders without crashing', () => {
-    const div = document.createElement('App')
+  it('should only render Sign In Component', () => {
+    const div = document.createElement('homepage__div')
     ReactDOM.render(
       <MockedProvider>
-        <App />
+        <SignIn />
       </MockedProvider>,
       div
     )
