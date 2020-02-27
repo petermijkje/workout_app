@@ -20,7 +20,7 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoggedIn: true,
+      isLoggedIn: false,
       signedUp: true
     }
     this.handleLoginClick = this.handleLoginClick.bind(this)
