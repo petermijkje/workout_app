@@ -1,11 +1,10 @@
 html {
   height: 130%;
   /* background: linear-gradient( #00d2ff 0%, #3a47d5 100%); */
-  background-image: url('./photos/frontpage.jpg');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 90);
+  background-color: rgba(255, 255, 255, 90);
   filter: grayscale(30%);
 }
 

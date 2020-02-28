@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, BrowserRouter, Link } from 'react-router-dom'
 import './App.css'
 
 //Components
@@ -17,7 +17,7 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
-            <HomePage />
+            <HomePage exact path="/homepage" component={HomePage} />
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
           </Switch>
