@@ -61,41 +61,19 @@ class HomePage extends React.Component {
   render() {
     const signedUp = this.state.signedUp
     const isLoggedIn = this.state.isLoggedIn
-    if (isLoggedIn) {
-      return (
-        <div className="homepage__div">
-          <Header logOut={this.handleLogoutClick} />
-          <Clock />
-          {this.changeView()}
-          {/* <div className="flex__container">
-            <ExercisesOfTheDay className="flex__item" />
-            <StatisticsForCharts className="flex__item" />
-            <Chart className="flex__item" />
-          </div> */}
-          {/* <Profile /> */}
-          {/* <CreateYourProfile /> */}
-          {/* <TwelveWeeks />
-          <Button onClick={this.handleLogoutClick} color="secondary" size="lg">
-            Click here to logout
-          </Button> */}
+    return (
+      <div className="homepage__div">
+        <Header logOut={this.handleLogoutClick} />
+        <Clock />
+        {this.changeView()}
+        <div className="flex__container">
+          <ExercisesOfTheDay className="flex__item" />
+          <StatisticsForCharts className="flex__item" />
+          <Chart className="flex__item" />
         </div>
-      )
-    } else if (!isLoggedIn && signedUp) {
-      return (
-        <div>
-          <SignIn
-            byPassLogin={this.handleLoginClick.bind(this)}
-            changeSignedUpToFalse={this.changeSignedUpToFalse.bind(this)}
-          />
-        </div>
-      )
-    } else if (!isLoggedIn && !signedUp) {
-      return (
-        <div>
-          <SignUp byPassLogin={this.handleLoginClick.bind(this)} />
-        </div>
-      )
-    }
+        <Profile />
+      </div>
+    )
   }
 }
 
