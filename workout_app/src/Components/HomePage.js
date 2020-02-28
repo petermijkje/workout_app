@@ -67,17 +67,12 @@ class HomePage extends React.Component {
           <Header logOut={this.handleLogoutClick} />
           <Clock />
           {this.changeView()}
-          {/* <div className="flex__container">
+          <div className="flex__container">
             <ExercisesOfTheDay className="flex__item" />
             <StatisticsForCharts className="flex__item" />
             <Chart className="flex__item" />
-          </div> */}
-          {/* <Profile /> */}
-          {/* <CreateYourProfile /> */}
-          {/* <TwelveWeeks />
-          <Button onClick={this.handleLogoutClick} color="secondary" size="lg">
-            Click here to logout
-          </Button> */}
+          </div>
+          <Profile />
         </div>
       )
     } else if (!isLoggedIn && signedUp) {
